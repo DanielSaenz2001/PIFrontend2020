@@ -1,0 +1,53 @@
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: #772953;">
+    <a class="navbar-brand" href="#">Sistema de Egresados</a>
+    
+   
+</nav>
+
+<div class="container" >
+  
+    <div class="mt-5 col-8 col-sm-8 col-md-8 col-lg-7 col-xl-6 offset-2">
+      <div class="card">
+        <div class="card-header" style="text-align: center;">Bienvenidos al <b>Sistema de Egresados</b> de la <b>Universidad Peruana Unión</b> .</div>
+        <div class="card-body">
+          <form #loginForm=ngForm (ngSubmit)="onSubmit()">
+    
+            <div class="alert alert-danger" [hidden]="!error">
+              {{error}}
+            </div>
+            <div class="form-group row">
+              <label for="inputEmail3" class="col-12 col-form-label" style="text-align: center;">Email</label>
+              <div class="col-8" style="margin: auto;">
+                <input type="email" name="email" class="form-control" id="inputEmail3" placeholder="Email" [(ngModel)]="form.email" required >
+              </div>
+            </div>
+    
+            <div class="form-group row">
+              <label for="inputPassword3" class="col-12 col-form-label" style="text-align: center;">Contraseña</label>
+              <div class="col-8" style="margin: auto;">
+                <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password" [(ngModel)]="form.password"
+                  required>
+              </div>
+            </div>
+    
+            <div class="form-group row">
+              <div class="col-12 " style="text-align: center;">
+                  <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid" style="padding-right: 40px;
+                  padding-left: 40px; background: #992e45; border-color:#992e45;">Ingresar</button>
+              </div>
+              <br>
+              <br>
+  
+              <div class="col-12 " style="    position: absolute;
+              bottom: 0;">
+                <a routerLink="/recuperar" class="float-left">Recu. Contraseña</a>
+                <a routerLink="/registrarse" class="float-right">Registrarse</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
