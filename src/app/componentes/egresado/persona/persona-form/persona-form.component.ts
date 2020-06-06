@@ -8,6 +8,7 @@ import { PersonaService } from 'src/app/servicios/PersonaService';
 import { PaisesService } from 'src/app/servicios/PaisesService';
 import { DepartamentoService } from 'src/app/servicios/DepartamentoService';
 import { ProvinciaService } from 'src/app/servicios/ProvinciaService';
+import { AuthService } from 'src/app/guard/AuthService';
 @Component({
   selector: 'app-persona-form',
   templateUrl: './persona-form.component.html',
@@ -15,8 +16,9 @@ import { ProvinciaService } from 'src/app/servicios/ProvinciaService';
 })
 export class PersonaFormComponent implements OnInit {
 
-  
+
   personaForm: FormGroup;
+
   constructor( private route: ActivatedRoute,
     private personaServices: PersonaService,
     private formBuilder: FormBuilder,
@@ -24,7 +26,8 @@ export class PersonaFormComponent implements OnInit {
     private paisesService:PaisesService,
     private departamentosService:DepartamentoService,
     private provinciasService:ProvinciaService,
-    private Jarwis: JarwisService, private token:TokenService) { 
+    private Jarwis: JarwisService, private Token:TokenService,
+    private Auth: AuthService) { 
       let id =this.route.snapshot.paramMap.get('id')
       this.personaServices.getById(id).subscribe();
       
@@ -34,8 +37,13 @@ export class PersonaFormComponent implements OnInit {
     departamentos;
     usuarios;
     provincias;
-    IDS;
+    IDPersona;
+    list;
+    IDUSER;
+    vali;
+    Email;
   ngOnInit() {
+    this.listar();
     this.pais();
     this.depar();
     this.provin();
@@ -48,7 +56,7 @@ export class PersonaFormComponent implements OnInit {
         pais: ['', [Validators.required]],
         departamento: ['', [Validators.required]],
         provincia: ['', [Validators.required]],
-        email: ['', [Validators.required,Validators.email,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+        email: this.Email,
         fec_nacimiento: ['', [Validators.required]],
         est_civil: ['', [Validators.required]],
         sexo: ['', [Validators.required]],
@@ -72,24 +80,45 @@ export class PersonaFormComponent implements OnInit {
     });
   }
 
-  save(){
-    let id = this.route.snapshot.paramMap.get('id')
-   if(id != null){
-      this.personaServices.update(id, this.personaForm.value).subscribe(response => {
-        console.log(response)
-      });;
-      this.router.navigateByUrl('/profile');
-    }else{
-      this.personaServices.add(this.personaForm.value).subscribe(response => {
+  logout(event: MouseEvent) {
+    event.preventDefault();
+    this.Token.remove();
+    this.Auth.changeAuthStatus(false);
+    this.router.navigateByUrl('');
+  }
 
-        this.IDS= response.id;
+  save(){
+    this.personaForm.value.email=this.Email;
+      this.personaServices.add(this.personaForm.value).subscribe(response => {
+        this.IDPersona= response.id;
+        this.validarpersona(this.IDPersona,this.Token.get(),this.IDUSER)
       });
+  }
+
+  validarpersona(personaid,token,idusuario){
+    this.Jarwis.validar(idusuario, personaid
+      ,token
+      ).subscribe(response => {
+        console.log(response)
+      });
+  }
+  listar(){
+    this.Jarwis.datos(this.Token.get()).subscribe(
+      data => this.handleResponse(data),
+      error => this.handleError()
+    );
+  }
+  handleResponse(data) {
+    this.IDUSER =data.id
+    this.Email =data.email
+    this.vali =data.personaid
+    if(data.personaid !== null){
+      this.router.navigateByUrl('/home');
     }
   }
-  usuario(){
-    this.Jarwis.me(this.token.get()).subscribe(response => {
-      this.usuarios= response[0].persona_ID
-    });
+  handleError() {
+    this.Token.remove();
+    this.Auth.changeAuthStatus(false);
+    this.router.navigateByUrl('/');
   }
-
 }

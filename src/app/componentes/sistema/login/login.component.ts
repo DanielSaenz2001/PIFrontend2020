@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.Jarwis.login(this.form).subscribe(
+      
       data => this.handleResponse(data),
       error => this.handleError(error)
     );
@@ -39,6 +40,7 @@ export class LoginComponent implements OnInit {
   }
 
   handleError(error) {
+    console.log("error")
     this.error = error.error.error;
   }
   ngOnInit() {

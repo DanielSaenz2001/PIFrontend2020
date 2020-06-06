@@ -6,13 +6,20 @@ import { HomeComponent } from './componentes/egresado/home/home.component';
 import { RequestResetComponent } from './componentes/sistema/contraseña/request-reset/request-reset.component';
 import { ResponseResetComponent } from './componentes/sistema/contraseña/response-reset/response-reset.component';
 import { PersonaFormComponent } from './componentes/egresado/persona/persona-form/persona-form.component';
+
+
+
+//guards
+import { AfterLoginService } from './guard/after-login.service';
+import { BeforeLoginService } from './guard/BeforeLoginService';
+
 const routes: Routes = [
-  {path: '', component: LoginComponent},
-  {path: 'registrarse', component: RegistrarseComponent},
-  {path: 'home', component: HomeComponent},
-  {path: 'RegistroPersona',component: PersonaFormComponent},
-  {path: 'RecuperarContraseña',component: RequestResetComponent},
-  {path: 'CambiarContraseña',component: ResponseResetComponent }
+  {path: '', component: LoginComponent, canActivate: [BeforeLoginService]},
+  {path: 'registrarse', component: RegistrarseComponent, canActivate: [BeforeLoginService]},
+  {path: 'home', component: HomeComponent,canActivate: [AfterLoginService]},
+  {path: 'ValidacionPersona',component: PersonaFormComponent},
+  {path: 'RecuperarContraseña',component: RequestResetComponent, canActivate: [BeforeLoginService]},
+  {path: 'CambiarContraseña',component: ResponseResetComponent , canActivate: [BeforeLoginService]}
 ];
 
 @NgModule({

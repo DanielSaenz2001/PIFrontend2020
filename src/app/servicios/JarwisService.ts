@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -31,6 +32,19 @@ export class JarwisService {
       }
     })
   }
+  datos(data) {
+    return this.http.get(`${this.baseUrl}/me2`,{ headers:{
+      'Authorization': "Bearer " + data,
+      }
+    })
+  }
+  validar(id, data,token): Observable<any> {
+    return this.http.put<any>(`${this.baseUrl}/userupdate/${id}`, data,{ headers:{
+      'Authorization': "Bearer " + token,
+      }
+    });
+  }
+
   users(data) {
     return this.http.get(`${this.baseUrl}/users`,{ headers:{
       'Authorization': "Bearer " + data,
@@ -47,4 +61,6 @@ export class JarwisService {
       console.log(response)
     })
   }
+
+
 }

@@ -23,6 +23,7 @@ export class TokenService {
     localStorage.setItem('token', token);
   }
   get() {
+    
     return localStorage.getItem('token');
   }
 
