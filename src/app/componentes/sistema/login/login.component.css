@@ -3,20 +3,13 @@ input{
 -moz-box-shadow: 10px 10px 10px -5px rgba(0,0,0,0.75);
 box-shadow: 10px 10px 10px -5px rgba(0,0,0,0.75);
 }
-#navbarTogglerDemo02{
-    transition: all 0.3s;
-}
 
-@media(min-width:992px){
-        #navbarTogglerDemo02{margin-left: -2500px;}
-        
+.card{
+    border: 0.1px solid black;
 }
-/* cambiar tipo de letra */
-nav.navbar ul.nav li {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+.card-header{
+    border-bottom: 0.1px solid black;
 }
- 
-/* cambiar el color de fondo a la barra */
-nav.navbar {
-    background-color: #992e45 !important; 
+.card-body{
+    border: 0px solid black;
 }

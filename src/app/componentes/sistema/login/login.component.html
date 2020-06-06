@@ -1,20 +1,17 @@
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background: #772953;">
-    <a class="navbar-brand" href="#">Sistema de Egresados</a>
-    
-   
-</nav>
-
+<app-navbar></app-navbar>
 <div class="container" >
   
     <div class="mt-5 col-8 col-sm-8 col-md-8 col-lg-7 col-xl-6 offset-2">
-      <div class="card">
+      <div class="card rounded">
         <div class="card-header" style="text-align: center;">Bienvenidos al <b>Sistema de Egresados</b> de la <b>Universidad Peruana Unión</b> .</div>
         <div class="card-body">
           <form #loginForm=ngForm (ngSubmit)="onSubmit()">
     
-            <div class="alert alert-danger" [hidden]="!error">
-              {{error}}
+            <div class="alert alert-danger " [hidden]="!error" >
+              <div style="text-align: center;">
+                {{error}}
+              </div>
             </div>
             <div class="form-group row">
               <label for="inputEmail3" class="col-12 col-form-label" style="text-align: center;">Email</label>
@@ -39,13 +36,14 @@
               <br>
               <br>
   
-              <div class="col-12 " style="    position: absolute;
-              bottom: 0;">
-                <a routerLink="/recuperar" class="float-left">Recu. Contraseña</a>
-                <a routerLink="/registrarse" class="float-right">Registrarse</a>
-              </div>
+
             </div>
           </form>
+        </div>
+        <div class="col-12 " style="    position: absolute;
+        bottom: 0; border-top: 0.1px solid black;">
+          <a routerLink="/RecuperarContraseña" class="float-left">Re. Cont</a>
+          <a routerLink="/RegistroPersona" class="float-right">Registrarse</a>
         </div>
       </div>
     </div>

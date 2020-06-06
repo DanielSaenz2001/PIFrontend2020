@@ -1,0 +1,9 @@
+.card{
+    border: 0.1px solid black;
+}
+.card-header{
+    border-bottom: 0.1px solid black;
+}
+.card-body{
+    border: 0px solid black;
+}
