@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ParamMap, Router, ActivatedRoute } from '@angular/router';
 import { JarwisService } from 'src/app/servicios/JarwisService';
 import { TokenService } from 'src/app/servicios/TokenService';
 import { AuthService } from 'src/app/guard/AuthService';
@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/guard/AuthService';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  token ;
   public form = {
     email: null,
     password: null
@@ -22,7 +22,8 @@ export class LoginComponent implements OnInit {
     private Jarwis: JarwisService,
     private Token: TokenService,
     private router: Router,
-    private Auth: AuthService
+    private Auth: AuthService,
+    private route: ActivatedRoute
   ) { }
 
   onSubmit() {
@@ -38,12 +39,29 @@ export class LoginComponent implements OnInit {
     this.Auth.changeAuthStatus(true);
     this.router.navigateByUrl('/home');
   }
+  handleResponse2(data) {
+    console.log("Este es mi token: "+ data)
 
+  }
   handleError(error) {
     console.log("error")
     this.error = error.error.error;
   }
   ngOnInit() {
+    this.parametro();
+    if(this.token == undefined || this.token==null){
+      console.log("NO HAY TOKEN")
+    }else{
+      console.log("SI HAY TOKEN")
+      this.handleResponse2(this.token)
+    }
   }
-
+  parametro(){
+    this.route.queryParams.subscribe(params => {
+      this.token = params['token'];
+  });
+  console.log(this.token)
+  let url: string = this.router.url.substring(0, this.router.url.indexOf("?"));
+  this.router.navigateByUrl(url);
+  }
 }
