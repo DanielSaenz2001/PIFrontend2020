@@ -40,8 +40,9 @@ export class LoginComponent implements OnInit {
     this.router.navigateByUrl('/home');
   }
   handleResponse2(data) {
-    console.log("Este es mi token: "+ data)
-
+    this.Token.handle(data);
+    this.Auth.changeAuthStatus(true);
+    this.router.navigateByUrl('/home');
   }
   handleError(error) {
     console.log("error")
@@ -50,9 +51,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.parametro();
     if(this.token == undefined || this.token==null){
-      console.log("NO HAY TOKEN")
     }else{
-      console.log("SI HAY TOKEN")
       this.handleResponse2(this.token)
     }
   }
@@ -60,7 +59,6 @@ export class LoginComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       this.token = params['token'];
   });
-  console.log(this.token)
   let url: string = this.router.url.substring(0, this.router.url.indexOf("?"));
   this.router.navigateByUrl(url);
   }

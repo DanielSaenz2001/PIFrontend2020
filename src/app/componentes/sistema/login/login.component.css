@@ -13,3 +13,7 @@ box-shadow: 10px 10px 10px -5px rgba(0,0,0,0.75);
 .card-body{
     border: 0px solid black;
 }
+.google:hover {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }

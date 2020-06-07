@@ -32,6 +32,7 @@ export class PersonaFormComponent implements OnInit {
       this.personaServices.getById(id).subscribe();
       
     }
+    btnDisable;
     editar = false;
     paises;
     departamentos;
@@ -92,7 +93,11 @@ export class PersonaFormComponent implements OnInit {
       this.personaServices.add(this.personaForm.value).subscribe(response => {
         this.IDPersona= response.id;
         this.validarpersona(this.IDPersona,this.Token.get(),this.IDUSER)
+        this.btnDisable=true;
+        this.router.navigateByUrl('/');
       });
+      
+     
   }
 
   validarpersona(personaid,token,idusuario){

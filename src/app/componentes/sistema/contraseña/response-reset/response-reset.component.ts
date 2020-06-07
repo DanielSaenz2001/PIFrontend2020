@@ -46,6 +46,8 @@ export class ResponseResetComponent implements OnInit {
     this.error = error.error.errors;
   }
   ngOnInit() {
+    let url: string = this.router.url.substring(0, this.router.url.indexOf("?"));
+  this.router.navigateByUrl(url);
   }
 
 }
