@@ -13,6 +13,10 @@ import { PersonaFormComponent } from './componentes/egresado/persona/persona-for
 import { PersonaModalComponent } from './componentes/egresado/persona/persona-modal/persona-modal.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
+import { EventosComponent } from './componentes/egresado/eventos/eventos.component';
+import { BuscarComponent } from './componentes/administrador/buscar/buscar.component';
+import { ComentariosComponent } from './componentes/administrador/comentarios/comentarios.component';
+import { UsuariosComponent } from './componentes/administrador/usuarios/usuarios.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +27,11 @@ import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
     ResponseResetComponent,
     HomeComponent,
     PersonaFormComponent,
-    PersonaModalComponent
+    PersonaModalComponent,
+    EventosComponent,
+    BuscarComponent,
+    ComentariosComponent,
+    UsuariosComponent
   ],
   imports: [
     BrowserModule,

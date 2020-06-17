@@ -1,6 +1,111 @@
 
-<div *ngIf="list.personaid !== null">
-    <p>home works!</p>
-    <button (click)="logout($event)" >Desconectarse</button>
-    Estoy validado
+<div *ngIf="vali !== null">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between" style="background: #772953;">
+        <a class="navbar-brand" href="#">Sistema de Egresados</a>
+        <div style="float: right;">
+            <img src="../../../../assets/logout.png" (click)="logout($event)" alt=""
+            style="height:  100% !important;"
+            >
+        </div>
+
+    </nav>
+   
+    <div class="row " id="modulos">
+        <div class="col-12">
+            <div class="row">
+            <div class="col-12">
+                <div class="lista-modulos">
+                   
+                    <div class="ModuloDiv" id="eventos" style="background-color: orange; cursor:pointer;"  > 
+                       
+                            <div class="row"  routerLink="/eventos">
+                                <div class="col-4">
+                                    <img src="../../../../assets/calendario.png" alt="">
+                                </div>
+                                <div class="col-8">
+                                    <div class="row">
+                                        <div class="col-12" style="text-align: left;">
+                                            Ver
+                                        </div>
+                                        <div class="col-10">
+                                            Eventos UPeU
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12" style=" background-color: rgb(255, 190, 71); border: 3px solid;border-radius: 0px 0px 8px 8px;padding: 2%;">
+                                Ingresar                             
+                            </div>
+
+                    </div>            
+                    <div class="ModuloDiv" style="background-color: rgba(163, 13, 43, 0.993);"> 
+                        <div class="row" >
+                            <div class="col-4">
+                                <img src="../../../../assets/egresado.png" alt="">
+                            </div>
+                            <div class="col-8">
+                                <div class="row">
+                                    <div class="col-12" style="text-align: left;">
+                                        Panel
+                                    </div>
+                                    <div class="col-10">
+                                        de Egresado UPeU
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12" style=" background-color: rgba(194, 39, 70, 0.993); border: 3px solid; border-radius: 0px 0px 8px 8px;padding: 2%;">
+                            Ingresar                                
+                        </div>
+    
+                    </div>
+                    <div class="ModuloDiv" style="background-color: greenyellow"> 
+                        <div class="row" >
+                            <div class="col-4">
+                                <img src="../../../../assets/rueda.png" alt="">
+                            </div>
+                            <div class="col-8">
+                                <div class="row">
+                                    <div class="col-12" style="text-align: left;">
+                                        Panel
+                                    </div>
+                                    <div class="col-10">
+                                        de Administrador
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12" style=" background-color: rgb(199, 255, 116); border: 3px solid; border-radius: 0px 0px 8px 8px;padding: 2%;">
+                            Ingresar                                
+                        </div>
+    
+                    </div>
+                    <div class="ModuloDiv" style="background-color: cyan;"> 
+                        <div class="row">
+                            <div class="col-4">
+                                <img src="../../../../assets/comentario.png" alt="">
+                            </div>
+                            <div class="col-8">
+                                <div class="row">
+                                    <div class="col-12" style="text-align: left;">
+                                        Ver
+                                    </div>
+                                    <div class="col-8">
+                                        Comentarios 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12" style=" background-color: rgb(113, 252, 252); border: 3px solid; border-radius: 0px 0px 8px 8px;padding: 2%;">
+                            Ingresar                              
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    
 </div>
+
+

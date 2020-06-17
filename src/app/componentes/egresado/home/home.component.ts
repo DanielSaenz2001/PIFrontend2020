@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit {
     USERID;
     vali;
   ngOnInit() {
+    this.vali=null;
     this.Auth.authStatus.subscribe(value => this.loggedIn = value);
     this.listar();
   }
@@ -43,10 +44,13 @@ export class HomeComponent implements OnInit {
   handleResponse(data) {
     
     this.list= data;
-    this.vali = data.personaid;
+    console.log(this.list.personaid)
     if(this.list.personaid == null){
       this.router.navigateByUrl('/ValidacionPersona');
+    }else{
+      this.vali = this.list.personaid;
     }
+    
   }
   handleError() {
     this.Token.remove();
