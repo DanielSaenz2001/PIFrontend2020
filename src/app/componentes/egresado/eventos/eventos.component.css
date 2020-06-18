@@ -8,8 +8,8 @@
     background-color: rgb(42, 34, 40);
     margin: 0;
     padding: 0;
-    height: 100vh;
-  }
+    
+  } 
   
   body::-webkit-scrollbar {
     width: 0.25rem;
