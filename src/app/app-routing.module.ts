@@ -9,6 +9,16 @@ import { PersonaFormComponent } from './componentes/egresado/persona/persona-for
 import { EventosComponent } from './componentes/egresado/eventos/eventos.component';
 
 
+
+import { AdministradorComponent } from './componentes/administrador/administrador.component';
+import { GestionEventosComponent } from './componentes/administrador/GestionEventos/gestion-eventos.component';
+import { EventoComponent } from './componentes/administrador/GestionEventos/evento/evento.component';
+import { GestionComentariosComponent } from './componentes/administrador/GestionComentarios/gestion-comentarios.component';
+import { GestionUsuariosComponent } from './componentes/administrador/GestionUsuarios/gestion-usuarios.component';
+import { BuscarEgresadosComponent } from './componentes/administrador/BuscarEgresados/buscar-egresados.component';
+
+
+
 //guards
 import { AfterLoginService } from './guard/after-login.service';
 import { BeforeLoginService } from './guard/BeforeLoginService';
@@ -16,6 +26,26 @@ import { BeforeLoginService } from './guard/BeforeLoginService';
 const routes: Routes = [
   {path: '', component: LoginComponent, canActivate: [BeforeLoginService]},
   {path: 'eventos', component: EventosComponent, canActivate: [AfterLoginService]},
+  {path: 'administrador', component: AdministradorComponent, canActivate: [AfterLoginService],
+  children: [
+    {
+      path: 'GestionarEventos',
+      component: GestionEventosComponent
+    },
+    {
+      path: 'GestionarComentarios',
+      component: GestionComentariosComponent
+    },
+    {
+      path: 'Gestionarusuarios',
+      component: GestionUsuariosComponent
+    },
+    {
+      path: 'BuscarEgresado',
+      component: BuscarEgresadosComponent
+    }
+  ]},
+  {path: 'administrador/GestionarEventos/evento', component: EventoComponent, canActivate: [AfterLoginService]},
   {path: 'registrarse', component: RegistrarseComponent, canActivate: [BeforeLoginService]},
   {path: 'home', component: HomeComponent,canActivate: [AfterLoginService]},
   {path: 'ValidacionPersona',component: PersonaFormComponent},

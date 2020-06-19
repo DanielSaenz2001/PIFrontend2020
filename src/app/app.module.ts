@@ -14,9 +14,16 @@ import { PersonaModalComponent } from './componentes/egresado/persona/persona-mo
 import { HttpClientModule } from '@angular/common/http';
 import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
 import { EventosComponent } from './componentes/egresado/eventos/eventos.component';
-import { BuscarComponent } from './componentes/administrador/buscar/buscar.component';
-import { ComentariosComponent } from './componentes/administrador/comentarios/comentarios.component';
-import { UsuariosComponent } from './componentes/administrador/usuarios/usuarios.component';
+
+
+import { AdministradorComponent } from './componentes/administrador/administrador.component';
+import { GestionEventosComponent } from './componentes/administrador/GestionEventos/gestion-eventos.component';
+import { GestionComentariosComponent } from './componentes/administrador/GestionComentarios/gestion-comentarios.component';
+import { GestionUsuariosComponent } from './componentes/administrador/GestionUsuarios/gestion-usuarios.component';
+import { BuscarEgresadosComponent } from './componentes/administrador/BuscarEgresados/buscar-egresados.component';
+import { EventoComponent } from './componentes/administrador/GestionEventos/evento/evento.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,9 +36,12 @@ import { UsuariosComponent } from './componentes/administrador/usuarios/usuarios
     PersonaFormComponent,
     PersonaModalComponent,
     EventosComponent,
-    BuscarComponent,
-    ComentariosComponent,
-    UsuariosComponent
+    AdministradorComponent,
+    GestionEventosComponent,
+    GestionComentariosComponent,
+    GestionUsuariosComponent,
+    BuscarEgresadosComponent,
+    EventoComponent
   ],
   imports: [
     BrowserModule,
