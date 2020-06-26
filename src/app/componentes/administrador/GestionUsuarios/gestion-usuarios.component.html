@@ -1,1 +1,37 @@
 <p>gestion-usuarios works!</p>
+<label for="">DNI:</label>
+<input type="text" name="" class="form-control" id="" [(ngModel)]="dni"> 
+<label for="">Nombre</label>
+<input type="text" name="" class="form-control" id="" [(ngModel)]="nombre">
+<label for="">Apellido Paterno</label>
+<input type="text" name="" class="form-control" id="" [(ngModel)]="ap_paterno">
+<label for="">Apellido Materno</label>
+<input type="text" name="" class="form-control" id="" [(ngModel)]="ap_materno">
+<label for="">Rol</label>
+<select class="form-control" [(ngModel)]="rol">
+  <option value="1">Administrador</option>
+  <option value="2">Egresado</option>
+  <option value="3">tutor</option>
+</select>
+<button (click)="filtro()">Filtrar</button>
+
+<table class="table table-light">
+  <thead class="thead-light">
+    <tr>
+      <th>#</th>
+      <th>ROL</th>
+      <th>DNI</th>
+      <th>Nombre</th>
+      <th>Apellidos</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let l of Listusuarios; index as i">
+      <td>{{i+1}}</td>
+      <td>{{l.rol}}</td>
+      <td>{{l.dni}}</td>
+      <td>{{l.nombre}}</td>
+      <td>{{l.ap_paterno}} {{l.ap_materno}}</td>
+    </tr>
+  </tbody>
+</table>

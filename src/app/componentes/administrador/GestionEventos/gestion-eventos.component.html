@@ -23,47 +23,12 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td class="bordesid">1</td>
-                <td class="bordes">Amiscamp 2020 - "venciendo la cuarentena"</td>
-                <td class="bordes" style=" text-align: center;   width: 15%;">27/02/2015</td>
-                <td class="botones"><button class="boton">Editar</button></td>
-                <td class="botones"><button class="boton">Eliminar</button></td>
-            </tr>
-            <tr>
-                <td class="bordesid">2</td>
-                <td class="bordes">Semana de Oración 2020 "Wifi de Dios"</td>
-                <td class="bordes" style=" text-align: center;   width: 15%;">14/02/2020</td>
-                <td class="botones"><button class="boton">Editar</button></td>
-                <td class="botones"><button class="boton">Eliminar</button></td>
-            </tr>
-            <tr>
-                <td class="bordesid">3</td>
-                <td class="bordes">Hackton 2020-1 "ATV is die"</td>
-                <td class="bordes" style=" text-align: center;   width: 15%;">10/02/2020</td>
-                <td class="botones"><button class="boton">Editar</button></td>
-                <td class="botones"><button class="boton">Eliminar</button></td>
-            </tr>
-            <tr>
-                <td class="bordesid">4</td>
-                <td class="bordes">La casita de terror 2020 "una noche sin wifi"</td>
-                <td class="bordes" style=" text-align: center;   width: 15%;">05/01/2020</td>
-                <td class="botones"><button class="boton">Editar</button></td>
-                <td class="botones"><button class="boton">Eliminar</button></td>
-            </tr>
-            <tr>
-                <td class="bordesid">5</td>
-                <td class="bordes">The International 2020 "Ganar sin coordinador"</td>
-                <td class="bordes" style=" text-align: center;   width: 15%;">05/01/2020</td>
-                <td class="botones"><button class="boton">Editar</button></td>
-                <td class="botones"><button class="boton">Eliminar</button></td>
-            </tr>
-            <tr>
-                <td class="bordesid">6</td>
-                <td class="bordes">Expoferia 20202 "Como comer en cuarentena"</td>
-                <td class="bordes" style=" text-align: center;   width: 15%;">05/01/2020</td>
-                <td class="botones"><button class="boton">Editar</button></td>
-                <td class="botones"><button class="boton">Eliminar</button></td>
+            <tr *ngFor="let i of eventos, index as a">
+                <td class="bordesid">{{a+1}}</td>
+                <td class="bordes">{{i.titulo}}</td>
+                <td class="bordes" style=" text-align: center;   width: 15%;">{{i.fecha_inicio}}</td>
+                <td class="botones"><button class="boton" routerLink="/administrador/GestionarEventos/evento/{{i.id}}">Editar</button></td>
+                <td class="botones"><button class="boton" (click)="eliminarEvento(i.id)">Eliminar</button></td>
             </tr>
         </tbody>
 
@@ -78,6 +43,3 @@
         </div>
     </div>
 </div>
-<!-- Large modal -->
-<!-- Button trigger modal -->
-

@@ -13,7 +13,12 @@ export class JarwisService {
   signup(data) {
     return this.http.post(`${this.baseUrl}/signup`, data)
   }
-
+  usuarios(){
+    return this.http.get(`http://127.0.0.1:8240/api/usuarios`) ;
+  }
+  usuariosFiltro(data){
+    return this.http.post(`http://127.0.0.1:8240/api/usuariosFiltro`, data) ;
+  }
   login(data) {
     return this.http.post(`${this.baseUrl}/login`, data)
   }

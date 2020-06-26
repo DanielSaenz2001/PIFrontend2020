@@ -40,7 +40,7 @@ td{
     border-right: 1px solid  #EC808D;
 }
 .boton{
-    background-color: #750036; width: 80px;  border: 1px solid #FC7DB2; border-radius: 8px; color: white;
+    background-color: #750036 !important;   border: 1px solid #FC7DB2 !important; border-radius: 8px; color: white !important;
 }
 .botones{
     width: 10%;

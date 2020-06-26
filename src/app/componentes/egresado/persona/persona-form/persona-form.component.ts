@@ -61,7 +61,8 @@ export class PersonaFormComponent implements OnInit {
         fec_nacimiento: ['', [Validators.required]],
         est_civil: ['', [Validators.required]],
         sexo: ['', [Validators.required]],
-        dependiente:null
+        dependiente:null,
+        user_id:[''],
       });
   }
 
@@ -89,38 +90,44 @@ export class PersonaFormComponent implements OnInit {
   }
 
   save(){
-    this.personaForm.value.email=this.Email;
+      this.personaForm.value.email=this.Email;
+      this.personaForm.value.user_id=this.IDUSER;
+
+      console.log(this.personaForm.value)
+      this.btnDisable=true;
       this.personaServices.add(this.personaForm.value).subscribe(response => {
         this.IDPersona= response.id;
-        this.validarpersona(this.IDPersona,this.Token.get(),this.IDUSER)
-        this.btnDisable=true;
+        this.validarpersona(this.Token.get(),this.IDUSER)   
         this.router.navigateByUrl('/');
       });
       
      
   }
 
-  validarpersona(personaid,token,idusuario){
-    this.Jarwis.validar(idusuario, personaid
+  validarpersona(token,idusuario){
+    this.Jarwis.validar(idusuario, 1
       ,token
       ).subscribe(response => {
         console.log(response)
       });
   }
+
   listar(){
     this.Jarwis.datos(this.Token.get()).subscribe(
       data => this.handleResponse(data),
       error => this.handleError()
     );
   }
+
   handleResponse(data) {
     this.IDUSER =data.id
     this.Email =data.email
-    this.vali =data.personaid
-    if(data.personaid !== null){
+    this.vali =data.validado
+    if(this.vali !== 0){
       this.router.navigateByUrl('/home');
     }
   }
+
   handleError() {
     this.Token.remove();
     this.Auth.changeAuthStatus(false);

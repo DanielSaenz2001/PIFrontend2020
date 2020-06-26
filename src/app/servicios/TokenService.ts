@@ -19,8 +19,20 @@ export class TokenService {
     this.set(token);
   }
 
+  DatosUsuarios(user) {
+    this.setUser(user);
+  }
+
   set(token) {
     localStorage.setItem('token', token);
+  }
+
+  setUser(user) {
+    localStorage.setItem('user', user);
+  }
+  
+  getUser() {
+    return localStorage.getItem('user');
   }
   get() {
     
@@ -46,6 +58,7 @@ export class TokenService {
   }
   
   payload(token) {
+    //token= "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9sb2dpbiIsImlhdCI6MTU5MjcwMjkyMiwiZXhwIjoxNTkyNzA2NTIyLCJuYmYiOjE1OTI3MDI5MjIsImp0aSI6Im5EMzk5dXYwSllRR3QxTWciLCJzdWIiOjIsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.yu90nafdKbx2a0gPilFXOYwSf_T1Wb3tXFGXXFFoNvU"
     const payload = token.split('.')[1];
     return this.decode(payload);
   }

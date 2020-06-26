@@ -49,82 +49,100 @@
     Solo copias el id y ya esta
 </div>
 
-<div class="container mt-2">
-  <div class="row">
-    <div class="col-6">
+  <div class="container mt-2">
+    <form [formGroup]="eventoForm">
       <div class="row">
-        <img src="{{InsertarImagen}}" alt="Insertar Imagen">
+        <div class="col-6">
+          <div class="row">
+            <img src="{{InsertarImagen}}" alt="Insertar Imagen">
+          </div>
+          <div class="row mt-2">
+            <div class="col-3">
+              URL IMAGEN:
+            </div>
+            <div class="col-9">
+              <input type="text" class="form-control" name="" id="" formControlName="link" style="width: 90% !important">
+            </div>
+          </div>
+          <div class="row mt-2">
+            <div class="col-12" style="text-align: center; ">
+              <button class="boton " style="width: 40%; height: 50px;" (click)="previsualizarImagen()">Previsualizar Imagen</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-6">
+          
+            <div class="row">
+              <div class="col-9 col-sm-9 col-md-4 col-lg-4 col-xl-4">
+                Titulo:
+              </div>
+              <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+                <input type="text" formControlName="titulo" class="form-control" name="" id=""  style="width: 90% !important" placeholder="Agregar Titulo para el Evento">
+              </div>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+              <div class="col-9 col-sm-9 col-md-4 col-lg-4 col-xl-4">
+                Fecha Inicio:
+              </div>
+              <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+                <input type="date" formControlName="fecha_inicio" class="form-control" name="" id=""  style="width: 90% !important">
+              </div>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+              <div class="col-9 col-sm-9 col-md-4 col-lg-4 col-xl-4">
+                Fecha Fin:
+              </div>
+              <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+                <input type="date" formControlName="fecha_fin" class="form-control" name="" id=""  style="width: 90% !important">
+              </div>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+              <div class="col-9 col-sm-9 col-md-4 col-lg-4 col-xl-4">
+                Descripción:
+              </div>
+              <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+                <textarea name="" formControlName="descripcion" id="" class="textinput form-control" placeholder="Descripción del Evento"></textarea>
+              </div>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+              <div class="col-9 col-sm-9 col-md-4 col-lg-4 col-xl-4">
+                Lugar:
+              </div>
+              <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+                <input type="text" formControlName="lugar" class="form-control" name="" id=""  style="width: 90% !important" placeholder="Lugar">
+                
+              </div>
+            </div>
+            <br>
+            <div class="row" *ngIf="id !==null">
+              <div class="col-9 col-sm-9 col-md-4 col-lg-4 col-xl-4">
+                Visible:
+              </div>
+              <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+                <select formControlName="visible" class="form-control" name="" id=""  style="width: 90% !important" placeholder="visible" >
+                  <option value="1">Visible</option>
+                  <option value="0">Ocultar</option>
+                </select>
+              </div>
+            </div>
+        </div>
       </div>
-      <div class="row mt-2">
-        <div class="col-3">
-          URL IMAGEN:
-        </div>
-        <div class="col-9">
-          <input type="text" class="form-control" name="" id="" [(ngModel)]="IDURL" style="width: 90% !important">
-        </div>
-      </div>
-      <div class="row mt-2">
-        <div class="col-12" style="text-align: center; ">
-          <button class="boton " style="width: 40%; height: 50px;" (click)="previsualizarImagen()">Previsualizar Imagen</button>
-        </div>
-      </div>
-    </div>
-    <div class="col-6">
-      <div class="row">
-        <div class="col-9 col-sm-9 col-md-4 col-lg-4 col-xl-4">
-          Titulo:
-        </div>
-        <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
-          <input type="text" class="form-control" name="" id=""  style="width: 90% !important" placeholder="Agregar Titulo para el Evento">
-        </div>
-      </div>
-      <br>
-      <br>
-      <div class="row">
-        <div class="col-9 col-sm-9 col-md-4 col-lg-4 col-xl-4">
-          Fecha Inicio:
-        </div>
-        <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
-          <input type="text" class="form-control" name="" id=""  style="width: 90% !important">
-        </div>
-      </div>
-      <br>
-      <br>
-      <div class="row">
-        <div class="col-9 col-sm-9 col-md-4 col-lg-4 col-xl-4">
-          Fecha Fin:
-        </div>
-        <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
-          <input type="text" class="form-control" name="" id=""  style="width: 90% !important">
-        </div>
-      </div>
-      <br>
-      <br>
-      <div class="row">
-        <div class="col-9 col-sm-9 col-md-4 col-lg-4 col-xl-4">
-          Descripción:
-        </div>
-        <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
-          <textarea name="" id="" class="textinput form-control" placeholder="Descripción del Evento"></textarea>
-        </div>
-      </div>
-      <br>
-      <br>
-      <div class="row">
-        <div class="col-9 col-sm-9 col-md-4 col-lg-4 col-xl-4">
-          Lugar:
-        </div>
-        <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
-          <input type="text" class="form-control" name="" id=""  style="width: 90% !important" placeholder="Lugar">
-        </div>
-      </div>
-    </div>
+    </form>
+    
   </div>
-</div>
 
 <div class="container mt-5" style="text-align: center;">
     
-  <button class="boton " style="width: 20%; height: 40px;" routerLink="/administrador/GestionarEventos">Agregar Evento</button>
+  <button class="boton " style="width: 20%; height: 40px;" [disabled]="!eventoForm.valid"  (click)="SubmitEvento()">Agregar Evento</button>
 </div>
 </main>
 

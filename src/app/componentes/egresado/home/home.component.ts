@@ -42,17 +42,18 @@ export class HomeComponent implements OnInit {
     );
   }
   handleResponse(data) {
-    
+    console.log("hola")
     this.list= data;
-    console.log(this.list.personaid)
-    if(this.list.personaid == null){
+    console.log(this.list.validado)
+    if(this.list.validado == 0){
       this.router.navigateByUrl('/ValidacionPersona');
     }else{
-      this.vali = this.list.personaid;
+      this.vali = this.list.validado;
     }
     
   }
   handleError() {
+    console.log("hola")
     this.Token.remove();
     this.Auth.changeAuthStatus(false);
     this.router.navigateByUrl('/');

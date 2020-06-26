@@ -16,6 +16,11 @@ import { EventoComponent } from './componentes/administrador/GestionEventos/even
 import { GestionComentariosComponent } from './componentes/administrador/GestionComentarios/gestion-comentarios.component';
 import { GestionUsuariosComponent } from './componentes/administrador/GestionUsuarios/gestion-usuarios.component';
 import { BuscarEgresadosComponent } from './componentes/administrador/BuscarEgresados/buscar-egresados.component';
+import { ComentarioComponent } from './componentes/administrador/GestionComentarios/comentario/comentario.component';
+import { ComentariosComponent } from './componentes/egresado/comentarios/comentarios.component';
+
+import { VercomentarioComponent } from './componentes/egresado/comentarios/vercomentario/vercomentario.component';
+import { ComentaComponent } from './componentes/egresado/comentarios/comenta/comenta.component';
 
 
 
@@ -26,6 +31,12 @@ import { BeforeLoginService } from './guard/BeforeLoginService';
 const routes: Routes = [
   {path: '', component: LoginComponent, canActivate: [BeforeLoginService]},
   {path: 'eventos', component: EventosComponent, canActivate: [AfterLoginService]},
+  
+  {path: 'comentarios', component: ComentariosComponent, canActivate: [AfterLoginService]},
+  {path: 'vercomentarios/:id', component: VercomentarioComponent, canActivate: [AfterLoginService]},
+  {path: 'Comentario', component: ComentaComponent, canActivate: [AfterLoginService]},
+  {path: 'Comentario/:id', component: ComentaComponent, canActivate: [AfterLoginService]},
+
   {path: 'administrador', component: AdministradorComponent, canActivate: [AfterLoginService],
   children: [
     {
@@ -46,6 +57,8 @@ const routes: Routes = [
     }
   ]},
   {path: 'administrador/GestionarEventos/evento', component: EventoComponent, canActivate: [AfterLoginService]},
+  {path: 'administrador/GestionarEventos/evento/:id', component: EventoComponent, canActivate: [AfterLoginService]},
+  {path: 'administrador/GestionarComentarios/comentario/:id', component: ComentarioComponent, canActivate: [AfterLoginService]},
   {path: 'registrarse', component: RegistrarseComponent, canActivate: [BeforeLoginService]},
   {path: 'home', component: HomeComponent,canActivate: [AfterLoginService]},
   {path: 'ValidacionPersona',component: PersonaFormComponent},

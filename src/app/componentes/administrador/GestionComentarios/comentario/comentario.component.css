@@ -1,0 +1,18 @@
+.boton{
+    border-color: #797979;
+    background-color: white;
+    color: #750036;
+    border-radius: 10px;
+}
+.textinput {
+
+    width: 70%;
+    min-height: 100%;
+    outline: none;
+    resize: none;
+    border: 1px solid #f0f0f0;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }

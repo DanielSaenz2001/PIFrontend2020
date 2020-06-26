@@ -22,6 +22,10 @@ import { GestionComentariosComponent } from './componentes/administrador/Gestion
 import { GestionUsuariosComponent } from './componentes/administrador/GestionUsuarios/gestion-usuarios.component';
 import { BuscarEgresadosComponent } from './componentes/administrador/BuscarEgresados/buscar-egresados.component';
 import { EventoComponent } from './componentes/administrador/GestionEventos/evento/evento.component';
+import { ComentarioComponent } from './componentes/administrador/GestionComentarios/comentario/comentario.component';
+import { ComentariosComponent } from './componentes/egresado/comentarios/comentarios.component';
+import { VercomentarioComponent } from './componentes/egresado/comentarios/vercomentario/vercomentario.component';
+import { ComentaComponent } from './componentes/egresado/comentarios/comenta/comenta.component';
 
 
 @NgModule({
@@ -41,7 +45,11 @@ import { EventoComponent } from './componentes/administrador/GestionEventos/even
     GestionComentariosComponent,
     GestionUsuariosComponent,
     BuscarEgresadosComponent,
-    EventoComponent
+    EventoComponent,
+    ComentarioComponent,
+    ComentariosComponent,
+    VercomentarioComponent,
+    ComentaComponent
   ],
   imports: [
     BrowserModule,

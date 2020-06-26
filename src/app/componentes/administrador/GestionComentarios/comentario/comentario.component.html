@@ -1,0 +1,61 @@
+<div class="col-9 mt-2 mb-3" *ngIf="comentario">
+    <div class="row">
+        <div class="col-3">
+            <div class="row">
+                <div class="col-12">
+                    <img src="../../../../assets/ImagenEgresado.png" alt="Imagen Egresado" style="width: 100%;">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div style="text-align: center; color: white;">
+                        <b>Egresado</b>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-9">
+            <div class="row mb-3">
+                <div class="col-12" >
+                    <div style="width: 50%; border: 1px solid #EC808D; 
+                    color: #750036; background-color: #DAC0CF; text-align: center; padding: 2%;">
+                        {{comentario.nombre}} {{comentario.ap_paterno}} {{comentario.ap_materno}}
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-12" style="color: white !important; ">
+                    {{comentario.descripcionEgresado}}
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-12" style="color: white !important; ">
+                    Opcional: {{comentario.opcional}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>  
+<div class="row mb-3 mt-3">
+    <div class="col-12" style="text-align: center;">
+        <div style="width: 30%; border: 1px solid #EC808D; 
+        color: #750036; background-color: #DAC0CF; text-align: center; padding: 1%;  margin: 0 auto;">
+            ESCRIBIR RESPUESTA
+        </div>
+    </div>
+</div>
+<form [formGroup]="comentarioForm">
+    <div class="row">
+        <div class="col-12" style="text-align: center;">
+            <textarea name="" id="" formControlName="descripcionAdministrador" class="textinput form-control" placeholder="Descripción del Comentario"></textarea>
+        </div>
+    </div>
+    <div class="row mt-4 mb-2">
+        <div class="col-12" style="text-align: center;">
+           <button type="submit" [disabled]="!comentarioForm.valid"  (click)="SubmitComentario()" class="boton" style="width: 120px; padding: 1%;" >
+                Responder
+           </button>
+        </div>
+    </div>
+</form>
