@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
     console.log("hola")
     this.list= data;
     console.log(this.list.validado)
-    if(this.list.validado == 0){
+    if(this.list.validado == 0 ){
       this.router.navigateByUrl('/ValidacionPersona');
     }else{
       this.vali = this.list.validado;

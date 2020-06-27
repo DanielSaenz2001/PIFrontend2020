@@ -10,6 +10,7 @@ export class AdministradorComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log("aca me puedes validar si funciona en cada modulooooo, SOY ADMINNN")
   }
 
 }

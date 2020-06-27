@@ -19,7 +19,8 @@ export class RegistrarseComponent implements OnInit {
     //name: null,
     password: null,
     password_confirmation: null,
-    personaid: null
+    validado:0,
+    autorizado:0
   };
 
   Registro = new FormGroup({});  
@@ -38,8 +39,9 @@ export class RegistrarseComponent implements OnInit {
   ) { }
 
   onSubmit() {
-    this.Jarwis.signup(this.Registro.value).subscribe(
-      data => this.handleResponse(data),
+    console.log(this.Registro.value)
+    this.Jarwis.signup(this.Registro.value).subscribe( 
+       data => this.handleResponse(data),
       error => this.handleError(error)
     );
    
@@ -65,9 +67,8 @@ export class RegistrarseComponent implements OnInit {
       Validators.pattern("^[a-z0-9._%+-]+@[u]+[p]+[e]+[u]\.edu+\.pe$")]),
       password: new FormControl(''),
       password_confirmation: new FormControl(''),
-      
-      personaid: new FormControl(null),
-      
+      validado:new FormControl(0),
+      autorizado:new FormControl(0)
     });
   }
 }

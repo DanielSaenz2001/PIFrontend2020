@@ -9,6 +9,7 @@ import { PaisesService } from 'src/app/servicios/PaisesService';
 import { DepartamentoService } from 'src/app/servicios/DepartamentoService';
 import { ProvinciaService } from 'src/app/servicios/ProvinciaService';
 import { AuthService } from 'src/app/guard/AuthService';
+import { DistritosService } from 'src/app/servicios/DistritosService';
 @Component({
   selector: 'app-persona-form',
   templateUrl: './persona-form.component.html',
@@ -26,6 +27,7 @@ export class PersonaFormComponent implements OnInit {
     private paisesService:PaisesService,
     private departamentosService:DepartamentoService,
     private provinciasService:ProvinciaService,
+    private distritoService:DistritosService,
     private Jarwis: JarwisService, private Token:TokenService,
     private Auth: AuthService) { 
       let id =this.route.snapshot.paramMap.get('id')
@@ -43,11 +45,13 @@ export class PersonaFormComponent implements OnInit {
     IDUSER;
     vali;
     Email;
+    distritos;
   ngOnInit() {
     this.listar();
     this.pais();
     this.depar();
     this.provin();
+    this.distri();
       this.personaForm = this.formBuilder.group({
         id:  [''],
         nombre: ['', [Validators.required]],
@@ -57,6 +61,7 @@ export class PersonaFormComponent implements OnInit {
         pais: ['', [Validators.required]],
         departamento: ['', [Validators.required]],
         provincia: ['', [Validators.required]],
+        distrito: ['', [Validators.required]],
         email: this.Email,
         fec_nacimiento: ['', [Validators.required]],
         est_civil: ['', [Validators.required]],
@@ -79,6 +84,11 @@ export class PersonaFormComponent implements OnInit {
   provin(){
     this.provinciasService.getlist().subscribe(response => {
       this.provincias= response;
+    });
+  }
+  distri(){
+    this.distritoService.getlist().subscribe(response => {
+      this.distritos= response;
     });
   }
 

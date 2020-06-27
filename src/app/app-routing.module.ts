@@ -22,6 +22,10 @@ import { ComentariosComponent } from './componentes/egresado/comentarios/comenta
 import { VercomentarioComponent } from './componentes/egresado/comentarios/vercomentario/vercomentario.component';
 import { ComentaComponent } from './componentes/egresado/comentarios/comenta/comenta.component';
 
+import { ModuloEgresadoComponent } from './componentes/egresado/modulo-egresado/modulo-egresado.component';
+import { DatosPersonalesComponent } from './componentes/egresado/modulo-egresado/datos-personales/datos-personales.component';
+import { ValidarEgresadoComponent } from './componentes/egresado/modulo-egresado/validar-egresado/validar-egresado.component';
+
 
 
 //guards
@@ -63,7 +67,26 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent,canActivate: [AfterLoginService]},
   {path: 'ValidacionPersona',component: PersonaFormComponent},
   {path: 'RecuperarContraseña',component: RequestResetComponent, canActivate: [BeforeLoginService]},
-  {path: 'CambiarContraseña',component: ResponseResetComponent , canActivate: [BeforeLoginService]}
+  {path: 'CambiarContraseña',component: ResponseResetComponent , canActivate: [BeforeLoginService]},
+  {path: 'egresados',component: ModuloEgresadoComponent , canActivate: [AfterLoginService],
+  children: [
+    {
+      path: 'DatosEgresados',
+      component: DatosPersonalesComponent
+    },
+    {
+      path: 'ValidarEgresado',
+      component: ValidarEgresadoComponent
+    },
+    {
+      path: 'Gestionarusuarios',
+      component: GestionUsuariosComponent
+    },
+    {
+      path: 'BuscarEgresado',
+      component: BuscarEgresadosComponent
+    }
+  ]},
 ];
 
 @NgModule({

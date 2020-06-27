@@ -38,6 +38,7 @@ export class GestionUsuariosComponent implements OnInit {
     this.form.ap_paterno=this.ap_paterno;
     this.form.ap_materno=this.ap_materno;
     this.form.rol=this.rol;
+    console.log(this.form);
     this.JarwisService.usuariosFiltro(this.form).subscribe(response=>{
       this.Listusuarios=response;
     })

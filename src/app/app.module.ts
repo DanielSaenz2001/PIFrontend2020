@@ -26,6 +26,9 @@ import { ComentarioComponent } from './componentes/administrador/GestionComentar
 import { ComentariosComponent } from './componentes/egresado/comentarios/comentarios.component';
 import { VercomentarioComponent } from './componentes/egresado/comentarios/vercomentario/vercomentario.component';
 import { ComentaComponent } from './componentes/egresado/comentarios/comenta/comenta.component';
+import { ModuloEgresadoComponent } from './componentes/egresado/modulo-egresado/modulo-egresado.component';
+import { DatosPersonalesComponent } from './componentes/egresado/modulo-egresado/datos-personales/datos-personales.component';
+import { ValidarEgresadoComponent } from './componentes/egresado/modulo-egresado/validar-egresado/validar-egresado.component';
 
 
 @NgModule({
@@ -49,7 +52,10 @@ import { ComentaComponent } from './componentes/egresado/comentarios/comenta/com
     ComentarioComponent,
     ComentariosComponent,
     VercomentarioComponent,
-    ComentaComponent
+    ComentaComponent,
+    ModuloEgresadoComponent,
+    DatosPersonalesComponent,
+    ValidarEgresadoComponent
   ],
   imports: [
     BrowserModule,
