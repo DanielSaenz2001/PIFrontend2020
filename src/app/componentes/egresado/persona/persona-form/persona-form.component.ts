@@ -6,10 +6,7 @@ import { TokenService } from 'src/app/servicios/TokenService';
 import { JarwisService } from 'src/app/servicios/JarwisService';
 import { PersonaService } from 'src/app/servicios/PersonaService';
 import { PaisesService } from 'src/app/servicios/PaisesService';
-import { DepartamentoService } from 'src/app/servicios/DepartamentoService';
-import { ProvinciaService } from 'src/app/servicios/ProvinciaService';
 import { AuthService } from 'src/app/guard/AuthService';
-import { DistritosService } from 'src/app/servicios/DistritosService';
 @Component({
   selector: 'app-persona-form',
   templateUrl: './persona-form.component.html',
@@ -25,9 +22,6 @@ export class PersonaFormComponent implements OnInit {
     private formBuilder: FormBuilder,
     private router: Router,
     private paisesService:PaisesService,
-    private departamentosService:DepartamentoService,
-    private provinciasService:ProvinciaService,
-    private distritoService:DistritosService,
     private Jarwis: JarwisService, private Token:TokenService,
     private Auth: AuthService) { 
       let id =this.route.snapshot.paramMap.get('id')
@@ -72,22 +66,22 @@ export class PersonaFormComponent implements OnInit {
   }
 
   pais(){
-    this.paisesService.getlist().subscribe(response => {
+    this.paisesService.paises().subscribe(response => {
       this.paises= response;
     });
   }
   depar(){
-    this.departamentosService.getlist().subscribe(response => {
+    this.paisesService.departamentos().subscribe(response => {
       this.departamentos= response;
     });
   }
   provin(){
-    this.provinciasService.getlist().subscribe(response => {
+    this.paisesService.provincias().subscribe(response => {
       this.provincias= response;
     });
   }
   distri(){
-    this.distritoService.getlist().subscribe(response => {
+    this.paisesService.distritos().subscribe(response => {
       this.distritos= response;
     });
   }

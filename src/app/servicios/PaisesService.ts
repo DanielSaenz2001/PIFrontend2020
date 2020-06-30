@@ -7,20 +7,19 @@ import { Observable } from 'rxjs';
 })
 export class PaisesService {
 
-  endPoint ='http://127.0.0.1:8080/api/paises' //LARAVEL MPaises
+  endPoint ='http://127.0.0.1:8080/api/' //LARAVEL MPaises
   constructor(private http:HttpClient) { }
 
-  public getlist(): Observable<any>{
-    return this.http.get<any>(`${this.endPoint}`)
+  public paises(): Observable<any>{
+    return this.http.get<any>(`${this.endPoint}paises`)
   }
-  public add(data): Observable<any> {
-    return this.http.post<any>(`${this.endPoint}`, data);
+  public departamentos(): Observable<any>{
+    return this.http.get<any>(`${this.endPoint}departamentos`)
   }
-  public update(id, data): Observable<any> {
-      return this.http.put<any>(`${this.endPoint}/${id}`, data);
+  public provincias(): Observable<any>{
+    return this.http.get<any>(`${this.endPoint}provincias`)
   }
-  public delete(id): Observable<any> {
-      
-      return this.http.delete<any>(`${this.endPoint}/${id}`);
+  public distritos(): Observable<any>{
+    return this.http.get<any>(`${this.endPoint}distritos`)
   }
 }

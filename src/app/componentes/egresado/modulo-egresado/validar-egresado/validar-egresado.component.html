@@ -1,1 +1,203 @@
-<p>validar-egresado works!</p>
+<div *ngIf="persona">
+        <form [formGroup]="EgresadoForm">
+                <div class="lista-productos">
+                        <div class="producto">
+                            <div class="titulo" style="text-align: center; font-weight: bolder; border-bottom: 1px solid #EC808D;">
+                                Datos Universitario
+                            </div>
+                            
+                            <div class="descripciones">
+                                <div class="row m-1">
+                                    <div class=" col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                            Codigo Universitario:
+                                    </div>
+                                    <div class=" col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                            <input type="text" class="form-control" formControlName="codigo"> 
+                                    </div>
+                                </div>
+                                <div class="row m-1">
+                                    <div class=" col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                            Email:
+                                    </div>
+                                    <div class=" col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                            <input type="text" class="form-control" value={{persona.email}} [disabled]=true> 
+                                    </div>
+                                </div>
+                                <form [formGroup]="EgresadoEscuelas">
+                                        <div class="row m-1">
+                                                <div class=" col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                                        Facultad:
+                                                </div>
+                                                <div class=" col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                                        <select class="form-control" id="sel1" formControlName="facultad_id">
+                                                                <option *ngFor="let f of facultad" [ngValue]="f.id">{{f.nombre}}</option>
+                                                        </select> 
+                                                </div>
+                                        </div>
+                                        <div class="row m-1">
+                                                <div class=" col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                                        Escuela Profesional: 
+                                                </div>
+                                                <div class=" col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                                        <select class="form-control" id="sel1" formControlName="escuela_id">
+                                                                <ng-container *ngFor="let e of escuela">
+                                                                        <option  [ngValue]="e.id" *ngIf="e.facultad_id == EgresadoEscuelas.value.facultad_id">          
+                                                                                {{e.nombre}}               
+                                                                        </option>
+                                                                </ng-container> 
+                                                        </select> 
+                                                </div>
+                                        </div>
+                                </form>
+                                <div class="row m-1">
+                                    <div class=" col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                            Año de Ingreso:
+                                    </div>
+                                    <div class=" col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                            <input type="text" class="form-control" formControlName="ingreso"> 
+                                    </div>
+                                </div>
+                                 <div class="row m-1">
+                                    <div class=" col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                            Año de Egreso:
+                                    </div>
+                                    <div class=" col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                            <input type="text" class="form-control" formControlName="egreso"> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="producto">
+                            <div class="titulo" style="text-align: center; font-weight: bolder; border-bottom: 1px solid #EC808D;">
+                                Datos Actuales
+                            </div>
+                            
+                            <div class="descripciones">
+                                <div class="row m-1">
+                                    <div class=" col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                            Pais de Residencia:
+                                    </div>
+                                    <div class=" col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                        <select class="form-control" id="sel1" formControlName="pais_id" id="pais" name="pais" >
+                                                <option *ngFor="let p of paises" [ngValue]="p.id">{{p.nombre}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row m-1">
+                                    <div class=" col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                            Departamento de Residencia:
+                                    </div>
+                                    <div class=" col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                            <select class="form-control" id="sel1" formControlName="departamento_id" id="departamento" name="departamento" >
+                                                <ng-container *ngFor="let d of departamentos">
+                                                        <option  [ngValue]="d.id" *ngIf="d.pais_id == EgresadoForm.value.pais_id">          
+                                                                {{d.nombre}}               
+                                                        </option>
+                                                </ng-container> 
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row m-1">
+                                    <div class=" col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" >
+                                            Provincia de Residencia::
+                                    </div>
+                                    <div class=" col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                            <select class="form-control" id="sel1"  formControlName="provincia_id" id="provincia" name="provincia" >
+                                                <ng-container *ngFor="let d of provincias">
+                                                        <option  [ngValue]="d.id" *ngIf="d.dep_id == EgresadoForm.value.departamento_id">          
+                                                                {{d.nombre}}               
+                                                        </option>
+                                                </ng-container> 
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row m-1">
+                                    <div class=" col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                            Distrito de Residencia::
+                                    </div>
+                                    <div class=" col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                            <select class="form-control" id="sel1"  formControlName="distrito_id" id="distrito" name="distrito" >                                        
+                                                <ng-container *ngFor="let d of distritos"> 
+                                                        <option  [ngValue]="d.id" *ngIf="d.pro_id == EgresadoForm.value.provincia_id">          
+                                                                {{d.nombre}}               
+                                                        </option>
+                                                </ng-container> 
+                                            </select>
+                                    </div>
+                                </div>
+                                <div class="row m-1">
+                                    <div class=" col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                            Número de Celular
+                                    </div>
+                                    <div class=" col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                            <input type="text" class="form-control" formControlName="celular"> 
+                                    </div>
+                                </div>
+                                <div class="row m-1">
+                                    <div class=" col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                            Dirección:
+                                    </div>
+                                    <div class=" col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                            <input type="text" class="form-control" formControlName="direccion"> 
+                                    </div>
+                                </div>
+                                <div class="row m-1">
+                                    <div class=" col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                            Referencia:
+                                    </div>
+                                    <div class=" col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                            <input type="text" class="form-control" formControlName="referencia"> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="producto">
+                            <div class="titulo" style="text-align: center; font-weight: bolder; border-bottom: 1px solid #EC808D;">
+                                Datos Personales
+                            </div>
+                            
+                            <div class="descripciones">
+                                <div class="row m-1">
+                                    <div class=" col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                            DNI:
+                                    </div>
+                                    <div class=" col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                            <input type="text" class="form-control" value={{persona.dni}} [disabled]=true> 
+                                    </div>
+                                </div>
+                                <div class="row m-1">
+                                    <div class=" col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                            Fecha de Nacimiento:
+                                    </div>
+                                    <div class=" col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                            <input type="text" class="form-control" value={{persona.fec_nacimiento}} [disabled]=true> 
+                                    </div>
+                                </div>
+                                <div class="row m-1">
+                                    <div class=" col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                            Nombre:
+                                    </div>
+                                    <div class=" col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                            <input type="text" class="form-control" value={{persona.nombre}} [disabled]=true> 
+                                    </div>
+                                </div>
+                                <div class="row m-1">
+                                    <div class=" col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                            Apellidos:
+                                    </div>
+                                    <div class=" col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                                            <input type="text" class="form-control" value="{{persona.ap_paterno}} {{persona.ap_materno}} " [disabled]=true> 
+                                    </div>
+                                </div>
+        
+                            </div>
+                        </div>
+                </div>
+        </form>
+        
+        <div class="row">
+                <div class="col-12" style="text-align: center;">
+                        <button [disabled]="(!EgresadoForm.valid || !EgresadoEscuelas.valid) || btnDisable" (click)="guardar()">Guardar</button>
+                </div>
+        </div>
+</div>

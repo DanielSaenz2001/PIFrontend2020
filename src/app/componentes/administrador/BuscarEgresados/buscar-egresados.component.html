@@ -13,34 +13,43 @@
     <div class="row mt-2">
         <div class="col-4">
             <label>Nombre:</label> <br>
-            <input type="search" name="" id="" style="width: 80%; " class="form-control">
+            <input type="search" name="" id="" style="width: 80%; " class="form-control" [(ngModel)]="nombre">
         </div>
         <div class="col-4">
             <label>Apellido Paterno:</label> <br>
-            <input type="search" name="" id="" style="width: 80%;" class="form-control">
+            <input type="search" name="" id="" style="width: 80%;" class="form-control" [(ngModel)]="ap_paterno">
         </div>
         <div class="col-4">
             <label>Apellido Materno:</label> <br>
-            <input type="search" name="" id="" style="width: 80%;" class="form-control">
+            <input type="search" name="" id="" style="width: 80%;" class="form-control" [(ngModel)]="ap_materno">
         </div>
     </div>
     <div class="row mt-2">
         <div class="col-4">
             <label>Codigo:</label> <br>
-            <input type="search" name="" id="" style="width: 80%;" class="form-control">
+            <input type="search" name="" id="" style="width: 80%;" class="form-control" [(ngModel)]="codigo">
         </div>
         <div class="col-4">
             <label>DNI:</label> <br>
-            <input type="search" name="" id="" style="width: 80%;" class="form-control">
+            <input type="search" name="" id="" style="width: 80%;" class="form-control" [(ngModel)]="dni">
+        </div>
+        <div class="col-4">
+            <label>Año de Egreso:</label> <br>
+            <input type="search" name="" id="" style="width: 80%;" class="form-control" [(ngModel)]="egreso">
         </div>
         <div class="col-4">
             <label>Estado:</label> <br>
-            <input type="search" name="" id="" style="width: 80%;" class="form-control">
+            <select class="form-control" [(ngModel)]="estado">
+                <option value=null>Todos</option>
+                <option value="0">Rojo</option>
+                <option value="1">Amarrilo</option>
+                <option value="2">Verde</option>
+              </select>
         </div>
     </div>
     <div class="row mt-5">
         <div class="col-12" style="text-align: center;  ">
-            <button style="width: 20%; height: 40px; margin: auto;" class=" boton form-control">
+            <button style="width: 20%; height: 40px; margin: auto;" class=" boton form-control" (click)="filtrar()">
                 <b>Buscar</b>
             </button>
         </div>
@@ -61,8 +70,8 @@
     </thead>
     <tbody>
         <tr>
-            <td class="bordesid">Verde imagen</td>
-            <td class="bordes">201810802</td>
+            <td class="bordesid" style=" text-align: center;   width: 15%;">Verde imagen</td>
+            <td class="bordes" style=" text-align: center;   width: 15%;">201810802</td>
             <td class="bordes" style=" text-align: center;   width: 15%;">Tania</td>
             <td class="bordes" style=" text-align: center;   width: 15%;">Casas Guillen</td>
             <td class="bordes" style=" text-align: center;   width: 15%;">ING Sistemas</td>
@@ -70,8 +79,8 @@
             <td class="botones"><button class="boton form-control">Editar</button></td>
         </tr>
         <tr>
-            <td class="bordesid">Amarillo imagen</td>
-            <td class="bordes">201811293</td>
+            <td class="bordesid" style=" text-align: center;   width: 15%;">Amarillo imagen</td>
+            <td class="bordes" style=" text-align: center;   width: 15%;">201811293</td>
             <td class="bordes" style=" text-align: center;   width: 15%;">Tomas</td>
             <td class="bordes" style=" text-align: center;   width: 15%;">Calamardo Esponja</td>
             <td class="bordes" style=" text-align: center;   width: 15%;">ING Sistemas</td>

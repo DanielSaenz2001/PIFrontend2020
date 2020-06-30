@@ -45,3 +45,19 @@ td{
 .botones{
     width: 10%;
 }
+input{
+    border: 1px solid #EC808D;
+    background-color: #DAC0CF;
+}
+select{
+    border: 1px solid #EC808D;
+    background-color: #DAC0CF;
+}
+option{
+    border: 1px solid #EC808D;
+    background-color: #DAC0CF;
+}
+.col-4, .col-12{
+    position: initial;
+  }
+  

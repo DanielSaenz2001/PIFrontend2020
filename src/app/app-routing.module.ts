@@ -68,7 +68,7 @@ const routes: Routes = [
   {path: 'ValidacionPersona',component: PersonaFormComponent},
   {path: 'RecuperarContraseña',component: RequestResetComponent, canActivate: [BeforeLoginService]},
   {path: 'CambiarContraseña',component: ResponseResetComponent , canActivate: [BeforeLoginService]},
-  {path: 'egresados',component: ModuloEgresadoComponent , canActivate: [AfterLoginService],
+  {path: 'egresados',component: ModuloEgresadoComponent /*, canActivate: [AfterLoginService]*/,
   children: [
     {
       path: 'DatosEgresados',
