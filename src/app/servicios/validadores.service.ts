@@ -22,5 +22,16 @@ export class ValidadoresService {
       }
     })
   }
-  
+  public personaEgresado(data): Observable<any>{
+    return this.http.get<any>(`${this.endPoint}personaEgresado`,{ headers:{
+      'Authorization': "Bearer " + data,
+      }
+    })
+  }
+  public egresadoPostgrado(data): Observable<any>{
+    return this.http.get<any>(`${this.endPoint}egresadoPostgrado`,{ headers:{
+      'Authorization': "Bearer " + data,
+      }
+    })
+  }
 }

@@ -23,6 +23,10 @@ export class TokenService {
     this.setUser(user);
   }
 
+  DatosEgresados(egresados) {
+    this.setEgresado(egresados);
+  }
+
   set(token) {
     localStorage.setItem('token', token);
   }
@@ -30,9 +34,17 @@ export class TokenService {
   setUser(user) {
     localStorage.setItem('user', user);
   }
-  
+
+  setEgresado(egresado) {
+    localStorage.setItem('egresado', egresado);
+  }
+
   getUser() {
     return localStorage.getItem('user');
+  }
+
+  getEgresados() {
+    return localStorage.getItem('egresado');
   }
   get() {
     
@@ -42,7 +54,12 @@ export class TokenService {
   remove() {
     localStorage.removeItem('token');
   }
-
+  removeEgresado() {
+    localStorage.removeItem('egresado');
+  }
+  removeUsuario() {
+    localStorage.removeItem('user');
+  }
   isValid() {;
     const token = this.get();
     if (token) {

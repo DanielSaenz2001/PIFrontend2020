@@ -1,0 +1,74 @@
+<div class="container mt-4" *ngIf="ListExp">
+
+    <div class="row" >
+
+        <div class="col-12">
+            <div class="mb-3 mt-1" style="width: 100%; height: 50px;border: 1px solid #EC808D; color: #750036; background-color: #DAC0CF;">
+                <div style="margin-top: 10px;
+                    margin-left: 10px; float: left;">
+                        || Ver Registro
+                </div>          
+                <div style="margin-top: 10px;
+                    margin-right: 2px; float: right;">
+                    <img src="../../../../../../assets/salir.png" alt="salir.png" style="width: 28px;" routerLink="/egresados/ExperienciaLaboral">
+                </div>          
+            </div>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="titulo">Empresa</td>
+                            <td class="t">{{ListExp.empresa}}</td>
+                            <td class="ayuda"> (?) Nombre de la empresa. </td>
+                        </tr>
+                        <tr>
+                            <td class="titulo">Rubro de Empresa</td>
+                            <td class="t">{{ListExp.rubro_empresa}}</td>
+                            <td class="ayuda">   (?) Desarrollo de Software, etc</td>
+                        </tr>
+                        <tr>
+                            <td class="titulo" >Cargo que Ocupaba</td>
+                            <td class="t">{{ListExp.cargo_ocupar}}</td>
+                            <td class="ayuda">(?) Praticante, Subgerente, etc </td>
+                        </tr>
+                        <tr>
+                            <td class="titulo">Área</td>
+                            <td class="t">{{ListExp.area}}</td>
+                            <td class="ayuda">(?)Area en el que trabajó.</td>
+                        </tr>
+                        <tr>
+                            <td class="titulo">Inicio de contrato</td>
+                            <td class="t">{{ListExp.inicio}}</td>
+                            <td class="ayuda">  Formato dd/MM/yyyy
+                                (?) Por ejemplo: 25/05/2014</td>
+                        </tr>
+                        <tr>
+                            <td class="titulo">Final de contrato</td>
+                            <td class="t">{{ListExp.final}}</td>
+                            <td class="ayuda">  Formato dd/MM/yyyy
+                                (?) Por ejemplo: 25/05/2014</td>
+                        </tr>
+                        <tr>
+                            <td class="titulo" style="height: 150px;">Descripcion</td>
+                            <td class="t">{{ListExp.descripcion}}</td>
+                            <td class="ayuda"> (?) Breve descripcion de lo que hizo durante su empleo.</td>
+                        </tr>
+                        <tr>
+                            <td class="titulo">Grado de Satisfaccion</td>
+                            <td class="t">{{ListExp.satisfacion}}</td>
+                            <td class="ayuda">  (?) Muy Satisfecho, Poco Satisfecho, etc.                              </td>
+                        </tr>
+                        <tr>
+                            <td class="titulo">Evidencias</td>
+                            <td class="t"><a >{{ListExp.evidencia}}</a></td>
+                            <td class="ayuda"> (?) Numeros de empleador, numero de compañero de trabajo, certificado. </td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+            <div class="mb-1 mt-3" style="width: 100%; height: 70px;display: flex;
+                align-items: center;border: 1px solid #EC808D; color: #750036; background-color: #DAC0CF;">
+                    <button class="boton form-control mb-1" routerLink="/egresados/ExperienciaLaboral">Regresar</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -14,6 +14,7 @@ export class BuscarEgresadosComponent implements OnInit {
   codigo;
   egreso;
   estado;
+  ListaEgresado;
   constructor(private EgresadoService:EgresadoService) { }
   public form={
     nombre:'',
@@ -26,6 +27,7 @@ export class BuscarEgresadosComponent implements OnInit {
   }
   ngOnInit(): void {
     this.EgresadoService.getlist().subscribe(response=>{
+      this.ListaEgresado=response;
       console.log(response)
     })
   }
@@ -37,9 +39,8 @@ export class BuscarEgresadosComponent implements OnInit {
     this.form.codigo=this.codigo;
     this.form.egreso=this.egreso;
     this.form.estado=this.estado;
-    console.log(this.form)
     this.EgresadoService.EgresadoFiltro(this.form).subscribe(response=>{
-      console.log(response)
+      this.ListaEgresado=response;
     })
   }
 

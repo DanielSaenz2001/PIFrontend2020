@@ -1,0 +1,54 @@
+input{
+    border: 1px solid #EC808D;
+    background-color: #DAC0CF;
+}
+select{
+    border: 1px solid #EC808D;
+    background-color: #DAC0CF;
+}
+option{
+    border: 1px solid #EC808D;
+    background-color: #DAC0CF;
+}
+.col-4, .col-12,.col-6{
+    position: initial;
+}
+table{
+    color: white;
+    margin: 0 auto;
+    text-align: center;
+}
+th{
+    border: 1px solid #EC808D;
+    color: #750036;
+    border-bottom: 2px solid #EC808D !important;
+}
+td{
+    border-top: 0px solid  #EC808D;
+}
+.bordesid{
+    color: #750036;
+    background-color: #DAC0CF;
+    border-color: #EC808D;
+    border-top:  1px #EC808D;
+    border-left: 1px solid  #EC808D;
+    border-bottom: 1px solid  #EC808D;
+    border-right: 1px solid  #EC808D;
+}
+.bordes{
+    text-align: start;
+    color: #750036;
+    background-color:white;
+    border-top: #EC808D;
+    border-color:  1px #EC808D;
+    border-left: 1px solid  #EC808D;
+    border-bottom: 1px solid  #EC808D;
+    border-right: 1px solid  #EC808D;
+}
+.boton{
+    background-color: #750036 !important;   border: 1px solid #FC7DB2 !important; border-radius: 8px; color: white !important;
+}
+.botones{
+    width: 10%;
+}
+  

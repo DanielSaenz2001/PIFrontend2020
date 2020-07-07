@@ -1,0 +1,91 @@
+input{
+    border: 1px solid #EC808D;
+    background-color: #DAC0CF;
+}
+select{
+    border: 1px solid #EC808D;
+    background-color: #DAC0CF;
+}
+option{
+    border: 1px solid #EC808D;
+    background-color: #DAC0CF;
+}
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #750036;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color: #750036;
+   opacity: 1 /* esto es porque Firefox le reduce la opacidad por defecto */;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color: #750036;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: #750036;
+}
+table{
+    margin: 1%;
+}
+.titulo{
+    text-align: center;
+    color: white;
+    width: 10%;
+    padding: 10px;
+}
+.t{
+    padding: 10px;
+}
+.ayuda{
+    color: white;
+    width: 36%;
+    padding: 10px;
+}
+td{
+    border: 1px solid #EC808D;
+    background-color: #530027;
+}
+
+.col-6, .col-2, .col-4{
+    background-color: #750036;
+    position: initial;
+}
+.col-12{
+    padding-right: 0px;
+    padding-left: 0px;
+    position: initial;
+    background-color: #750036;
+}
+
+@media only screen and (max-width:450px) {
+    .ayuda{
+        display: none;
+    }
+  }
+  @media only screen and (max-width:492px){
+    #no{
+        display: none;
+    }
+    #no2{
+        display: none;
+    }
+  }
+  @media only screen and (max-width:384px){
+    #no{
+        display: none;
+    }
+    #no2{
+        display: none;
+    }
+    #no3{
+        display: none;
+    }
+  }
+  .boton{
+    background-color: #750036 !important;   
+    border: 1px solid #FC7DB2 !important; 
+    border-radius: 8px; 
+    color: white !important;
+    width: 130px;
+    margin-left: 2%;
+}

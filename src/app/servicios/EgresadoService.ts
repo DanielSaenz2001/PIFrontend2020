@@ -18,8 +18,8 @@ export class EgresadoService {
     return this.http.post(`${this.endPoint}`, data);
   }
 
-  public update(id, data): Observable<any> {
-      return this.http.put<any>(`${this.endPoint}/${id}`, data);
+  public updateEgresado(id, data): Observable<any> {
+      return this.http.put<any>(`${this.endPoint}Egresado/${id}`, data);
   }
 
   public delete(id): Observable<any> {
@@ -34,4 +34,11 @@ export class EgresadoService {
   public EgresadoFiltro(data){
     return this.http.post(`${this.endPoint}Filtro`, data) ;
   }
+  public getById(id): Observable<any> {
+    return this.http.get<any>(`${this.endPoint}/${id}`);
+  }
+  public getByIdEscuela(id): Observable<any> {
+    return this.http.get<any>(`${this.endPoint}escuela/${id}`);
+  }
+
 }

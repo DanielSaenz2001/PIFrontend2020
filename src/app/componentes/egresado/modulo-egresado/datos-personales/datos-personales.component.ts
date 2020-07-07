@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ValidadoresService } from 'src/app/servicios/validadores.service';
 import { TokenService } from 'src/app/servicios/TokenService';
 import { Router } from '@angular/router';
+import { EgresadoService } from 'src/app/servicios/EgresadoService';
 
 @Component({
   selector: 'app-datos-personales',
@@ -9,8 +10,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./datos-personales.component.css']
 })
 export class DatosPersonalesComponent implements OnInit {
+edad
+ListEgresado;
+ListEscuelas;
+ListPersona;
+ListImagen;
 
   constructor(
+    private EgresadoService: EgresadoService,
     private Validador: ValidadoresService, 
     private Token: TokenService,
     private router: Router) { }
@@ -26,6 +33,17 @@ export class DatosPersonalesComponent implements OnInit {
     })
   }
   listar(){
-    console.log("ESTOY LISTANDOOOOO")
+    this.Validador.personaEgresado
+    (this.Token.get()).subscribe(response=>{
+      let newDate=response.persona.fec_nacimiento+"T00:00:00"; 
+      let nacimiento = new Date(newDate);
+      let timeDiff = Math.abs(Date.now() - nacimiento.getTime());   
+      let edad =Math.floor(timeDiff / 31556926000);
+      this.edad=edad;
+      this.ListPersona= response.persona;
+      this.ListEscuelas= response.escuela;
+      this.ListEgresado= response.egresado;
+      this.ListImagen= response.imagen;
+    })
   }
 }

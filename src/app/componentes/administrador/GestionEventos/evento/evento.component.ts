@@ -52,16 +52,16 @@ export class EventoComponent implements OnInit {
 
       console.log(this.eventoForm.value)
       this.EventoService.add(this.eventoForm.value).subscribe(response => {
-        console.log(response)
+        this.router.navigateByUrl('/administrador/GestionarEventos');
       });
     }else{
 
       this.EventoService.update(this.id, this.eventoForm.value).subscribe(response => {
-        console.log(response)
+        this.router.navigateByUrl('/administrador/GestionarEventos');
       });
      this.eventoForm.reset()
     }
-    this.router.navigateByUrl('/administrador/GestionarEventos');
+    
   }
   borrar(){
     this.eventoForm.reset()

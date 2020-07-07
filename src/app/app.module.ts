@@ -29,6 +29,24 @@ import { ComentaComponent } from './componentes/egresado/comentarios/comenta/com
 import { ModuloEgresadoComponent } from './componentes/egresado/modulo-egresado/modulo-egresado.component';
 import { DatosPersonalesComponent } from './componentes/egresado/modulo-egresado/datos-personales/datos-personales.component';
 import { ValidarEgresadoComponent } from './componentes/egresado/modulo-egresado/validar-egresado/validar-egresado.component';
+import { ActualizarDatosPersonalesComponent } from './componentes/egresado/modulo-egresado/datos-personales/actualizar-datos-personales/actualizar-datos-personales.component';
+import { PostgradosOtrosComponent } from './componentes/egresado/modulo-egresado/postgrados-otros/postgrados-otros.component';
+import { ExperienciaLaboralComponent } from './componentes/egresado/modulo-egresado/experiencia-laboral/experiencia-laboral.component';
+import { PostgradoDocumentosComponent } from './componentes/egresado/modulo-egresado/postgrados-otros/postgrado-documentos/postgrado-documentos.component';
+import { VerPostgradoDocumentosComponent } from './componentes/egresado/modulo-egresado/postgrados-otros/ver-postgrado-documentos/ver-postgrado-documentos.component';
+import { VerExperienciaComponent } from './componentes/egresado/modulo-egresado/experiencia-laboral/ver-experiencia/ver-experiencia.component';
+import { ExperienciaDocumentoComponent } from './componentes/egresado/modulo-egresado/experiencia-laboral/experiencia-documento/experiencia-documento.component';
+import { UsuariosComponent } from './componentes/administrador/GestionUsuarios/usuarios/usuarios.component';
+import { ModuloEgresadosAdministradorComponent } from './componentes/administrador/BuscarEgresados/modulo-egresados-administrador/modulo-egresados-administrador.component';
+import { DatosEgresadoAdministradorComponent } from './componentes/administrador/BuscarEgresados/modulo-egresados-administrador/datos-egresado-administrador/datos-egresado-administrador.component';
+import { PostgradosOtrosAdministradorComponent } from './componentes/administrador/BuscarEgresados/modulo-egresados-administrador/postgrados-otros-administrador/postgrados-otros-administrador.component';
+import { ExperienciaLaboralAdministradorComponent } from './componentes/administrador/BuscarEgresados/modulo-egresados-administrador/experiencia-laboral-administrador/experiencia-laboral-administrador.component';
+import { ValidarEgresadoAdministradorComponent } from './componentes/administrador/BuscarEgresados/modulo-egresados-administrador/validar-egresado-administrador/validar-egresado-administrador.component';
+import { ActualizarDatosPersonalesAdministradorComponent } from './componentes/administrador/BuscarEgresados/modulo-egresados-administrador/datos-egresado-administrador/actualizar-datos-personales/actualizar-datos-personales.component';
+import { ExperienciaDocumentoAdministradorComponent } from './componentes/administrador/BuscarEgresados/modulo-egresados-administrador/experiencia-laboral-administrador/experiencia-documento-administrador/experiencia-documento.component';
+import { VerExperienciaAdministradorComponent } from './componentes/administrador/BuscarEgresados/modulo-egresados-administrador/experiencia-laboral-administrador/ver-experiencia-administrador/ver-experiencia-administrador.component';
+import { VerPostgradoAdministradorComponent } from './componentes/administrador/BuscarEgresados/modulo-egresados-administrador/postgrados-otros-administrador/ver-postgrado-administrador/ver-postgrado-administrador.component';
+import { PostgradoDocumentosAdministradorComponent } from './componentes/administrador/BuscarEgresados/modulo-egresados-administrador/postgrados-otros-administrador/postgrado-documentos-administrador/postgrado-documentos.component';
 
 
 @NgModule({
@@ -55,7 +73,25 @@ import { ValidarEgresadoComponent } from './componentes/egresado/modulo-egresado
     ComentaComponent,
     ModuloEgresadoComponent,
     DatosPersonalesComponent,
-    ValidarEgresadoComponent
+    ValidarEgresadoComponent,
+    ActualizarDatosPersonalesComponent,
+    PostgradosOtrosComponent,
+    ExperienciaLaboralComponent,
+    PostgradoDocumentosComponent,
+    VerPostgradoDocumentosComponent,
+    VerExperienciaComponent,
+    ExperienciaDocumentoComponent,
+    UsuariosComponent,
+    ModuloEgresadosAdministradorComponent,
+    DatosEgresadoAdministradorComponent,
+    PostgradosOtrosAdministradorComponent,
+    ExperienciaLaboralAdministradorComponent,
+    ValidarEgresadoAdministradorComponent,
+    ActualizarDatosPersonalesAdministradorComponent,
+    ExperienciaDocumentoAdministradorComponent,
+    VerExperienciaAdministradorComponent,
+    VerPostgradoAdministradorComponent,
+    PostgradoDocumentosAdministradorComponent
   ],
   imports: [
     BrowserModule,

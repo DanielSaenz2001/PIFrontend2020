@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ValidadoresService } from 'src/app/servicios/validadores.service';
 import { TokenService } from 'src/app/servicios/TokenService';
 import { PaisesService } from 'src/app/servicios/PaisesService';
-import { FacultadesService } from 'src/app/servicios/FacultadesServices';
+import { FacultadesService } from 'src/app/servicios/FacultadesService';
 
 @Component({
   selector: 'app-validar-egresado',

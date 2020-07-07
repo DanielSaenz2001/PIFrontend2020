@@ -1,38 +1,75 @@
-<p>gestion-usuarios works!</p>
-<label for="">DNI:</label>
-<input type="text" name="" class="form-control" id="" [(ngModel)]="dni"> 
-<label for="">Nombre</label>
-<input type="text" name="" class="form-control" id="" [(ngModel)]="nombre">
-<label for="">Apellido Paterno</label>
-<input type="text" name="" class="form-control" id="" [(ngModel)]="ap_paterno">
-<label for="">Apellido Materno</label>
-<input type="text" name="" class="form-control" id="" [(ngModel)]="ap_materno">
-<label for="">Rol</label>
-<select class="form-control" [(ngModel)]="rol">
-  <option value=null>Todos</option>
-  <option value="1">Administrador</option>
-  <option value="3">Egresado</option>
-  <option value="4">tutor</option>
-</select>
-<button (click)="filtro()">Filtrar</button>
 
-<table class="table table-light">
-  <thead class="thead-light">
-    <tr>
-      <th>#</th>
-      <th>ROL</th>
-      <th>DNI</th>
-      <th>Nombre</th>
-      <th>Apellidos</th>
-    </tr>
+<div class="row mt-2">
+  <div class="col-12">
+      <div  style="width: 30%; border: 1px solid #EC808D; color: #750036; background-color: #DAC0CF;
+      text-align: center; margin:0px auto;    padding: 10px;">
+          <b>BUSQUEDA DE EGRESADOS</b>
+      </div>
+  </div>
+</div>
+
+<div >
+  <div class="row mt-2">
+      <div class="col-4">
+          <label>Nombre:</label> <br>
+          <input type="search" name="" id="" style="width: 80%; " class="form-control" [(ngModel)]="nombre">
+      </div>
+      <div class="col-4">
+          <label>Apellido Paterno:</label> <br>
+          <input type="search" name="" id="" style="width: 80%;" class="form-control" [(ngModel)]="ap_paterno">
+      </div>
+      <div class="col-4">
+          <label>Apellido Materno:</label> <br>
+          <input type="search" name="" id="" style="width: 80%;" class="form-control" [(ngModel)]="ap_materno">
+      </div>
+  </div>
+  <div class="row mt-2" style="text-align: center;">
+      <div class="col-6">
+          <label>DNI:</label> <br>
+          <input type="search" name="" id="" style="width: 80%; margin: auto;" class="form-control" [(ngModel)]="dni">
+      </div>
+      <div class="col-6">
+          <label>Rol del usuario:</label> <br>
+          <select class="form-control" [(ngModel)]="rol" style="width: 80%; margin: auto;">
+            <option value=null>Todos</option>
+            <option value="1">Administrador</option>
+            <option value="3">Egresado</option>
+            <option value="4">tutor</option>
+          </select>
+      </div>
+  </div>
+  <div class="row mt-5">
+      <div class="col-12" style="text-align: center;  ">
+          <button style="width: 20%; height: 40px; margin: auto;" class=" boton form-control" (click)="filtro()">
+              <b>Filtrar</b>
+          </button>
+      </div>
+      
+  </div>
+</div>
+
+
+
+
+<table class="table mt-3">
+  <thead style="background-color: #DAC0CF;">
+      <tr >
+        <th>#</th>
+        <th>ROL</th>
+        <th>DNI</th>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+      </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let l of Listusuarios; index as i">
-      <td>{{i+1}}</td>
-      <td>{{l.rol}}</td>
-      <td>{{l.dni}}</td>
-      <td>{{l.nombre}}</td>
-      <td>{{l.ap_paterno}} {{l.ap_materno}}</td>
-    </tr>
+      <tr *ngFor="let l of Listusuarios; index as i">
+          <td class="bordesid" style=" text-align: center;   width: 15%;">{{i+1}}</td>
+          <td class="bordes" style=" text-align: center;   width: 15%;">{{l.rol}}</td>
+          <td class="bordes" style=" text-align: center;   width: 15%;">{{l.dni}}</td>
+          <td class="bordes" style=" text-align: center;   width: 15%;">{{l.nombre}}</td>
+          <td class="bordes" style=" text-align: center;   width: 15%;">{{l.ap_paterno}} {{l.ap_materno}}</td>
+          <td class="botones"><button class="boton form-control" routerLink="Usuarios/{{l.id}}">Editar</button></td>
+      </tr>
   </tbody>
+
 </table>

@@ -32,6 +32,8 @@ export class HomeComponent implements OnInit {
   logout(event: MouseEvent) {
     event.preventDefault();
     this.Token.remove();
+    this.Token.removeEgresado();
+    this.Token.removeUsuario();
     this.Auth.changeAuthStatus(false);
     this.router.navigateByUrl('');
   }
@@ -42,9 +44,7 @@ export class HomeComponent implements OnInit {
     );
   }
   handleResponse(data) {
-    console.log("hola")
     this.list= data;
-    console.log(this.list.validado)
     if(this.list.validado == 0 ){
       this.router.navigateByUrl('/ValidacionPersona');
     }else{
@@ -53,23 +53,12 @@ export class HomeComponent implements OnInit {
     
   }
   handleError() {
-    console.log("hola")
     this.Token.remove();
     this.Auth.changeAuthStatus(false);
     this.router.navigateByUrl('/');
   }
   public error = null;
-  filedata:any;
-  fileEvent(e){
-        this.filedata = e.target.files[0];
-  }
-  onSubmit(f: NgForm) {
-    var myFormData = new FormData();
-    myFormData.append('id', this.USERID);
-    myFormData.append('image', this.filedata);
-    this.Jarwis.profile(myFormData);
-    this.listar();
-  } 
+
   userProfile(id){
     this.USERID = id;
   }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { JarwisService } from 'src/app/servicios/JarwisService';
-import { FormsModule } from '@angular/forms';
+import { UsuariosService } from 'src/app/servicios/UsuariosService';
+
 @Component({
   selector: 'app-gestion-usuarios',
   templateUrl: './gestion-usuarios.component.html',
@@ -14,7 +14,7 @@ export class GestionUsuariosComponent implements OnInit {
   ap_materno;
 
   Listusuarios;
-  constructor(private JarwisService: JarwisService) { 
+  constructor(private UsuariosService: UsuariosService) { 
     
   }
   public form={
@@ -28,7 +28,7 @@ export class GestionUsuariosComponent implements OnInit {
     this.ListUsuarios();
   }
   ListUsuarios(){
-    this.JarwisService.usuarios().subscribe(response=>{
+    this.UsuariosService.usuarios().subscribe(response=>{
       this.Listusuarios=response;
     })
   }
@@ -38,8 +38,7 @@ export class GestionUsuariosComponent implements OnInit {
     this.form.ap_paterno=this.ap_paterno;
     this.form.ap_materno=this.ap_materno;
     this.form.rol=this.rol;
-    console.log(this.form);
-    this.JarwisService.usuariosFiltro(this.form).subscribe(response=>{
+    this.UsuariosService.usuariosFiltro(this.form).subscribe(response=>{
       this.Listusuarios=response;
     })
   }

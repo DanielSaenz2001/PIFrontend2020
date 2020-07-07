@@ -18,8 +18,8 @@ export class PersonaService {
   public add(data): Observable<any> {
     return this.http.post<any>(`${this.endPoint}`, data);
   }
-  public update(id, data): Observable<any> {
-      return this.http.put<any>(`${this.endPoint}/${id}`, data);
+  public updatePersona(id, data): Observable<any> {
+      return this.http.put<any>(`${this.endPoint}Persona/${id}`, data);
   }
   public delete(id): Observable<any> {
       

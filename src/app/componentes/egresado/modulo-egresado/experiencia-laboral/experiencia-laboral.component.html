@@ -1,0 +1,64 @@
+<div class="mb-3 mt-1" style="width: 100%; height: 50px;display: flex;
+align-items: center;border: 1px solid #EC808D; color: #750036; background-color: #DAC0CF;">
+    <div style="margin-left: 10px;">
+        || Experiencia Laboral
+    </div>
+</div>
+<div class=" mb-3" style="color: white; ">
+    Experiencia |
+</div>
+<div class="row mb-3">
+    <div class="col-9">
+        <button style="width: 120px; height: 40px; " class=" boton form-control" routerLink="/egresados/Documentos-Experiencia">
+            <b>+Nuevo</b>
+        </button>
+    </div>
+    <div class="col-3" *ngIf="ListEstado">
+        <div *ngIf="ListEstado.estado == 0">
+            Estado:
+            <img src="../../../../../../assets/rojo-punto.webp" style="width: 30px;" alt="">
+        </div>
+        <div *ngIf="ListEstado.estado == 1">
+            Estado:
+            <img src="../../../../../../assets/amarillo-punto.png" style="width: 30px;" alt="">
+        </div>
+        <div *ngIf="ListEstado.estado == 2">
+            Estado:
+            <img src="../../../../../../assets/verde-punto.webp" style="width: 30px;" alt="">
+        </div>
+    </div>
+</div>
+
+<div class="m-1">
+    <table class="table">
+        <thead  style="background-color: #DAC0CF; ">
+            <tr>
+                <th >Empresa</th>
+                <th id="no3">Rubro</th>
+                <th id="no2">Puesto</th>
+                <th id="no">F. Inicio </th>
+                <th id="no">F. Hasta</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="text-align: center;" *ngFor="let exp of ListExperiencia">
+                <td class="bordes">{{exp.empresa}}</td>
+                <td id="no3" class="bordes">{{exp.rubro_empresa}}</td>
+                <td id="no2"class="bordes">{{exp.cargo_ocupar}}</td>
+                <td id="no" class="bordes">{{exp.inicio | date:'dd/MM/yyyy'}}</td>
+                <td id="no" class="bordes">{{exp.final | date:'dd/MM/yyyy'}}</td>
+                <td class="botones">
+                    <button class="boton form-control mb-1" routerLink="/egresados/Documentos-Experiencia/{{exp.id}}">Editar</button>
+                    <button class="boton form-control mt-1" routerLink="/egresados/Ver-Documentos-Experiencia/{{exp.id}}">Ver</button>
+                </td>
+            </tr>
+           
+        </tbody>
+        <tfoot>
+            <tr class="bordesid" style="text-align: start;">
+                <th colspan="5">#</th>
+            </tr>
+        </tfoot>
+    </table>
+    
+</div>

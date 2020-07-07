@@ -1,0 +1,59 @@
+<div class="container mt-4" *ngIf="ListPost">
+
+    <div class="row" >
+
+        <div class="col-12">
+            <div class="mb-3 mt-1" style="width: 100%; height: 50px;border: 1px solid #EC808D; color: #750036; background-color: #DAC0CF;">
+                            <div style="margin-top: 10px;
+                                margin-left: 10px; float: left;">
+                                    || Ver Registro
+                            </div>          
+                            <div style="margin-top: 10px;
+                                margin-right: 2px; float: right;">
+                                <img src="../../../../../../assets/salir.png" alt="salir.png" style="width: 28px;"  routerLink="/administrador/egresado/{{id}}/Postgrado-otros">
+                            </div>          
+            </div>
+            <table  >
+                <tbody>
+                    <tr>
+                        <td class="titulo">Agrado Academico</td>
+                        <td class="t">{{ListPost.agrado_academico}}</td>
+                        <td class="ayuda"> (?) Maestria, Cursos de especializacion,
+                            Doctorados, etc.  </td>
+                    </tr>
+                    <tr>
+                        <td class="titulo">Entidad</td>
+                        <td class="t">{{ListPost.entidad}}</td>
+                        <td class="ayuda">  (?) Universidad, Instituto, etc.</td>
+                    </tr>
+                    <tr>
+                        <td class="titulo" style="height: 150px;">Descripción</td>
+                        <td class="t">{{ListPost.descripcion}}</td>
+                        <td class="ayuda"> (?) Posible especializacion.  </td>
+                    </tr>
+                    <tr>
+                        <td class="titulo">Desde</td>
+                        <td class="t">{{ListPost.desde}}</td>
+                        <td class="ayuda"> (?) Fecha de Comienzo  </td>
+                    </tr>
+                    <tr>
+                        <td class="titulo">Hasta</td>
+                        <td class="t">{{ListPost.hasta}}</td>
+                        <td class="ayuda"> (?) echa de Culminación.  </td>
+                    </tr>
+                    <tr>
+                        <td class="titulo">Evidencias</td>
+                        <td class="t"><a >{{ListPost.evidencias}}</a></td>
+                        <td class="ayuda"> (?) Maestria, Cursos de especializacion,
+                            Doctorados, etc.  </td>
+                    </tr>
+                </tbody>
+                
+            </table>
+            <div class="mb-1 mt-3" style="width: 100%; height: 70px;display: flex;
+                align-items: center;border: 1px solid #EC808D; color: #750036; background-color: #DAC0CF;">
+                   <button class="boton form-control mb-1" routerLink="/administrador/egresado/{{id}}/Postgrado-otros">Regresar</button>
+            </div>
+        </div>
+    </div>
+</div>

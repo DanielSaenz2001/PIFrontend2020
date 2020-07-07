@@ -2,7 +2,7 @@
 
 <div class="row mt-2">
     <div class="col-12">
-        <div  style="width: 30%; border: 1px solid #EC808D; color: #750036; background-color: #DAC0CF;
+        <div  style="width: 150px; border: 1px solid #EC808D; color: #750036; background-color: #DAC0CF;
         text-align: center; margin:0px auto;    padding: 10px;">
             <b>BUSQUEDA DE EGRESADOS</b>
         </div>
@@ -13,34 +13,34 @@
     <div class="row mt-2">
         <div class="col-4">
             <label>Nombre:</label> <br>
-            <input type="search" name="" id="" style="width: 80%; " class="form-control" [(ngModel)]="nombre">
+            <input type="search" name="" id="" style="width: 80%; " placeholder="Ingrese su nombre" class="form-control" [(ngModel)]="nombre">
         </div>
         <div class="col-4">
             <label>Apellido Paterno:</label> <br>
-            <input type="search" name="" id="" style="width: 80%;" class="form-control" [(ngModel)]="ap_paterno">
+            <input type="search" name="" id="" style="width: 80%;" placeholder="Ingrese su apellido paterno" class="form-control" [(ngModel)]="ap_paterno">
         </div>
         <div class="col-4">
             <label>Apellido Materno:</label> <br>
-            <input type="search" name="" id="" style="width: 80%;" class="form-control" [(ngModel)]="ap_materno">
+            <input type="search" name="" id="" style="width: 80%;" placeholder="Ingrese su apellido materno" class="form-control" [(ngModel)]="ap_materno">
         </div>
     </div>
     <div class="row mt-2">
         <div class="col-4">
             <label>Codigo:</label> <br>
-            <input type="search" name="" id="" style="width: 80%;" class="form-control" [(ngModel)]="codigo">
+            <input type="search" name="" id="" style="width: 80%;" placeholder="Ingrese su codigo univeritario" class="form-control" [(ngModel)]="codigo">
         </div>
         <div class="col-4">
             <label>DNI:</label> <br>
-            <input type="search" name="" id="" style="width: 80%;" class="form-control" [(ngModel)]="dni">
+            <input type="search" name="" id="" style="width: 80%;" placeholder="Ingrese su DNI" class="form-control" [(ngModel)]="dni">
         </div>
         <div class="col-4">
             <label>Año de Egreso:</label> <br>
-            <input type="search" name="" id="" style="width: 80%;" class="form-control" [(ngModel)]="egreso">
+            <input type="search" name="" id="" style="width: 80%;" placeholder="Año de Egreso del egresado" class="form-control" [(ngModel)]="egreso">
         </div>
         <div class="col-4">
             <label>Estado:</label> <br>
-            <select class="form-control" [(ngModel)]="estado">
-                <option value=null>Todos</option>
+            <select class="form-control" style="width: 80%;" [(ngModel)]="estado">
+                <option value="">Todos</option>
                 <option value="0">Rojo</option>
                 <option value="1">Amarrilo</option>
                 <option value="2">Verde</option>
@@ -49,7 +49,7 @@
     </div>
     <div class="row mt-5">
         <div class="col-12" style="text-align: center;  ">
-            <button style="width: 20%; height: 40px; margin: auto;" class=" boton form-control" (click)="filtrar()">
+            <button style="width: 80px; height: 40px; margin: auto;" class=" boton form-control" (click)="filtrar()">
                 <b>Buscar</b>
             </button>
         </div>
@@ -58,45 +58,44 @@
 </div>
 
 <table class="table mt-3">
-    <thead style="background-color: #DAC0CF;">
+    <thead style="background-color: #750036;">
         <tr >
-            <th>Estado</th>
+            <th id="no3">Estado</th>
             <th>Codigo</th>
-            <th>Nombre</th>
+            <th id="no4">Nombre</th>
             <th>Apellidos</th>
-            <th>Es. Profesional</th>
-            <th>Teléfono</th>
+            <th id="no2">Es. Profesional</th>
+            <th id="no">Teléfono</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td class="bordesid" style=" text-align: center;   width: 15%;">Verde imagen</td>
-            <td class="bordes" style=" text-align: center;   width: 15%;">201810802</td>
-            <td class="bordes" style=" text-align: center;   width: 15%;">Tania</td>
-            <td class="bordes" style=" text-align: center;   width: 15%;">Casas Guillen</td>
-            <td class="bordes" style=" text-align: center;   width: 15%;">ING Sistemas</td>
-            <td class="bordes" style=" text-align: center;   width: 15%;">925625818</td>
-            <td class="botones"><button class="boton form-control">Editar</button></td>
+        <tr *ngFor="let l of ListaEgresado; index as i">
+            <td class="bordes" style=" text-align: center;   width: 15%;" id="no3">
+                <div *ngIf="l.estado == 0">
+                    <img src="../../../../assets/rojo-punto.webp" style="width: 30px;" alt="">
+                </div>
+                <div *ngIf="l.estado == 1">
+                    <img src="../../../../assets/amarillo-punto.png" style="width: 30px;" alt="">
+                </div>
+                <div *ngIf="l.estado == 2">
+                    <img src="../../../../assets/verde-punto.webp" style="width: 30px;" alt="">
+                </div>
+            </td>
+            <td class="bordes" style=" text-align: center;   width: 15%;">{{l.codigo}}</td>
+            <td class="bordes" id="no4" style=" text-align: center;   width: 15%;">{{l.nombre}}</td>
+            <td class="bordes" style=" text-align: center;   width: 15%;">{{l.ap_paterno}} {{l.ap_materno}}</td>
+            <td class="bordes" id="no2" style=" text-align: center;   width: 15%;">{{l.escuela}}</td>
+            <td class="bordes" id="no" style=" text-align: center;   width: 15%;">{{l.celular}}</td>
+            <td class="botones"><button class="boton form-control" routerLink="/administrador/egresado/{{l.id}}/DatosEgresados">Editar</button></td>
         </tr>
-        <tr>
-            <td class="bordesid" style=" text-align: center;   width: 15%;">Amarillo imagen</td>
-            <td class="bordes" style=" text-align: center;   width: 15%;">201811293</td>
-            <td class="bordes" style=" text-align: center;   width: 15%;">Tomas</td>
-            <td class="bordes" style=" text-align: center;   width: 15%;">Calamardo Esponja</td>
-            <td class="bordes" style=" text-align: center;   width: 15%;">ING Sistemas</td>
-            <td class="bordes" style=" text-align: center;   width: 15%;">925625810</td>
-            <td class="botones "><button class="boton form-control">Editar</button></td>
-        </tr>
-        
     </tbody>
 
 </table>
 
 <div class="row mt-5">
     <div class="col-12" style="text-align: center;  ">
-        <button style="width: 20%; height: 40px; margin: auto;" class=" boton form-control">
+        <button style="width: 120px; height: 40px; margin: auto;" class=" boton form-control">
             <b>Registrar</b>
         </button>
     </div>
-    
 </div>

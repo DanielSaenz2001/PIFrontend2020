@@ -25,6 +25,24 @@ import { ComentaComponent } from './componentes/egresado/comentarios/comenta/com
 import { ModuloEgresadoComponent } from './componentes/egresado/modulo-egresado/modulo-egresado.component';
 import { DatosPersonalesComponent } from './componentes/egresado/modulo-egresado/datos-personales/datos-personales.component';
 import { ValidarEgresadoComponent } from './componentes/egresado/modulo-egresado/validar-egresado/validar-egresado.component';
+import { ActualizarDatosPersonalesComponent } from './componentes/egresado/modulo-egresado/datos-personales/actualizar-datos-personales/actualizar-datos-personales.component';
+import { PostgradosOtrosComponent } from './componentes/egresado/modulo-egresado/postgrados-otros/postgrados-otros.component';
+import { ExperienciaLaboralComponent } from './componentes/egresado/modulo-egresado/experiencia-laboral/experiencia-laboral.component';
+import { PostgradoDocumentosComponent } from './componentes/egresado/modulo-egresado/postgrados-otros/postgrado-documentos/postgrado-documentos.component';
+import { VerPostgradoDocumentosComponent } from './componentes/egresado/modulo-egresado/postgrados-otros/ver-postgrado-documentos/ver-postgrado-documentos.component';
+import { VerExperienciaComponent } from './componentes/egresado/modulo-egresado/experiencia-laboral/ver-experiencia/ver-experiencia.component';
+import { ExperienciaDocumentoComponent } from './componentes/egresado/modulo-egresado/experiencia-laboral/experiencia-documento/experiencia-documento.component';
+import { UsuariosComponent } from './componentes/administrador/GestionUsuarios/usuarios/usuarios.component';
+import { ModuloEgresadosAdministradorComponent } from './componentes/administrador/BuscarEgresados/modulo-egresados-administrador/modulo-egresados-administrador.component';
+import { DatosEgresadoAdministradorComponent } from './componentes/administrador/BuscarEgresados/modulo-egresados-administrador/datos-egresado-administrador/datos-egresado-administrador.component';
+import { PostgradosOtrosAdministradorComponent } from './componentes/administrador/BuscarEgresados/modulo-egresados-administrador/postgrados-otros-administrador/postgrados-otros-administrador.component';
+import { ExperienciaLaboralAdministradorComponent } from './componentes/administrador/BuscarEgresados/modulo-egresados-administrador/experiencia-laboral-administrador/experiencia-laboral-administrador.component';
+import { ValidarEgresadoAdministradorComponent } from './componentes/administrador/BuscarEgresados/modulo-egresados-administrador/validar-egresado-administrador/validar-egresado-administrador.component';
+import { ActualizarDatosPersonalesAdministradorComponent } from './componentes/administrador/BuscarEgresados/modulo-egresados-administrador/datos-egresado-administrador/actualizar-datos-personales/actualizar-datos-personales.component';
+import { ExperienciaDocumentoAdministradorComponent } from './componentes/administrador/BuscarEgresados/modulo-egresados-administrador/experiencia-laboral-administrador/experiencia-documento-administrador/experiencia-documento.component';
+import { VerExperienciaAdministradorComponent } from './componentes/administrador/BuscarEgresados/modulo-egresados-administrador/experiencia-laboral-administrador/ver-experiencia-administrador/ver-experiencia-administrador.component';
+import { VerPostgradoAdministradorComponent } from './componentes/administrador/BuscarEgresados/modulo-egresados-administrador/postgrados-otros-administrador/ver-postgrado-administrador/ver-postgrado-administrador.component';
+import { PostgradoDocumentosAdministradorComponent } from './componentes/administrador/BuscarEgresados/modulo-egresados-administrador/postgrados-otros-administrador/postgrado-documentos-administrador/postgrado-documentos.component';
 
 
 
@@ -34,8 +52,14 @@ import { BeforeLoginService } from './guard/BeforeLoginService';
 
 const routes: Routes = [
   {path: '', component: LoginComponent, canActivate: [BeforeLoginService]},
+
+  {path: 'registrarse', component: RegistrarseComponent, canActivate: [BeforeLoginService]},
+  {path: 'home', component: HomeComponent,canActivate: [AfterLoginService]},
+  {path: 'ValidacionPersona',component: PersonaFormComponent},
+  {path: 'RecuperarContraseña',component: RequestResetComponent, canActivate: [BeforeLoginService]},
+  {path: 'CambiarContraseña',component: ResponseResetComponent , canActivate: [BeforeLoginService]},
+
   {path: 'eventos', component: EventosComponent, canActivate: [AfterLoginService]},
-  
   {path: 'comentarios', component: ComentariosComponent, canActivate: [AfterLoginService]},
   {path: 'vercomentarios/:id', component: VercomentarioComponent, canActivate: [AfterLoginService]},
   {path: 'Comentario', component: ComentaComponent, canActivate: [AfterLoginService]},
@@ -56,18 +80,75 @@ const routes: Routes = [
       component: GestionUsuariosComponent
     },
     {
+      path: 'Gestionarusuarios/Usuarios/:id',
+      component: UsuariosComponent
+    },
+    {
+      path: 'GestionarEventos/evento',
+      component: EventoComponent
+    },
+    {
+      path: 'GestionarEventos/evento/:id',
+      component: EventoComponent
+    },
+    {
+      path: 'GestionarComentarios/comentario/:id',
+      component: ComentarioComponent
+    },
+    {
       path: 'BuscarEgresado',
       component: BuscarEgresadosComponent
     }
   ]},
-  {path: 'administrador/GestionarEventos/evento', component: EventoComponent, canActivate: [AfterLoginService]},
-  {path: 'administrador/GestionarEventos/evento/:id', component: EventoComponent, canActivate: [AfterLoginService]},
-  {path: 'administrador/GestionarComentarios/comentario/:id', component: ComentarioComponent, canActivate: [AfterLoginService]},
-  {path: 'registrarse', component: RegistrarseComponent, canActivate: [BeforeLoginService]},
-  {path: 'home', component: HomeComponent,canActivate: [AfterLoginService]},
-  {path: 'ValidacionPersona',component: PersonaFormComponent},
-  {path: 'RecuperarContraseña',component: RequestResetComponent, canActivate: [BeforeLoginService]},
-  {path: 'CambiarContraseña',component: ResponseResetComponent , canActivate: [BeforeLoginService]},
+  
+  {path: 'administrador/egresado/:id', component: ModuloEgresadosAdministradorComponent, canActivate: [AfterLoginService],
+  children: [
+    {
+      path: 'DatosEgresados',
+      component: DatosEgresadoAdministradorComponent
+    },
+    {
+      path: 'Postgrado-otros',
+      component: PostgradosOtrosAdministradorComponent
+    },
+    {
+      path: 'ExperienciaLaboral',
+      component: ExperienciaLaboralAdministradorComponent
+    },
+    {
+      path: 'ValidarEgresado',
+      component: ValidarEgresadoAdministradorComponent
+    },
+    {
+      path: 'Documentos-Experiencia',
+      component: ExperienciaDocumentoAdministradorComponent
+    },
+    {
+      path: 'Documentos-Experiencia/:id',
+      component: ExperienciaDocumentoAdministradorComponent
+    },
+    {
+      path: 'Ver-Documentos-Experiencia/:id',
+      component: VerExperienciaAdministradorComponent
+    },
+    {
+      path: 'Documentos-Postragdo',
+      component: PostgradoDocumentosAdministradorComponent
+    },
+    {
+      path: 'Documentos-Postragdo/:id',
+      component: PostgradoDocumentosAdministradorComponent
+    },
+    {
+      path: 'Ver-Documentos-Postragdo/:id',
+      component: VerPostgradoAdministradorComponent
+    },
+    {
+      path: 'DatosEgresados/actualizar/:id',
+      component: ActualizarDatosPersonalesAdministradorComponent
+    }
+  ]},
+
   {path: 'egresados',component: ModuloEgresadoComponent /*, canActivate: [AfterLoginService]*/,
   children: [
     {
@@ -79,12 +160,40 @@ const routes: Routes = [
       component: ValidarEgresadoComponent
     },
     {
-      path: 'Gestionarusuarios',
-      component: GestionUsuariosComponent
+      path: 'ExperienciaLaboral',
+      component: ExperienciaLaboralComponent
     },
     {
-      path: 'BuscarEgresado',
-      component: BuscarEgresadosComponent
+      path: 'Documentos-Experiencia',
+      component: ExperienciaDocumentoComponent
+    },
+    {
+      path: 'Documentos-Experiencia/:id',
+      component: ExperienciaDocumentoComponent
+    },
+    {
+      path: 'Ver-Documentos-Experiencia/:id',
+      component: VerExperienciaComponent
+    },
+    {
+      path: 'Postgrado-otros',
+      component: PostgradosOtrosComponent
+    },
+    {
+      path: 'Documentos-Postragdo',
+      component: PostgradoDocumentosComponent
+    },
+    {
+      path: 'Documentos-Postragdo/:id',
+      component: PostgradoDocumentosComponent
+    },
+    {
+      path: 'Ver-Documentos-Postragdo/:id',
+      component: VerPostgradoDocumentosComponent
+    },
+    {
+      path: 'DatosEgresados/actualizar/:id',
+      component: ActualizarDatosPersonalesComponent
     }
   ]},
 ];

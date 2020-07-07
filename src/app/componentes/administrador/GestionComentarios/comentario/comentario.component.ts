@@ -29,9 +29,8 @@ export class ComentarioComponent implements OnInit {
     let id = this.route.snapshot.paramMap.get('id');
     if( id !== null &&  id !== undefined){
       this.ComentariosService.ComentariosUpdateRespuesta( id, this.comentarioForm.value).subscribe(response => {
-        console.log(response)
+        this.router.navigateByUrl('/administrador/GestionarComentarios');
       });
-      this.router.navigateByUrl('/administrador/GestionarEventos');
     }
   }
   

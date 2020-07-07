@@ -1,0 +1,80 @@
+<div class="container mt-4">
+
+    <div class="row" >
+
+        <div class="col-12">
+            <div class="mb-3 mt-1" style="width: 100%; height: 50px;border: 1px solid #EC808D; color: #750036; background-color: #DAC0CF;">
+                <div *ngIf="ID !==null" style="margin-top: 10px;
+                margin-left: 10px; float: left;">
+                    || Actualizar Registro
+                </div>      
+                <div *ngIf="ID ==null" style="margin-top: 10px;
+                margin-left: 10px; float: left;">
+                    || Nuevo Registro
+                </div>       
+                <div style="margin-top: 10px;
+                margin-right: 2px; float: right;">
+                    <img src="../../../../../../assets/salir.png" alt="salir.png" style="width: 28px;" routerLink="/egresados/Postgrado-otros">
+                </div>             
+            </div>
+            <form [formGroup]="PosgradoForm">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="titulo">Agrado Academico</td>
+                            <td class="t">
+                               
+                                <select  class="form-control" placeholder="Maestria" formControlName="agrado_academico">
+                                    <option value="Bachillerato">Bachillerato</option>
+                                    <option value="Licenciatura">Licenciatura</option>
+                                    <option value="Maestria">Maestria</option>
+                                    <option value="PhD">PhD (Philosophie Doctor)</option>
+                                    <option value="Curso">Curso</option>
+                                    <option value="Curso de Especialización">Curso de Especialización</option>
+                                </select>
+                            </td>
+                            <td class="ayuda"> (?) Maestria, Cursos de especializacion,
+                                Doctorados, etc.  </td>
+                        </tr>
+                        <tr>
+                            <td class="titulo">Entidad</td>
+                            <td class="t"><input type="text" class="form-control" placeholder="Seleccione Universidad" formControlName="entidad"></td>
+                            <td class="ayuda">  (?) Universidad, Instituto, etc.</td>
+                        </tr>
+                        <tr>
+                            <td class="titulo" style="height: 150px;">Descripción</td>
+                            <td class="t"><input type="text" class="form-control" placeholder="Especialidad" formControlName="descripcion"></td>
+                            <td class="ayuda"> (?) Posible especializacion.  </td>
+                        </tr>
+                        <tr>
+                            <td class="titulo">Desde</td>
+                            <td class="t"><input type="date" class="form-control" placeholder="Desde" formControlName="desde"></td>
+                            <td class="ayuda"> (?) Fecha de Comienzo  </td>
+                        </tr>
+                        <tr>
+                            <td class="titulo">Hasta</td>
+                            <td class="t"><input type="date" class="form-control" placeholder="Hasta" formControlName="hasta"></td>
+                            <td class="ayuda"> (?) Fecha de Culminación.  </td>
+                        </tr>
+                        <tr>
+                            <td class="titulo">Evidencias</td>
+                            <td class="t"><input type="text" class="form-control" placeholder="URL DRIVE" formControlName="evidencias"></td>
+                            <td class="ayuda"> (?) Maestria, Cursos de especializacion,
+                                Doctorados, etc.  </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+            
+            <div class="mb-1 mt-3" *ngIf="ID !==null" style="width: 100%; height: 70px;display: flex;
+                align-items: center;border: 1px solid #EC808D; color: #750036; background-color: #DAC0CF;">
+                   <button class="boton form-control mb-1" (click)="guardar()">Actualizar</button>
+                   <button class="boton form-control mb-1" (click)="eliminar()">Eliminar</button>
+            </div>
+            <div class="mb-1 mt-3" *ngIf="ID ==null" style="width: 100%; height: 70px;display: flex;
+            align-items: center;border: 1px solid #EC808D; color: #750036; background-color: #DAC0CF;">
+                <button  [disabled]="!PosgradoForm.valid  || btnDisable" class="boton form-control mb-1" (click)="guardar()">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>

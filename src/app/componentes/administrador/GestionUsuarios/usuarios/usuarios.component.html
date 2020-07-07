@@ -1,0 +1,99 @@
+<div class="m-5" *ngIf="ListUsuario" >
+    <div>
+        <div class="row mt-3 mb-5" style="color: white;">
+            <div class="col-4">
+                <div class="row">
+                    <div class="dato col-9 col-sm-9 col-md-4 col-lg-4 col-xl-4">
+                        Tipo de Documento:
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8" >
+                        DNI
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="row">
+                    <div class="dato col-9 col-sm-9 col-md-4 col-lg-4 col-xl-4">
+                        Nro de Documento:
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+                        {{ListUsuario.dni}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="color: white;">
+            <div class="col-6">
+                <div class="row mb-5">
+                    <div class="dato col-9 col-sm-9 col-md-4 col-lg-4 col-xl-4">
+                        Apellido Paterno:
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+                        <input type="text" value="{{ListUsuario.ap_paterno}}" class="form-control" disabled>
+                    </div>
+                </div>
+                <div class="row mb-5">
+                    <div class="dato col-9 col-sm-9 col-md-4 col-lg-4 col-xl-4">
+                        Apellido Materno:
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+                        <input type="text" value="{{ListUsuario.ap_materno}}" class="form-control" disabled>
+                    </div>
+                </div>
+                <div class="row mb-5">
+                    <div class="dato col-9 col-sm-9 col-md-4 col-lg-4 col-xl-4">
+                        Nombre:
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+                        <input type="text" value="{{ListUsuario.nombre}}" class="form-control" disabled>
+                    </div>
+                </div>
+                <div class="row mb-5">
+                    <div class="dato col-9 col-sm-9 col-md-4 col-lg-4 col-xl-4">
+                        Genero:
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+                        <input type="radio" class="mr-1" style="width: 20px;" checked >  {{ListUsuario.sexo}}
+                    </div>
+                </div>
+                <form [formGroup]="RoleUserRolForm">
+                    <div class="row mb-5">
+                        <div class="dato col-9 col-sm-9 col-md-4 col-lg-4 col-xl-4">
+                            Rol:
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+                            <select class="form-control" id="sel1" formControlName="role_id" >
+                                <option *ngFor="let p of ListRoles" [ngValue]="p.id">{{p.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+                <form [formGroup]="AutorizadoUser">
+                    <div class="row mb-5">
+                        <div class="dato col-9 col-sm-9 col-md-4 col-lg-4 col-xl-4">
+                            Autorizado:
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+                            <select class="form-control" id="sel1" formControlName="autorizado" >
+                                <option value=0> No autorizado </option>
+                                <option value=1> Autorizado </option>
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-6" style="text-align: center;">
+                <img src="../../../../../assets/perfiluser.png" alt="" style="width: 200px;">      
+            </div>
+        </div>
+        <div class="row mt-3 mb-5" style="color: white;">
+            <div class="col-6">
+                <button class="boton form-control" (click)="actualizar()" [disabled]="(!AutorizadoUser.valid || !RoleUserRolForm.valid)  || btnDisable">Guardar</button>
+                
+            </div>
+            <div class="col-6">
+                <button class="boton form-control" routerLink="/administrador/Gestionarusuarios">Regresar</button>
+            </div>
+        </div>
+    </div>
+</div>
