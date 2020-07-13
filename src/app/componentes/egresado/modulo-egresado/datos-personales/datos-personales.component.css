@@ -39,6 +39,11 @@ img{
         width: 300px;
     }
 }
+@media only screen and (max-width:733px){
+    img{
+        width: 250px;
+    }
+}
 @media only screen and (max-width:600px){
     img{
         width: 180px;
@@ -46,12 +51,12 @@ img{
 }
 @media only screen and (max-width:430px){
     img{
-        width: 180px;
+        width: 170px;
     }
 }
 @media only screen and (max-width:409px){
     img{
-        width: 170px;
+        width: 160px;
     }
 }
 @media only screen and (max-width:387px){

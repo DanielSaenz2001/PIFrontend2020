@@ -34,11 +34,15 @@ export class ModuloEgresadoComponent implements OnInit {
   }
   handleResponse(data) {
     for (let i = 0; i < data.length; i++) {
-      if(data[i].ROLEID == 1){
-        this.Validador.personaEgresado
-    (this.Token.get()).subscribe(response=>{
-      this.ListImagen= response.imagen;
+      if(data[i].ROLEID == 3 || data[i].ROLEID == 2 || data[i].ROLEID == 1){
+        this.Validador.personaEgresado(this.Token.get()).subscribe(response=>{
+        if(response.imagen==null){
+          this.ListImagen= null;
+        }else{
+          this.ListImagen= response.imagen.imagen;
+        }
       this.ListPersona= response.persona;
+      
     })
       }
       

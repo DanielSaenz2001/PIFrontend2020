@@ -43,7 +43,7 @@
 
         <a class="nav-link"  id="no">
             <img *ngIf="ListImagen == null" src="../../../../assets/perfiluser.png" alt="">  
-            <img *ngIf="ListImagen !== null" src="{{ListImagen.imagen}}" alt="">   
+            <img *ngIf="ListImagen !== null" src="{{ListImagen}}" alt="">   
           <span class="link-text" *ngIf="ListPersona" style="text-align: center;">
             {{ListPersona.ap_paterno}} {{ListPersona.ap_materno}} {{ListPersona.nombre}}</span>
         </a>

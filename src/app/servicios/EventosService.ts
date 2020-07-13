@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 })
 export class EventosService {
 
-  endPoint ='http://127.0.0.1:8160/api/eventos'
+  endPoint ='http://127.0.0.1:8080/api/eventos'
   constructor(private http:HttpClient) { }
 
   public getlist(data): Observable<any>{
