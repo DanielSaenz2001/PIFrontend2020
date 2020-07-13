@@ -41,4 +41,8 @@ export class EgresadoService {
     return this.http.get<any>(`${this.endPoint}escuela/${id}`);
   }
 
+  public getEgresadoCodigo(data): Observable<any> {
+    return this.http.post<any>(`${this.endPoint}codigo`,data);
+  }
+
 }

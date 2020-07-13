@@ -30,28 +30,24 @@
     
             <div class="form-group row">
               <div class="col-12 " style="text-align: center;">
-                  <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid" style="padding-right: 40px;
-                  padding-left: 40px; background: #992e45; border-color:#992e45;">Ingresar</button>
+                  <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid" style="padding-right: 10%;
+                  padding-left: 10%; background: #992e45; border-color:#992e45;">Ingresar</button>
               </div>
-              <br>
-              <br>
-  
 
             </div>
           </form>
         </div>
-        <div class="col-12 " style="    position: absolute;
+        <div class="col-12 " style=" 
         bottom: 0; border-top: 0.1px solid black;">
-        <div class="row">
-          <div class="col-4"> <a routerLink="/RecuperarContraseña" class="float-left">Re. Cont</a></div>
-          <div class="col-4" style="text-align: center; background-color: red;">
+        <div class="row mt-2 mb-2">
+          <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4" style="text-align: center;"> <a routerLink="/RecuperarContraseña" style="text-align: center;">Re. Cont</a></div>
+          <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4" style="text-align: center; background-color: red;">
             <a class="google" href="http://localhost:8000/social/redirect/google" 
               style="color: white; ">
-                <i class="fab fa-google"></i>
-                Login Google
+                <i class="fab fa-google"></i> Login Google
             </a>
           </div>
-          <div class="col-4"><a routerLink="/registrarse" class="float-right">Registrarse</a></div>
+          <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4" style="text-align: center;"><a routerLink="/registrarse" style="text-align: center;">Registrarse</a></div>
         </div>
          
           

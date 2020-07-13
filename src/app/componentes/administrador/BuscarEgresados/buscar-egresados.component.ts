@@ -40,7 +40,14 @@ export class BuscarEgresadosComponent implements OnInit {
     this.form.egreso=this.egreso;
     this.form.estado=this.estado;
     this.EgresadoService.EgresadoFiltro(this.form).subscribe(response=>{
-      this.ListaEgresado=response;
+      console.log(response)
+      if(JSON.stringify(response)=='[]'){
+        this.ListaEgresado=response;
+        alert("El Egresado no existe registre el usuario si desea")
+      }else{
+        this.ListaEgresado=response;
+      }
+      
     })
   }
 

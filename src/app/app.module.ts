@@ -47,6 +47,7 @@ import { ExperienciaDocumentoAdministradorComponent } from './componentes/admini
 import { VerExperienciaAdministradorComponent } from './componentes/administrador/BuscarEgresados/modulo-egresados-administrador/experiencia-laboral-administrador/ver-experiencia-administrador/ver-experiencia-administrador.component';
 import { VerPostgradoAdministradorComponent } from './componentes/administrador/BuscarEgresados/modulo-egresados-administrador/postgrados-otros-administrador/ver-postgrado-administrador/ver-postgrado-administrador.component';
 import { PostgradoDocumentosAdministradorComponent } from './componentes/administrador/BuscarEgresados/modulo-egresados-administrador/postgrados-otros-administrador/postgrado-documentos-administrador/postgrado-documentos.component';
+import { RegistrarEgresadoComponent } from './componentes/administrador/BuscarEgresados/registrar-egresado/registrar-egresado.component';
 
 
 @NgModule({
@@ -91,7 +92,8 @@ import { PostgradoDocumentosAdministradorComponent } from './componentes/adminis
     ExperienciaDocumentoAdministradorComponent,
     VerExperienciaAdministradorComponent,
     VerPostgradoAdministradorComponent,
-    PostgradoDocumentosAdministradorComponent
+    PostgradoDocumentosAdministradorComponent,
+    RegistrarEgresadoComponent
   ],
   imports: [
     BrowserModule,
