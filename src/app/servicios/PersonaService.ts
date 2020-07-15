@@ -34,4 +34,10 @@ export class PersonaService {
   public updateuserol(id, data): Observable<any> {
     return this.http.put<any>(`${this.endPoint}Usuarioss/${id}`, data);
   }
+  public addAministrador(data,token): Observable<any> {
+    return this.http.post<any>(`${this.endPoint}administrador`, data,{ headers:{
+      'Authorization': "Bearer " + token,
+      }
+    });
+  }
 }

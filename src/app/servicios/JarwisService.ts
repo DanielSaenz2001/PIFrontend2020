@@ -13,6 +13,13 @@ export class JarwisService {
   signup(data) {
     return this.http.post(`${this.baseUrl}/signup`, data)
   }
+
+  signupadministrador(data,token) {
+    return this.http.post(`${this.baseUrl}/signupadministrador`, data,{ headers:{
+      'Authorization': "Bearer " + token,
+      }
+    })
+  }
   
   login(data) {
     return this.http.post(`${this.baseUrl}/login`, data)
