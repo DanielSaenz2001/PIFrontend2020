@@ -41,7 +41,7 @@ export class RegistrarEgresadoComponent implements OnInit {
       }
     })
   }
-  agregar(){
-    console.log("agregando egresado p")
+  agregar(data){
+    console.log(data)
   }
 }

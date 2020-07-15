@@ -49,15 +49,15 @@ export class ComentaComponent implements OnInit {
       this.comentarioForm.value.user_id = this.token.getUser();
       this.comentarioForm.value.fecha_creacion =fecha;
       this.ComentariosService.add(this.comentarioForm.value).subscribe(response => {
-        
+        this.router.navigateByUrl('/comentarios');
       });
     }else{
       this.ComentariosService.update(id,this.comentarioForm.value).subscribe(response => {
-        
+        this.router.navigateByUrl('/comentarios');
       });
     }
 
-    this.router.navigateByUrl('/comentarios');
+    
   }
   borrar(){
     this.comentarioForm.reset()

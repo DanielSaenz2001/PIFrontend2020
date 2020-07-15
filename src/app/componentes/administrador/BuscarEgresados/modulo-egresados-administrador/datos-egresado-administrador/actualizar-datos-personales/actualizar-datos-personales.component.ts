@@ -93,13 +93,13 @@ export class ActualizarDatosPersonalesAdministradorComponent implements OnInit {
     console.log(this.EgresadoForm.value)
     console.log(this.PersonaForm.value)
     this.EgresadoService.updateEgresado(this.EgresadoForm.value.id,this.EgresadoForm.value).subscribe(response=>{
-      console.log(response)
+      this.router.navigateByUrl('/administrador/egresado/'+this.token.getEgresados()+'/DatosEgresados');
     });
     this.personasService.updatePersona(this.PersonaForm.value.id,this.PersonaForm.value).subscribe(response=>{
-      console.log(response)
+      this.router.navigateByUrl('/administrador/egresado/'+this.token.getEgresados()+'/DatosEgresados');
     });
 
-    this.router.navigateByUrl('/administrador/egresado/'+this.token.getEgresados()+'/DatosEgresados');
+    
   }
   pais(){
     this.paisesService.paises().subscribe(response => {
