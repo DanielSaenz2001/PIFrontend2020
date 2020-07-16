@@ -45,7 +45,21 @@ export class RegistrarEgresadoComponent implements OnInit {
     validado:null,
     user_id:null
   };
-
+  public egresado = {
+    codigo: null,
+    celular: null,
+    direccion: null,
+    referencia:null,
+    pais_id :null,
+    departamento_id : null,
+    provincia_id : null,
+    distrito_id :null,
+    persona_id :null,
+    ingreso:null,
+    estado:null,
+    fecha_estado:null,
+    egreso:null
+  };
   public form={
     codigo:''
   }
@@ -91,10 +105,14 @@ export class RegistrarEgresadoComponent implements OnInit {
       this.persona.est_civil=null
       this.persona.sexo=data.Genero
       this.persona.validado=1
-      this.persona.user_id=usuario.id
+      this.persona.user_id=usuario
 
       this.PersonaService.addAministrador(this.persona,this.Token.get()).subscribe(persona=>{
-        console.log(persona);
+
+
+        console.log(persona.id);
+
+
       })
     
     })
