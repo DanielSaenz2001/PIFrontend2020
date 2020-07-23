@@ -33,24 +33,22 @@ export class ModuloEgresadoComponent implements OnInit {
     );
   }
   handleResponse(data) {
-    for (let i = 0; i < data.length; i++) {
-      if(data[i].ROLEID == 3 || data[i].ROLEID == 2 || data[i].ROLEID == 1){
-        this.Validador.personaEgresado(this.Token.get()).subscribe(response=>{
-        if(response.imagen==null){
-          this.ListImagen= null;
-        }else{
-          this.ListImagen= response.imagen.imagen;
-        }
-      this.ListPersona= response.persona;
-      
-    })
+    if(data.ROLEID !== 3  || data.autorizado == 0){
+      this.router.navigateByUrl('/home')
+    }
+    if(data.ROLEID == 3 ){
+      this.Validador.personaEgresado(this.Token.get()).subscribe(response=>{
+      if(response.imagen==null){
+        this.ListImagen= null;
+      }else{
+        this.ListImagen= response.imagen.imagen;
       }
-      
+    this.ListPersona= response.persona;
+    })
     }
     
-    
   }
-  handleError() {
+    handleError() {
     this.Token.remove();
     this.Token.removeEgresado();
     this.Token.removeUsuario();

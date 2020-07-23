@@ -4,17 +4,17 @@ import { TokenService } from 'src/app/servicios/TokenService';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/guard/AuthService';
 import { JarwisService } from 'src/app/servicios/JarwisService';
+
 @Component({
-  selector: 'app-administrador',
-  templateUrl: './administrador.component.html',
-  styleUrls: ['./administrador.component.css']
+  selector: 'app-sidebar',
+  templateUrl: './sidebar.component.html',
+  styleUrls: ['./sidebar.component.css']
 })
-export class AdministradorComponent implements OnInit {
+export class SidebarComponent implements OnInit {
 
   list;
   ListImagen;
   ListPersona;
-
 
   constructor(private Validador: ValidadoresService,
     private Auth: AuthService,
@@ -58,5 +58,4 @@ export class AdministradorComponent implements OnInit {
       this.Auth.changeAuthStatus(false);
       this.router.navigateByUrl('/');
     }
-
 }

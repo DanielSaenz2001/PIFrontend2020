@@ -138,6 +138,7 @@ export class ActualizarDatosPersonalesComponent implements OnInit {
       distrito_id  :['', [Validators.required]],
       ingreso  :['', [Validators.required]],
       egreso  :['', [Validators.required]],
+      fecha_estado:[],
       estado:[],
       persona_id  :[]
     });

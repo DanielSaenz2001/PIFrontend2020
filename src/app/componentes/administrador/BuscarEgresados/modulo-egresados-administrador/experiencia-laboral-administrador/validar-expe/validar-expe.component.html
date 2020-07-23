@@ -1,0 +1,89 @@
+<!-- Modal -->
+<div class="modal fullscreen-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel">Validar Experiencia Laboral</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          
+        </div>
+        <form [formGroup]="validarForm">
+          <div *ngIf="exp == 0; else a">
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" style="margin: auto;">
+                  <p style="margin: auto; text-align: center;"><b>Observaciones:</b></p> 
+                </div>
+                <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
+                  <input type="text" name="" id="" style="width: 80%;" formControlName="observaciones" placeholder="Observaciones observadas" class="form-control" >
+                </div>
+              </div>
+            </div>
+            <div class="modal-egresado">
+                <div class="container mb-2 mt-2">
+                    <div class="row mb-1">
+                        <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" style="margin: auto;">
+                          <p style="margin: auto; text-align: center;"><b>Fecha de Validación:</b></p> 
+                        </div>
+                        <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
+                          <input type="date" name="" id="" style="width: 80%;" class="form-control" formControlName="fec_creac">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" style="margin: auto;">
+                          <p style="margin: auto; text-align: center;"><b>Aprobación:</b></p> 
+                        </div>
+                        <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
+                            <input type="checkbox" formControlName="aprobado">
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+          <ng-template #a>
+            <div >
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" style="margin: auto;">
+                    <p style="margin: auto; text-align: center;"><b>Observaciones:</b></p> 
+                  </div>
+                  <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
+                    {{obser}}
+                  </div>
+                </div>
+              </div>
+              <div class="modal-egresado">
+                  <div class="container mb-2 mt-2">
+                      <div class="row mb-1">
+                          <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" style="margin: auto;">
+                            <p style="margin: auto; text-align: center;"><b>Fecha de Validación:</b></p> 
+                          </div>
+                          <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8" style="margin: auto;">
+                            {{fecha | date:'dd/MM/yyyy'}}
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" style="margin: auto;">
+                            <p style="margin: auto; text-align: center;"><b>Aprobación:</b></p> 
+                          </div>
+                          <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8">
+                              <input type="checkbox" checked=apro>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+          </ng-template>
+          
+        </form>
+        
+        <div class="modal-footer" *ngIf="exp == 0">
+          <button type="button" class="boton btn btn-primary" style="    margin: auto;" (click)="agregar()">Guardar</button>
+        </div>
+        
+        <div class="modal-footer" *ngIf="exp !== 0">
+          <button type="button" class="boton btn btn-primary" style="    margin: auto;" data-dismiss="modal">Regresar</button>
+        </div>
+      </div>
+    </div>
+  </div>

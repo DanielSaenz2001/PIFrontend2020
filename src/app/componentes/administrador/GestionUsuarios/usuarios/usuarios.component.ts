@@ -54,7 +54,7 @@ export class UsuariosComponent implements OnInit {
     this.btnDisable=true;
     this.UsuariosService.actualizarRolUsuario(this.RoleUserRolForm.value.id,this.RoleUserRolForm.value).subscribe(response=>{
       this.UsuariosService.actualizarAutorizacionUsuario(this.AutorizadoUser.value.id,this.AutorizadoUser.value).subscribe()
-      this.router.navigateByUrl('/administrador/Gestionarusuarios');
+        location.reload();
     })
     
     

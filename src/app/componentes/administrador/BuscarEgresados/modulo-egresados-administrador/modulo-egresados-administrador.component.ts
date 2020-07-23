@@ -16,7 +16,9 @@ export class ModuloEgresadosAdministradorComponent implements OnInit {
     private router: Router,private route: ActivatedRoute,
     private token: TokenService, private Validador: ValidadoresService) { }
 
+  ListImagen;
   id;
+  ListPersona;
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
@@ -31,12 +33,19 @@ export class ModuloEgresadosAdministradorComponent implements OnInit {
     );
   }
   handleResponse(data) {
-    console.log("fass")
-    for (let i = 0; i < data.length; i++) {
-      if(data[i].ROLEID == 1){
-        
-      }
+    if(data.ROLEID !== 1 || data.autorizado == 0){
+      this.router.navigateByUrl('/home')
+    }  
+      if(data.ROLEID == 1 ){
+        this.Validador.personaEgresado(this.token.get()).subscribe(response=>{
+        if(response.imagen==null){
+          this.ListImagen= null;
+        }else{
+          this.ListImagen= response.imagen.imagen;
+        }
+      this.ListPersona= response.persona;
       
+      })
     }
     
     

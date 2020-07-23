@@ -66,9 +66,18 @@
                 </table>
             
             <div class="mb-1 mt-3" style="width: 100%; height: 70px;display: flex;
-                align-items: center;border: 1px solid #EC808D; color: #750036; background-color: #DAC0CF;">
-                    <button class="boton form-control mb-1" routerLink="/administrador/egresado/{{id}}/ExperienciaLaboral">Regresar</button>
+                align-items: center;border: 1px solid #EC808D; color: #750036; background-color: #DAC0CF;" *ngIf="exp  == 0; else a">
+                    <button class="boton form-control mb-1"  data-toggle="modal" data-target="#myModal">Validar</button>
             </div>
+            <ng-template #a>
+                <div class="mb-1 mt-3" style="width: 100%; height: 70px;display: flex;
+                align-items: center;border: 1px solid #EC808D; color: #750036; background-color: #DAC0CF;" >
+                    <button class="boton form-control mb-1"  data-toggle="modal" data-target="#myModal">Ver Validacion</button>
+                </div>
+            </ng-template>
+            
+            
         </div>
     </div>
 </div>
+<app-validar-expe [exp_id]="exp_id" ></app-validar-expe>

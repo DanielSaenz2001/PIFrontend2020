@@ -3,7 +3,9 @@ import { EgresadoService } from 'src/app/servicios/EgresadoService';
 import { JarwisService } from 'src/app/servicios/JarwisService';
 import { TokenService } from 'src/app/servicios/TokenService';
 import { PersonaService } from 'src/app/servicios/PersonaService';
+import { AdministradorEgresadoService } from 'src/app/servicios/AdministradorEgresadoService';
 import { DatePipe } from '@angular/common'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registrar-egresado',
@@ -17,7 +19,9 @@ export class RegistrarEgresadoComponent implements OnInit {
     private Jarwis: JarwisService,
     private Token: TokenService,
     private PersonaService: PersonaService,
-    public datepipe: DatePipe) { }
+    private router: Router,
+    public datepipe: DatePipe,
+    private AdministradorEgresadoService:AdministradorEgresadoService) { }
   codigo;
 
   Sihay;
@@ -60,6 +64,11 @@ export class RegistrarEgresadoComponent implements OnInit {
     fecha_estado:null,
     egreso:null
   };
+
+  public escuela = {
+    egresado_id:null,
+    escuela_id:null
+  };
   public form={
     codigo:''
   }
@@ -91,7 +100,7 @@ export class RegistrarEgresadoComponent implements OnInit {
     console.log(data)
     this.registro.email=data.CorreoUpeu;
     this.Jarwis.signupadministrador(this.registro,this.Token.get()).subscribe(usuario=>{
-      
+
       let dateArray = data.FechaNacimiento.split("/");
       var FNacimiento = new Date(dateArray[2] + "-" + dateArray[1] + "-" + dateArray[0])
       let fech_nacimiento= this.datepipe.transform(FNacimiento, 'yyyy-MM-dd')
@@ -106,13 +115,35 @@ export class RegistrarEgresadoComponent implements OnInit {
       this.persona.sexo=data.Genero
       this.persona.validado=1
       this.persona.user_id=usuario
+      
 
       this.PersonaService.addAministrador(this.persona,this.Token.get()).subscribe(persona=>{
 
+        console.log(persona)
+        
+        this.egresado.codigo=data.Codigo
+        this.egresado.direccion=null
+        this.egresado.referencia=null
+        this.egresado.pais_id=data.PaisDomicilio
+        this.egresado.departamento_id=data.DepDomicilio
+        this.egresado.distrito_id=data.DistDomicilio
+        this.egresado.provincia_id=data.Domicilio
+        this.egresado.persona_id=persona.id
+        this.egresado.ingreso=null
+        this.egresado.estado=0
+        this.egresado.fecha_estado=null
+        this.egresado.egreso=data.PeriodoEgreso
 
-        console.log(persona.id);
+        this.AdministradorEgresadoService.addEgresadoAministrador(this.egresado, this.Token.get()).subscribe(egresado=>{
+          
+          this.escuela.egresado_id=egresado.id
+          this.escuela.escuela_id=data.EscuelaProfesional
 
-
+          this.AdministradorEgresadoService.addEscuelaAministrador(this.escuela, this.Token.get()).subscribe(escuela=>{
+            window.location.reload();
+            // this.router.navigateByUrl('/administrador/BuscarEgresado');
+          })
+        })
       })
     
     })

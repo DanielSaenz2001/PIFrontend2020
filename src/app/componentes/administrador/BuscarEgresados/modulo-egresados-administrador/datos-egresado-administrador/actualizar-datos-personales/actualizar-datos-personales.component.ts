@@ -142,16 +142,17 @@ export class ActualizarDatosPersonalesAdministradorComponent implements OnInit {
       departamento_id : ['', [Validators.required]],
       provincia_id :['', [Validators.required]],
       distrito_id  :['', [Validators.required]],
-      ingreso  :['', [Validators.required]],
+      ingreso  :[''],
       egreso  :['', [Validators.required]],
+      fecha_estado:[],
       estado:[],
       persona_id  :[]
     });
     this.EgresadoEscuelas = this.formBuild.group({
       id:  [''],
       egresado_id: [''],
-      facultad_id: ['', [Validators.required]],
-      escuela_id: ['', [Validators.required]]
+      facultad_id: [''],
+      escuela_id: ['']
     });
     this.PersonaForm = this.formBuild.group({
       id:  [''],

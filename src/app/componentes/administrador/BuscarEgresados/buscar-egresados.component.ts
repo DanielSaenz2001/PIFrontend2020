@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EgresadoService } from 'src/app/servicios/EgresadoService';
+import { TokenService } from 'src/app/servicios/TokenService';
 
 @Component({
   selector: 'app-buscar-egresados',
@@ -15,7 +16,8 @@ export class BuscarEgresadosComponent implements OnInit {
   egreso;
   estado;
   ListaEgresado;
-  constructor(private EgresadoService:EgresadoService) { }
+  constructor(private EgresadoService:EgresadoService,
+    private token:TokenService) { }
   public form={
     nombre:'',
     dni:'',
@@ -31,6 +33,7 @@ export class BuscarEgresadosComponent implements OnInit {
       console.log(response)
     })
   }
+
   filtrar(){
     this.form.nombre=this.nombre;
     this.form.dni=this.dni;

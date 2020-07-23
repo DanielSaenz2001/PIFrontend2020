@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class EgresadoService {
 
-  endPoint ='http://127.0.0.1:8320/api/egresado'
+  endPoint ='http://127.0.0.1:8160/api/egresado'
   constructor(private http:HttpClient) { }
 
   public getlist(): Observable<any>{
@@ -43,6 +43,10 @@ export class EgresadoService {
 
   public getEgresadoCodigo(data): Observable<any> {
     return this.http.post<any>(`${this.endPoint}codigo`,data);
+  }
+
+  public EstadoEgresado(id,data): Observable<any> {
+    return this.http.put<any>(`${this.endPoint}estado/${id}`,data);
   }
 
 }

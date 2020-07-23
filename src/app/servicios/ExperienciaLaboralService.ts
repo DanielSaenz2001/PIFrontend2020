@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ExperienciaLaboralService {
 
-  endPoint ='http://127.0.0.1:8320/api/experiencia'
+  endPoint ='http://127.0.0.1:8160/api/experiencia'
   constructor(private http:HttpClient) { }
 
   public getlist(): Observable<any>{

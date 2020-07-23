@@ -45,6 +45,7 @@ export class HomeComponent implements OnInit {
   }
   handleResponse(data) {
     this.list= data;
+    console.log(data)
     if(this.list.validado == 0 ){
       this.router.navigateByUrl('/ValidacionPersona');
     }else{

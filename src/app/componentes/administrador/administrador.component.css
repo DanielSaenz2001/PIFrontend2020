@@ -1,5 +1,4 @@
 
-
   
   main {
     color: rgb(218, 192, 207);
@@ -98,7 +97,17 @@
     width: 16rem;
     height: 5rem;
   }
-  
+  img{
+    display: none;
+    margin-left: 0rem;
+  }
+
+  .navbar:hover img{
+    display: block;
+    width: 150px;
+    border-radius: 100%;
+    margin-bottom: 60px;
+  }
   .logo svg {
    transform: rotate(0deg);
    transition: 600ms;
@@ -120,11 +129,15 @@
     
   }
   
-  @media only screen and (max-width:600px){
+  @media only screen and (max-width:599px){
     .navbar{
         top: 0;
         width: 100vw;
         height: 5rem;
+    }
+    li{
+      margin-left: 10px;
+      margin-right: 10px;
     }
     .navbar:hover{
       width: 100%;
@@ -133,6 +146,9 @@
     .navbar-nav{
       height: 6rem;
       width: 100%;
+    }
+    #no{
+      display: none;
     }
     .logo{
         display: none;
@@ -155,9 +171,33 @@
         
         width: 100%;
     }
-  
+    #aea{
+      width: 0px;
+      display:none !important;
+    }
   }
-  
+  @media only screen and (max-width:486px){
+
+    li{
+      margin-left: 4px;
+      margin-right: 4px;
+    }
+  }
+  @media only screen and (max-width:414px){
+
+    li{
+      margin-left: 0px;
+      margin-right: 0px;
+    }
+  }
+
+  @media only screen and (max-width:378px){
+
+    li{
+      margin-left: -4px;
+      margin-right: -4px;
+    }
+  }
   @media only screen and (min-width: 600px) {
     .navbar {
       top: 0;
@@ -172,15 +212,12 @@
       width: 16rem;
       
     }
-  
+    
     .navbar:hover {
       width: 16rem;
     }
   
-    .navbar:hover .link-text {
-      display: inline;
-    }
-  
+
     .navbar:hover .logo svg{
       margin-left: 14rem;
     }

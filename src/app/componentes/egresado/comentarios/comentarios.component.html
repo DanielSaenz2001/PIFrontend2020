@@ -1,66 +1,68 @@
-<p>comentarios works!</p>
-<div class="m-1">
-    <div class="row">
-        <div class="col-12" style="text-align: center;">
-            <button style="background-color: #750036; color: white; width: 140px; border-radius: 10px;" routerLink="/Comentario">Agregar Comentario</button>
+<app-sidebar></app-sidebar>
+<main>
+    <div class="m-1">
+        <div class="row">
+            <div class="col-12" style="text-align: center;">
+                <button style="background-color: #750036; color: white; width: 140px; border-radius: 10px;" routerLink="/Comentario">Agregar Comentario</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 mt-2 mb-3" *ngFor="let c of comentarios">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col-12">
+                                <img src="../../../../assets/ImagenEgresado.png" alt="Imagen Egresado" style="width: 100%;">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div style="text-align: center; color: white;">
+                                    <b>Egresado</b>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-9">
+                        <div class="row mb-3">
+                            <div class="col-12" >
+                                <div style="width: 50%; border: 1px solid #EC808D; 
+                                color: #750036; background-color: #DAC0CF; text-align: center; padding: 2%;">
+                                    {{c.nombre}} {{c.ap_paterno}} {{c.ap_materno}}
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-12" style="color: white !important; ">
+                                {{c.descripcionEgresado}}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-12 mt-1 mb-1">
+                                        <button type="submit" *ngIf="iduser == c.user_id" class="boton" style="width: 132px; padding: 1%;"  routerLink="/comentarios" (click)="EliminarComentario(c.id)">
+                                            <b>ELIMINAR</b> 
+                                        </button>
+                                    </div>
+                                    <div class="col-12 mt-1 mb-1">
+                                        <button type="submit" *ngIf="iduser == c.user_id" class="boton" style="width: 132px; padding: 1%;" routerLink="/Comentario/{{c.id}}">
+                                            <b>EDITAR</b> 
+                                        </button>
+                                    </div>
+                                    <div class="col-12 mt-1 mb-1">
+                                        <button type="submit" *ngIf="c.respuesta == 1" class="boton" style="width: 132px; padding: 1%;" routerLink="/vercomentarios/{{c.id}}">
+                                            <b>Ver</b> 
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>  
         </div>
     </div>
-    <div class="row">
-        <div class="col-6 mt-2 mb-3" *ngFor="let c of comentarios">
-            <div class="row">
-                <div class="col-3">
-                    <div class="row">
-                        <div class="col-12">
-                            <img src="../../../../assets/ImagenEgresado.png" alt="Imagen Egresado" style="width: 100%;">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <div style="text-align: center; color: white;">
-                                <b>Egresado</b>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-9">
-                    <div class="row mb-3">
-                        <div class="col-12" >
-                            <div style="width: 50%; border: 1px solid #EC808D; 
-                            color: #750036; background-color: #DAC0CF; text-align: center; padding: 2%;">
-                                {{c.nombre}} {{c.ap_paterno}} {{c.ap_materno}}
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-12" style="color: white !important; ">
-                            {{c.descripcionEgresado}}
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="row">
-                                <div class="col-12 mt-1 mb-1">
-                                    <button type="submit" *ngIf="iduser == c.user_id" class="boton" style="width: 132px; padding: 1%;"  routerLink="/comentarios" (click)="EliminarComentario(c.id)">
-                                        <b>ELIMINAR</b> 
-                                    </button>
-                                </div>
-                                <div class="col-12 mt-1 mb-1">
-                                    <button type="submit" *ngIf="iduser == c.user_id" class="boton" style="width: 132px; padding: 1%;" routerLink="/Comentario/{{c.id}}">
-                                        <b>EDITAR</b> 
-                                    </button>
-                                </div>
-                                <div class="col-12 mt-1 mb-1">
-                                    <button type="submit" *ngIf="c.respuesta == 1" class="boton" style="width: 132px; padding: 1%;" routerLink="/vercomentarios/{{c.id}}">
-                                        <b>Ver</b> 
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>  
-    </div>
-</div>
+</main>

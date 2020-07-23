@@ -23,7 +23,7 @@
             URL IMAGEN:
           </div>
           <div class="col-9">
-            <input type="text" class="form-control" name="" id="" formControlName="link" style="width: 90% !important">
+            <input type="text" class="form-control" name="" id="" formControlName="link" style="width: 85% !important">
           </div>
         </div>
         <div class="row mt-2">
@@ -70,7 +70,7 @@
               Descripción:
             </div>
             <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
-              <textarea name="" formControlName="descripcion" id="" class="textinput form-control" placeholder="Descripción del Evento"></textarea>
+              <textarea name="" formControlName="descripcion" id="" class="textinput form-control" style="width: 90% !important" placeholder="Descripción del Evento"></textarea>
             </div>
           </div>
           <br>
@@ -104,5 +104,6 @@
 
 <div class="container mt-5" style="text-align: center;">
   
-<button class="boton " style="width: 20%; height: 40px;" [disabled]="!eventoForm.valid"  (click)="SubmitEvento()">Agregar Evento</button>
+<button *ngIf="id == null" class="boton " style="width: 20%; height: 40px;" [disabled]="!eventoForm.valid"  (click)="SubmitEvento()">Agregar Evento</button>
+<button *ngIf="id !== null" class="boton " style="width: 20%; height: 40px;" [disabled]="!eventoForm.valid"  (click)="SubmitEvento()">Actualizar Evento</button>
 </div>
