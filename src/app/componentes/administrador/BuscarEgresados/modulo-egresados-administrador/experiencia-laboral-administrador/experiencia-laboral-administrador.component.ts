@@ -34,7 +34,7 @@ export class ExperienciaLaboralAdministradorComponent implements OnInit {
   listar(){
     this.form.idusuario=this.token.getUser();
     this.id=this.token.getEgresados();
-    this.AdministradorEgresadoService.getEgresadoById(this.token.getEgresados(),this.form).subscribe(response=>{
+    this.AdministradorEgresadoService.getEgresadoById(this.token.getEgresados(),this.token.getEg()).subscribe(response=>{
       this.ListExperiencia=response.experiencia;
       this.ListEstado=response.estado;
       

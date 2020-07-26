@@ -13,11 +13,17 @@ export class EventosComponent implements OnInit {
   ngOnInit(): void {
     this.listarEventos();
   }
-  eventos
+  eventos;
+  evento;
   listarEventos(){
     this.EventosService.EventosDispo().subscribe( response =>{
       this.eventos = response;
       console.log(response);
+    })
+  }
+  verEvento(id){
+    this.EventosService.getById(id).subscribe(response=>{
+      this.evento=response;
     })
   }
 }

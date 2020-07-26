@@ -3,6 +3,7 @@ import { JarwisService } from 'src/app/servicios/JarwisService';
 import { TokenService } from 'src/app/servicios/TokenService';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl,Validators, FormBuilder } from '@angular/forms';
+import { AuthService } from 'src/app/guard/AuthService';
 
 @Component({
   selector: 'app-registrarse',
@@ -33,6 +34,7 @@ export class RegistrarseComponent implements OnInit {
 
   constructor(
     private Jarwis: JarwisService,
+    private Auth: AuthService,
     private Token: TokenService,
     private router: Router,
     private formBuilder:FormBuilder
@@ -47,7 +49,16 @@ export class RegistrarseComponent implements OnInit {
    
   }
   handleResponse(data) {
-    this.Token.handle(data.access_token);
+    this.Token.handleAuth(data.access_token);
+    this.Jarwis.login2(this.Registro).subscribe(response =>{
+      console.log(response)
+      this.Token.handleComment(response);
+      this.Jarwis.login3(this.Registro).subscribe(data2=>{
+        this.Token.handleEg(data2);
+        this.Auth.changeAuthStatus(true);
+        this.router.navigateByUrl('/home');
+      })
+    })
     location.reload();
   }
 

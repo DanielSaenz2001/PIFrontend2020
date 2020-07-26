@@ -1,7 +1,7 @@
 <app-sidebar></app-sidebar>
 <main>
     <div class="m-1">
-        <div class="row">
+        <div class="row" *ngIf="autorizados == 1">
             <div class="col-12" style="text-align: center;">
                 <button style="background-color: #750036; color: white; width: 140px; border-radius: 10px;" routerLink="/Comentario">Agregar Comentario</button>
             </div>
@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-6 mt-2 mb-3" *ngFor="let c of comentarios">
                 <div class="row">
-                    <div class="col-3">
+                    <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 mb-3">
                         <div class="row">
                             <div class="col-12">
                                 <img src="../../../../assets/ImagenEgresado.png" alt="Imagen Egresado" style="width: 100%;">
@@ -23,10 +23,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-9">
+                    <div class="col-12 col-sm-12 col-md-7 col-lg-7 col-xl-7">
                         <div class="row mb-3">
                             <div class="col-12" >
-                                <div style="width: 50%; border: 1px solid #EC808D; 
+                                <div style="width: 100%; border: 1px solid #EC808D; 
                                 color: #750036; background-color: #DAC0CF; text-align: center; padding: 2%;">
                                     {{c.nombre}} {{c.ap_paterno}} {{c.ap_materno}}
                                 </div>

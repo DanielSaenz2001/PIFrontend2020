@@ -99,7 +99,7 @@ export class RegistrarEgresadoComponent implements OnInit {
   agregar(data){
     console.log(data)
     this.registro.email=data.CorreoUpeu;
-    this.Jarwis.signupadministrador(this.registro,this.Token.get()).subscribe(usuario=>{
+    this.Jarwis.signupadministrador(this.registro,this.Token.getAuth()).subscribe(usuario=>{
 
       let dateArray = data.FechaNacimiento.split("/");
       var FNacimiento = new Date(dateArray[2] + "-" + dateArray[1] + "-" + dateArray[0])
@@ -117,7 +117,7 @@ export class RegistrarEgresadoComponent implements OnInit {
       this.persona.user_id=usuario
       
 
-      this.PersonaService.addAministrador(this.persona,this.Token.get()).subscribe(persona=>{
+      this.PersonaService.addAministrador(this.persona,this.Token.getAuth()).subscribe(persona=>{
 
         console.log(persona)
         
@@ -134,12 +134,12 @@ export class RegistrarEgresadoComponent implements OnInit {
         this.egresado.fecha_estado=null
         this.egresado.egreso=data.PeriodoEgreso
 
-        this.AdministradorEgresadoService.addEgresadoAministrador(this.egresado, this.Token.get()).subscribe(egresado=>{
+        this.AdministradorEgresadoService.addEgresadoAministrador(this.egresado, this.Token.getAuth()).subscribe(egresado=>{
           
           this.escuela.egresado_id=egresado.id
           this.escuela.escuela_id=data.EscuelaProfesional
 
-          this.AdministradorEgresadoService.addEscuelaAministrador(this.escuela, this.Token.get()).subscribe(escuela=>{
+          this.AdministradorEgresadoService.addEscuelaAministrador(this.escuela, this.Token.getAuth()).subscribe(escuela=>{
             window.location.reload();
             // this.router.navigateByUrl('/administrador/BuscarEgresado');
           })

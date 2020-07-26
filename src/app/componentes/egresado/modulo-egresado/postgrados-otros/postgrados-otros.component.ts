@@ -13,7 +13,7 @@ export class PostgradosOtrosComponent implements OnInit {
     private Token: TokenService) { }
     ListPostgrados;
   ngOnInit(): void {
-    this.Validador.egresadoPostgrado(this.Token.get()).subscribe(response=>{
+    this.Validador.egresadoPostgrado(this.Token.getAuth()).subscribe(response=>{
       this.ListPostgrados=response.postgrados;
     })
   }

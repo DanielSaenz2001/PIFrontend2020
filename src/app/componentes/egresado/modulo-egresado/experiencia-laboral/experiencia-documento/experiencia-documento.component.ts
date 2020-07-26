@@ -35,7 +35,7 @@ export class ExperienciaDocumentoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.Validador.personaEgresado(this.Token.get()).subscribe(response=>{
+    this.Validador.personaEgresado(this.Token.getAuth()).subscribe(response=>{
       this.egresado_id=response.egresado.Egresado_id;
     })
     this.ExpForm = this.formBuild.group({

@@ -1,61 +1,19 @@
-<div class="row" *ngIf="comentario">
-    <div class="col-12">
-        <div class="col-9 mt-2 mb-3">
-            <div class="row">
-                <div class="col-3">
-                    <div class="row">
-                        <div class="col-12">
-                            <img src="../../../../assets/ImagenEgresado.png" alt="Imagen Egresado" style="width: 100%;">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <div style="text-align: center; color: white;">
-                                <b>Egresado</b>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-9">
-                    <div class="row mb-3">
-                        <div class="col-12" >
-                            <div style="width: 50%; border: 1px solid #EC808D; 
-                            color: #750036; background-color: #DAC0CF; text-align: center; padding: 2%;">
-                                {{comentario.nombre}} {{comentario.ap_paterno}} {{comentario.ap_materno}}
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-12" style="color: white !important; ">
-                            {{comentario.descripcionEgresado}}
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-12" style="color: white !important; ">
-                            OPCIONAL: {{comentario.opcional}}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>  
-    </div>
-</div>
-<div class="container" *ngIf="comentario">
-    <div class="row">
+<app-sidebar></app-sidebar>
+<main>
+    <div class="row" *ngIf="comentario">
         <div class="col-12">
-            <div class="col-12 mt-2 mb-3">
+            <div class="col-9 mt-2 mb-3">
                 <div class="row">
                     <div class="col-3">
                         <div class="row">
-                            <div class="col-12" style="text-align: center;">
-                                <img src="../../../../../assets/AdminstradorPerfil.webp" alt="Imagen Egresado" style="width: 80%;">
+                            <div class="col-12">
+                                <img src="../../../../assets/ImagenEgresado.png" alt="Imagen Egresado" style="width: 100%;">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12">
                                 <div style="text-align: center; color: white;">
-                                    <b>Administrador</b>
+                                    <b>Egresado</b>
                                 </div>
                             </div>
                         </div>
@@ -65,26 +23,71 @@
                             <div class="col-12" >
                                 <div style="width: 50%; border: 1px solid #EC808D; 
                                 color: #750036; background-color: #DAC0CF; text-align: center; padding: 2%;">
-                                    RESPUESTA
+                                    {{comentario.nombre}} {{comentario.ap_paterno}} {{comentario.ap_materno}}
                                 </div>
                                 
                             </div>
                         </div>
                         <div class="row mb-3">
                             <div class="col-12" style="color: white !important; ">
-                                {{comentario.descripcionAdministrador}}
+                                {{comentario.descripcionEgresado}}
                             </div>
                         </div>
-    
-                        
+                        <div class="row mb-3">
+                            <div class="col-12" style="color: white !important; ">
+                                OPCIONAL: {{comentario.opcional}}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>  
         </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-12" style="text-align: center;">
-        <button routerLink="/comentarios" style="width: 130px; padding: 1%;" class="boton"> Regresar</button>
+    <div class="container" *ngIf="comentario">
+        <div class="row">
+            <div class="col-12">
+                <div class="col-12 mt-2 mb-3">
+                    <div class="row">
+                        <div class="col-3">
+                            <div class="row">
+                                <div class="col-12" style="text-align: center;">
+                                    <img src="../../../../../assets/AdminstradorPerfil.webp" alt="Imagen Egresado" style="width: 80%;">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div style="text-align: center; color: white;">
+                                        <b>Administrador</b>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-9">
+                            <div class="row mb-3">
+                                <div class="col-12" >
+                                    <div style="width: 50%; border: 1px solid #EC808D; 
+                                    color: #750036; background-color: #DAC0CF; text-align: center; padding: 2%;">
+                                        RESPUESTA
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-12" style="color: white !important; ">
+                                    {{comentario.descripcionAdministrador}}
+                                </div>
+                            </div>
+        
+                            
+                        </div>
+                    </div>
+                </div>  
+            </div>
+        </div>
     </div>
-</div>
+    <div class="row">
+        <div class="col-12" style="text-align: center;">
+            <button routerLink="/comentarios" style="width: 130px; padding: 1%;" class="boton"> Regresar</button>
+        </div>
+    </div>
+</main>

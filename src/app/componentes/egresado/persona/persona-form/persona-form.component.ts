@@ -88,7 +88,7 @@ export class PersonaFormComponent implements OnInit {
 
   logout(event: MouseEvent) {
     event.preventDefault();
-    this.Token.remove();
+    this.Token.removeAuth();
     this.Auth.changeAuthStatus(false);
     this.router.navigateByUrl('');
   }
@@ -101,7 +101,7 @@ export class PersonaFormComponent implements OnInit {
       this.btnDisable=true;
       this.personaServices.add(this.personaForm.value).subscribe(response => {
         this.IDPersona= response.id;
-        this.validarpersona(this.Token.get(),this.IDUSER)   
+        this.validarpersona(this.Token.getAuth(),this.IDUSER)   
         this.router.navigateByUrl('/');
       });
       
@@ -117,7 +117,7 @@ export class PersonaFormComponent implements OnInit {
   }
 
   listar(){
-    this.Jarwis.datos(this.Token.get()).subscribe(
+    this.Jarwis.datos(this.Token.getAuth()).subscribe(
       data => this.handleResponse(data),
       error => this.handleError()
     );
@@ -133,7 +133,7 @@ export class PersonaFormComponent implements OnInit {
   }
 
   handleError() {
-    this.Token.remove();
+    this.Token.removeAuth();
     this.Auth.changeAuthStatus(false);
     this.router.navigateByUrl('/');
   }

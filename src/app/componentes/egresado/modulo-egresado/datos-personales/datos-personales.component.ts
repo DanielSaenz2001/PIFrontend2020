@@ -23,7 +23,7 @@ ListImagen;
     private router: Router) { }
 
   ngOnInit(): void {
-    this.Validador.DatosPersona(this.Token.get()).subscribe(response=>{
+    this.Validador.DatosPersona(this.Token.getAuth()).subscribe(response=>{
       if(response.validado == 0){
         this.router.navigateByUrl('/egresados/ValidarEgresado');
       }else{
@@ -34,7 +34,7 @@ ListImagen;
   }
   listar(){
     this.Validador.personaEgresado
-    (this.Token.get()).subscribe(response=>{
+    (this.Token.getAuth()).subscribe(response=>{
       let newDate=response.persona.fec_nacimiento+"T00:00:00"; 
       let nacimiento = new Date(newDate);
       let timeDiff = Math.abs(Date.now() - nacimiento.getTime());   

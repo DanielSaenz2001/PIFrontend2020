@@ -60,7 +60,7 @@ export class ActualizarDatosPersonalesComponent implements OnInit {
 
   listar(){
     this.Validador.personaEgresado
-    (this.Token.get()).subscribe(response=>{
+    (this.Token.getAuth()).subscribe(response=>{
       if(response.persona.validado == 1){
         this.ListPersona= response.persona;
         this.ListEscuelas= response.escuela;

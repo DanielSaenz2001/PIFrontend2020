@@ -15,53 +15,80 @@ export class TokenService {
   }
 
   list;
-  handle(token) {
-    this.set(token);
+  handleAuth(token) {
+    this.setAuth(token);
+  }
+  setAuth(token) {
+    localStorage.setItem('tokenAuth', token);
+  }
+  getAuth() {
+    return localStorage.getItem('tokenAuth');
+  }
+  removeAuth() {
+    localStorage.removeItem('tokenAuth');
+  }
+  handleComment(token) {
+    this.setComment(token);
+  }
+  setComment(token) {
+    localStorage.setItem('tokenComment', token);
+  }
+  getComment() {
+    return localStorage.getItem('tokenComment');
+  }
+  removeComment() {
+    localStorage.removeItem('tokenComment');
+  }
+  handleEg(token) {
+    this.setEg(token);
+  }
+  setEg(token) {
+    localStorage.setItem('tokenEg', token);
+  }
+  getEg() {
+    return localStorage.getItem('tokenEg');
+  }
+  removeEg() {
+    localStorage.removeItem('tokenEg');
   }
 
-  DatosUsuarios(user) {
-    this.setUser(user);
-  }
 
   DatosEgresados(egresados) {
     this.setEgresado(egresados);
   }
-
-  set(token) {
-    localStorage.setItem('token', token);
+  DatosUsuarios(user) {
+    this.setUser(user);
   }
-
+  
   setUser(user) {
     localStorage.setItem('user', user);
   }
+  getUser() {
+    return localStorage.getItem('user');
+  }
+  removeUsuario() {
+    localStorage.removeItem('user');
+  }
+
 
   setEgresado(egresado) {
     localStorage.setItem('egresado', egresado);
   }
 
-  getUser() {
-    return localStorage.getItem('user');
-  }
+
 
   getEgresados() {
     return localStorage.getItem('egresado');
   }
-  get() {
-    
-    return localStorage.getItem('token');
-  }
-
-  remove() {
-    localStorage.removeItem('token');
-  }
+  
   removeEgresado() {
     localStorage.removeItem('egresado');
   }
-  removeUsuario() {
-    localStorage.removeItem('user');
-  }
+
+
+
   isValid() {;
-    const token = this.get();
+    const token = this.getAuth();
     if (token) {
       const payload = this.payload(token);
       if (payload) {

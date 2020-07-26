@@ -1,5 +1,6 @@
-
-<h3 class="titulo-productos text-center">Eventos UPeU Disponibles</h3>
+<app-sidebar></app-sidebar>
+<main>
+  <h3 class="titulo-productos text-center">Eventos UPeU Disponibles</h3>
 <div class="lista-productos">
     <div class="producto" *ngFor="let data of eventos">
         <div class="imagenp">
@@ -12,7 +13,55 @@
         <div class="boton">
             <button type="button" 
             style="color: white; background-color: #750036; border-color: #FC7DB2;" 
-            class="btn btn-primary"><b>Ver</b></button>
+            class="btn btn-primary" data-toggle="modal" data-target="#myModal" (click)="verEvento(data.id)"><b>Ver</b></button>
         </div>
     </div>
 </div>
+<!-- Modal -->
+<div class="modal fullscreen-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" *ngIf="evento">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel" >{{evento.titulo}}</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          
+        </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" style="margin: auto;">
+                  <p style="margin: auto; text-align: center;" style="color: #DAC0CF;"><b>Descripción:</b></p> 
+                </div>
+                <div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8" style="color: #f2f2f2;"> 
+                    {{evento.descripcion}}
+                </div>
+              </div>
+            </div>
+            <div class="modal-egresado">
+                <div class="container mb-2 mt-2">
+                    <div class="row mb-1">
+                        <div class="col-7 col-sm-7 col-md-7 col-lg-7 col-xl-7" style="margin: auto;">
+                          <p style="margin: auto; text-align: center;" style="color: #DAC0CF;"><b>Fecha de Inicio:</b></p> 
+                        </div>
+                        <div class="col-5 col-sm-5 col-md-5 col-lg-5 col-xl-5" style="color: #f2f2f2;">
+                            {{evento.fecha_inicio | date:'dd/MM/yyyy'}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-7 col-sm-7 col-md-7 col-lg-7 col-xl-7" style="margin: auto;">
+                          <p style="margin: auto; text-align: center;" style="color: #DAC0CF;"><b>Fecha de Culminasión:</b></p> 
+                        </div>
+                        <div class="col-5 col-sm-5 col-md-5 col-lg-5 col-xl-5" style="color: #f2f2f2;">
+                            {{evento.fecha_fin | date:'dd/MM/yyyy'}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <div class="modal-footer">
+          <button type="button" class="boton btn btn-primary" style="margin: auto; background-color: #750036 !important;
+          border: 1px solid #FC7DB2 !important; border-radius: 8px; color: white !important;" data-dismiss="modal">Regresar</button>
+        </div>
+      </div>
+    </div>d
+  </div>
+</main>

@@ -27,7 +27,7 @@ export class AdministradorComponent implements OnInit {
       
     }
     listar(){
-      this.Validador.RolUsuario(this.Token.get()).subscribe(
+      this.Validador.RolUsuario(this.Token.getAuth()).subscribe(
         data => this.handleResponse(data),
         error => this.handleError()
       );
@@ -37,7 +37,7 @@ export class AdministradorComponent implements OnInit {
         this.router.navigateByUrl('/home')
       }  
         if(data.ROLEID == 1 ){
-          this.Validador.personaEgresado(this.Token.get()).subscribe(response=>{
+          this.Validador.personaEgresado(this.Token.getAuth()).subscribe(response=>{
           if(response.imagen==null){
             this.ListImagen= null;
           }else{
@@ -52,9 +52,9 @@ export class AdministradorComponent implements OnInit {
       
     }
     handleError() {
-      this.Token.remove();
+      this.Token.removeAuth();
       this.Token.removeEgresado();
-      this.Token.removeUsuario();
+      this.Token.removeComment();
       this.Auth.changeAuthStatus(false);
       this.router.navigateByUrl('/');
     }

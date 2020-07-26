@@ -36,7 +36,6 @@ export class EventosService {
     return this.http.get<any>(`${this.endPoint}Dispo`);
   }
   public getById(id): Observable<any> {
-    console.log(id)
     return this.http.get<any>(`${this.endPoint}/${id}`);
   }
 }

@@ -18,7 +18,7 @@ export class GestionEventosComponent implements OnInit {
 
   listarEventos(){
 
-    this.EventosService.getlist(this.token.getUser()).subscribe(response => {
+    this.EventosService.getlist(this.token.getAuth()).subscribe(response => {
       this.eventos= response;
       console.log(response)
     });

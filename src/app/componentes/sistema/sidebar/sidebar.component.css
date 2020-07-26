@@ -53,6 +53,7 @@ main {
 
 .nav-item {
   width: 100%;
+  height: 10.9%;
 }
 .nav-item:last-child{
   margin-top: auto;
@@ -185,7 +186,9 @@ img{
   .link-text{
     display: none;
   }
-  
+  .link-text:hover{
+    display: none;
+  }
   main{
       margin-right: 0%;
       margin-left: 0%;

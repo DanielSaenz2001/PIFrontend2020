@@ -1,4 +1,6 @@
-<div  class="mt-4" style="width: 100%; border: 1px solid #EC808D; color: #750036 !important; background-color: #DAC0CF;">
+<app-sidebar></app-sidebar>
+<main>
+  <div  class="mt-4" style="width: 100%; border: 1px solid #EC808D; color: #750036 !important; background-color: #DAC0CF;">
     ||AGREGAR COMENTARIO.
 </div>
 <div class="container" >
@@ -8,15 +10,15 @@
 
             <form [formGroup]="comentarioForm">
               <div class="form-group row" style="margin: auto;">
-                <label for="inputName3" class="col-3 col-form-label" style="margin: auto;"><i><b>Imagen Definido:</b></i></label>
-                <div class="col-9" style="text-align: center;">
+                <label for="inputName3" class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3 col-form-label" style="margin: auto;"><i><b>Imagen Definido:</b></i></label>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-9 col-xl-9" style="text-align: center;">
                     <img src="../../../../assets/ImagenEgresado.png" alt="Imagen Egresado" style="width: 120px;">
 
                 </div>
               </div>
               <div class="form-group row" style="margin: auto;">
-                <label for="inputPassword3" class="col-3 col-form-label"><i><b>Tipo de Comentario: </b></i></label>
-                <div class="col-9">
+                <label for="inputPassword3" class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3 col-form-label"><i><b>Tipo de Comentario: </b></i></label>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-9 col-xl-9">
                     <select name="" id="" class="custom-select custom-select-lg mb-3" formControlName="tipo">
                         <option value="0">Queja</option>
                         <option value="1">Sugerencia</option>
@@ -25,15 +27,15 @@
                 </div>
               </div>
               <div class="form-group row row mb-2 mt-2" style="margin: auto;">
-                <label for="inputPasswordConfirmation3" class="col-3 col-form-label"><i><b>Comentario:</b></i></label>
-                <div class="col-9">
+                <label for="inputPasswordConfirmation3" class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3 col-form-label"><i><b>Comentario:</b></i></label>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-9 col-xl-9">
                     <textarea name="" id="" class="textinput form-control" formControlName="descripcionEgresado" placeholder="Descripción del Comentario"></textarea>
 
                 </div>
               </div>
               <div class="form-group row mb-2 mt-4" style="margin: auto;">
-                <label for="inputPasswordConfirmation3" class="col-3 col-form-label"> <i><b>(Opcional):</b></i></label>
-                <div class="col-9">
+                <label for="inputPasswordConfirmation3" class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3 col-form-label"> <i><b>(Opcional):</b></i></label>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-9 col-xl-9">
                     <input type="text" name="" id=""  class="form-control" formControlName="opcional">
                 </div>
               </div>
@@ -47,4 +49,5 @@
           </div>
     </div>
   </div>
+</main>
   

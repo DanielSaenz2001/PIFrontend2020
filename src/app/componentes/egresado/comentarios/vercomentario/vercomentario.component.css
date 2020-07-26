@@ -4,3 +4,8 @@
     color: #750036;
     border-radius: 10px;
 }
+main {
+    color: rgb(218, 192, 207);
+    margin-left: 12%;
+    padding: 1rem; 
+  }

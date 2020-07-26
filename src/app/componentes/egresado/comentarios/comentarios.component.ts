@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ComentariosService } from 'src/app/servicios/ComentariosService';
 import { TokenService } from 'src/app/servicios/TokenService';
+import { JarwisService } from 'src/app/servicios/JarwisService';
 
 @Component({
   selector: 'app-comentarios',
@@ -11,27 +10,35 @@ import { TokenService } from 'src/app/servicios/TokenService';
 })
 export class ComentariosComponent implements OnInit {
 
-  constructor(private router: Router,
-    private route: ActivatedRoute,
-    private formBuild: FormBuilder,
+  constructor(
     private ComentariosService: ComentariosService,
-    private token: TokenService) { }
+    private Token: TokenService,
+    private Jarwis: JarwisService) { }
     comentarios;
     iduser;
+    autorizados;
+    auto;
   ngOnInit(): void {
+    this.usuario();
     this.ListarComentarios();
   }
-
+  usuario(){
+    this.Jarwis.datos(this.Token.getAuth()).subscribe(response=>{
+      
+     this.auto = response;
+     this.autorizados = this.auto.autorizado;
+    });
+  }
   EliminarComentario(id){
-    this.ComentariosService.delete(id).subscribe(response => {
+    this.ComentariosService.delete(id).subscribe(data => {
       this.ListarComentarios()
     });
   }
   ListarComentarios(){
-    this.iduser = this.token.getUser();
-    this.ComentariosService.getlist().subscribe(response => {
-      this.comentarios= response;
+    this.iduser = this.Token.getUser();
+    this.ComentariosService.getlist().subscribe(asd => {
+      this.comentarios= asd;
     });
   }
-
+  
 }

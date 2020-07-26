@@ -28,7 +28,7 @@ export class ExperienciaLaboralComponent implements OnInit {
   }
   listar(){
     
-    this.Validador.egresadoPostgrado(this.Token.get()).subscribe(response=>{
+    this.Validador.egresadoPostgrado(this.Token.getAuth()).subscribe(response=>{
       this.ListExperiencia=response.experiencia;
       this.ListEstado=response.estado;
       if(response.estado.fecha_estado == null && response.estado.estado == 0){

@@ -23,7 +23,7 @@ export class PostgradosOtrosAdministradorComponent implements OnInit {
   ngOnInit(): void {
     this.form.idusuario=this.token.getUser();
     this.form2.idegresado=this.token.getEgresados();
-    this.AdministradorEgresadoService.getEgresadoById(this.token.getEgresados(),this.form).subscribe(response=>{
+    this.AdministradorEgresadoService.getEgresadoById(this.token.getEgresados(),this.token.getEg()).subscribe(response=>{
       this.ListPostgrados=response.postgrados;
     })
 

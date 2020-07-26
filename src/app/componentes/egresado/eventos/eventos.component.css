@@ -37,3 +37,39 @@ img{
     width: 200px;
     height: 150px;
 }
+.modal-egresado{
+    border-top: 1px solid #EC808D;
+  }
+    .modal-title{
+      color: #f2f2f2;
+    }
+    .modal-header{
+      border-bottom: 1px solid #EC808D;
+    }
+    .modal-footer{
+      border-top: 1px solid #EC808D;
+    }
+    .modal-content{
+      background-color: rgb(42, 34, 40);
+    }
+  
+    @media (min-width: 768px) {
+      .fullscreen-modal .modal-dialog {
+        width: 750px;
+      }
+    }
+    @media (min-width: 992px) {
+      .fullscreen-modal .modal-dialog {
+        width: 970px;
+      }
+    }
+    @media (min-width: 1200px) {
+      .fullscreen-modal .modal-dialog {
+         width: 1170px;
+      }
+    }
+    main {
+      color: rgb(218, 192, 207);
+      margin-left: 12%;
+      padding: 1rem; 
+    }

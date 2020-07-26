@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { TokenService } from 'src/app/servicios/TokenService';
 import { AdministradorEgresadoService } from 'src/app/servicios/AdministradorEgresadoService';
 import { Router } from '@angular/router';
+import { JarwisService } from 'src/app/servicios/JarwisService';
 
 @Component({
   selector: 'app-datos-egresado-administrador',
@@ -11,7 +12,8 @@ import { Router } from '@angular/router';
 export class DatosEgresadoAdministradorComponent implements OnInit {
 
   constructor(private token: TokenService, private AdministradorEgresadoService:AdministradorEgresadoService,
-    private router: Router) { }
+    
+    private Jarwis: JarwisService,private router: Router) { }
   id;
   edad
   ListEgresado;
@@ -24,7 +26,7 @@ export class DatosEgresadoAdministradorComponent implements OnInit {
   }
   ngOnInit(): void {
     this.form.idusuario=this.token.getUser();
-    this.AdministradorEgresadoService.getEgresadoById(this.token.getEgresados(),this.form).subscribe(response=>{
+    this.AdministradorEgresadoService.getEgresadoById(this.token.getEgresados(),this.token.getEg()).subscribe(response=>{
       console.log(response)
       if(response.persona.validado == 0){
         this.router.navigateByUrl('/administrador/egresado/'+this.token.getEgresados() +'/ValidarEgresado');
@@ -40,6 +42,7 @@ export class DatosEgresadoAdministradorComponent implements OnInit {
         this.ListImagen= response.imagen;
       }
     })
+
   }
 
 }

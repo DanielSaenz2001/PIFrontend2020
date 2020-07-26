@@ -25,7 +25,7 @@ export class PostgradoDocumentosComponent implements OnInit {
   egresado_id;
 
   ngOnInit(): void {
-    this.Validador.personaEgresado(this.Token.get()).subscribe(response=>{
+    this.Validador.personaEgresado(this.Token.getAuth()).subscribe(response=>{
       this.egresado_id=response.egresado.Egresado_id;
     })
     this.PosgradoForm = this.formBuild.group({

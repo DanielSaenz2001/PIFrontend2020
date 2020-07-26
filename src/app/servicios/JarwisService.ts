@@ -25,6 +25,18 @@ export class JarwisService {
     return this.http.post(`${this.baseUrl}/login`, data)
   }
 
+  login2(data) {
+    return this.http.post(`http://127.0.0.1:8080/api/loginotro`, data)
+  }
+  google2(data) {
+    return this.http.post(`http://127.0.0.1:8080/api/google`, data)
+  }
+  login3(data) {
+    return this.http.post(`http://127.0.0.1:8160/api/loginotro`, data)
+  }
+  google3(data) {
+    return this.http.post(`http://127.0.0.1:8160/api/google`, data)
+  }
   sendPasswordResetLink(data) {
     return this.http.post(`${this.baseUrl}/sendPasswordResetLink`, data)
   }
@@ -35,6 +47,18 @@ export class JarwisService {
   
   me(data) {
     return this.http.get(`${this.baseUrl}/usuario`,{ headers:{
+      'Authorization': "Bearer " + data,
+      }
+    })
+  }
+  me2(data) {
+    return this.http.get(`http://127.0.0.1:8080/api/usuario2`,{ headers:{
+      'Authorization': "Bearer " + data,
+      }
+    })
+  }
+  me3(data) {
+    return this.http.get(`http://127.0.0.1:8160/api/usuario2`,{ headers:{
       'Authorization': "Bearer " + data,
       }
     })

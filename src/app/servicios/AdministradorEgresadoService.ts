@@ -11,8 +11,11 @@ export class AdministradorEgresadoService {
 
   endPoint ='http://127.0.0.1:8160/api/administradoregresado'
 
-  public getEgresadoById(id,data): Observable<any> {
-    return this.http.put<any>(`${this.endPoint}/${id}`,data);
+  public getEgresadoById(id,token): Observable<any> {
+    return this.http.get<any>(`${this.endPoint}/${id}`,{ headers:{
+      'Authorization': "Bearer " + token,
+      }
+    });
   }
 
   public addEgresadoAministrador(data,token): Observable<any> {

@@ -27,7 +27,7 @@ export class ModuloEgresadosAdministradorComponent implements OnInit {
   }
 
   listar(){
-    this.Validador.RolUsuario(this.token.get()).subscribe(
+    this.Validador.RolUsuario(this.token.getAuth()).subscribe(
       data => this.handleResponse(data),
       error => this.handleError()
     );
@@ -37,7 +37,7 @@ export class ModuloEgresadosAdministradorComponent implements OnInit {
       this.router.navigateByUrl('/home')
     }  
       if(data.ROLEID == 1 ){
-        this.Validador.personaEgresado(this.token.get()).subscribe(response=>{
+        this.Validador.personaEgresado(this.token.getAuth()).subscribe(response=>{
         if(response.imagen==null){
           this.ListImagen= null;
         }else{
@@ -51,7 +51,7 @@ export class ModuloEgresadosAdministradorComponent implements OnInit {
     
   }
   handleError() {
-    this.token.remove();
+    this.token.removeAuth();
     this.token.removeEgresado();
     this.token.removeUsuario();
     this.Auth.changeAuthStatus(false);

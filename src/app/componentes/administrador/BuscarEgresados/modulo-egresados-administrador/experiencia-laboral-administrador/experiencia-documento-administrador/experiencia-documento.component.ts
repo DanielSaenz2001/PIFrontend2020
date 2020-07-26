@@ -44,7 +44,7 @@ export class ExperienciaDocumentoAdministradorComponent implements OnInit {
     this.id=this.token.getEgresados();
     this.form.idusuario=this.token.getUser();
 
-    this.AdministradorEgresadoService.getEgresadoById(this.token.getEgresados(),this.form).subscribe(response=>{
+    this.AdministradorEgresadoService.getEgresadoById(this.token.getEgresados(),this.token.getEg()).subscribe(response=>{
       this.egresado_id=response.egresado.Egresado_id;
     })
     this.ExpForm = this.formBuild.group({

@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ComentariosService } from 'src/app/servicios/ComentariosService';
 import { TokenService } from 'src/app/servicios/TokenService';
 import { DatePipe } from '@angular/common';
+import { JarwisService } from 'src/app/servicios/JarwisService';
 
 @Component({
   selector: 'app-comenta',
@@ -17,9 +18,11 @@ export class ComentaComponent implements OnInit {
     private route: ActivatedRoute,
     private formBuild: FormBuilder,
     private ComentariosService: ComentariosService,
-    private token: TokenService, private datePipe: DatePipe) { }
-
+    private token: TokenService, private datePipe: DatePipe,
+    private Jarwis: JarwisService) { }
+    comment;
   ngOnInit(): void {
+    this.listar();
     let id = this.route.snapshot.paramMap.get('id');
     console.log(id)
     if( id !== null && id !== undefined){
@@ -62,5 +65,12 @@ export class ComentaComponent implements OnInit {
   borrar(){
     this.comentarioForm.reset()
   }
-
+  listar(){
+    this.Jarwis.datos(this.token.getAuth()).subscribe(response=>{
+      this.comment=response;
+     if(this.comment.autorizado == 0){
+        this.router.navigateByUrl('/home');
+     };
+    });
+  }
 }
