@@ -9,27 +9,32 @@ export class EventosService {
   endPoint ='http://127.0.0.1:8080/api/eventos'
   constructor(private http:HttpClient) { }
 
-  public getlist(data): Observable<any>{
-    console.log(data);
-    return this.http.get<any>(`${this.endPoint}`,{ headers:{
-      'id':  data,
+  public getlist(): Observable<any>{
+    return this.http.get<any>(`${this.endPoint}`);
+  }
+
+  public add(data,token): Observable<any> {
+
+
+    return this.http.post(`${this.endPoint}`, data,{ headers:{
+      'Authorization': "Bearer " + token,
       }
     });
   }
 
-  public add(data): Observable<any> {
-
-
-    return this.http.post(`${this.endPoint}`, data);
+  public update(id, data,token): Observable<any> {
+      return this.http.put<any>(`${this.endPoint}/${id}`, data,{ headers:{
+        'Authorization': "Bearer " + token,
+        }
+      });
   }
 
-  public update(id, data): Observable<any> {
-      return this.http.put<any>(`${this.endPoint}/${id}`, data);
-  }
-
-  public delete(id): Observable<any> {
+  public delete(id,token): Observable<any> {
       console.log(id)
-      return this.http.delete<any>(`${this.endPoint}/${id}`);
+      return this.http.delete<any>(`${this.endPoint}/${id}`,{ headers:{
+        'Authorization': "Bearer " + token,
+        }
+      });
   }
   
   public EventosDispo(): Observable<any> {

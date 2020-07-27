@@ -41,7 +41,7 @@ import { ModuloEgresadosAdministradorComponent } from './componentes/administrad
 import { DatosEgresadoAdministradorComponent } from './componentes/administrador/BuscarEgresados/modulo-egresados-administrador/datos-egresado-administrador/datos-egresado-administrador.component';
 import { PostgradosOtrosAdministradorComponent } from './componentes/administrador/BuscarEgresados/modulo-egresados-administrador/postgrados-otros-administrador/postgrados-otros-administrador.component';
 import { ExperienciaLaboralAdministradorComponent } from './componentes/administrador/BuscarEgresados/modulo-egresados-administrador/experiencia-laboral-administrador/experiencia-laboral-administrador.component';
-import { ValidarEgresadoAdministradorComponent } from './componentes/administrador/BuscarEgresados/modulo-egresados-administrador/validar-egresado-administrador/validar-egresado-administrador.component';
+
 import { ActualizarDatosPersonalesAdministradorComponent } from './componentes/administrador/BuscarEgresados/modulo-egresados-administrador/datos-egresado-administrador/actualizar-datos-personales/actualizar-datos-personales.component';
 import { ExperienciaDocumentoAdministradorComponent } from './componentes/administrador/BuscarEgresados/modulo-egresados-administrador/experiencia-laboral-administrador/experiencia-documento-administrador/experiencia-documento.component';
 import { VerExperienciaAdministradorComponent } from './componentes/administrador/BuscarEgresados/modulo-egresados-administrador/experiencia-laboral-administrador/ver-experiencia-administrador/ver-experiencia-administrador.component';
@@ -50,8 +50,7 @@ import { PostgradoDocumentosAdministradorComponent } from './componentes/adminis
 import { RegistrarEgresadoComponent } from './componentes/administrador/BuscarEgresados/registrar-egresado/registrar-egresado.component';
 import { SidebarComponent } from './componentes/sistema/sidebar/sidebar.component';
 import { ValidarExpeComponent } from './componentes/administrador/BuscarEgresados/modulo-egresados-administrador/experiencia-laboral-administrador/validar-expe/validar-expe.component';
-
-
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 @NgModule({
   declarations: [
     AppComponent,
@@ -89,7 +88,6 @@ import { ValidarExpeComponent } from './componentes/administrador/BuscarEgresado
     DatosEgresadoAdministradorComponent,
     PostgradosOtrosAdministradorComponent,
     ExperienciaLaboralAdministradorComponent,
-    ValidarEgresadoAdministradorComponent,
     ActualizarDatosPersonalesAdministradorComponent,
     ExperienciaDocumentoAdministradorComponent,
     VerExperienciaAdministradorComponent,
@@ -105,7 +103,8 @@ import { ValidarExpeComponent } from './componentes/administrador/BuscarEgresado
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    SnotifyModule
+    SnotifyModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

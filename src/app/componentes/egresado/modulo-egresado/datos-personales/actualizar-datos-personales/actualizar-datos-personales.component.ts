@@ -72,7 +72,7 @@ export class ActualizarDatosPersonalesComponent implements OnInit {
           this.EgresadoEscuelas.setValue(response);
         });
         console.log()
-        this.personasService.getById(this.ListPersona.Persona_id).subscribe(response => {
+        this.personasService.getById(this.ListPersona.Persona_id,this.Token.getAuth()).subscribe(response => {
           this.PersonaForm.setValue(response);
         });
 
@@ -86,10 +86,10 @@ export class ActualizarDatosPersonalesComponent implements OnInit {
 
     console.log(this.EgresadoForm.value)
     console.log(this.PersonaForm.value)
-    this.EgresadoService.updateEgresado(this.EgresadoForm.value.id,this.EgresadoForm.value).subscribe(response=>{
+    this.EgresadoService.updateEgresado(this.EgresadoForm.value.id,this.EgresadoForm.value,this.Token.getEg()).subscribe(response=>{
       console.log(response)
     });
-    this.personasService.updatePersona(this.PersonaForm.value.id,this.PersonaForm.value).subscribe(response=>{
+    this.personasService.updatePersona(this.PersonaForm.value.id,this.PersonaForm.value,this.Token.getAuth()).subscribe(response=>{
       console.log(response)
     });
 

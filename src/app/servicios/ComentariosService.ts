@@ -16,19 +16,31 @@ export class ComentariosService {
     return this.http.get<any>(`${this.endPoint}NoRespuesta`);
   }
   
-  public add(data): Observable<any> {
-    return this.http.post(`${this.endPoint}`, data);
+  public add(data,token): Observable<any> {
+    return this.http.post(`${this.endPoint}`, data,{ headers:{
+      'Authorization': "Bearer " + token,
+      }
+    });
   }
 
-  public update(id, data): Observable<any> {
-      return this.http.put<any>(`${this.endPoint}/${id}`, data);
+  public update(id, data,token): Observable<any> {
+      return this.http.put<any>(`${this.endPoint}/${id}`, data,{ headers:{
+        'Authorization': "Bearer " + token,
+        }
+      });
   }
-  public ComentariosUpdateRespuesta(id, data): Observable<any> {
-    return this.http.put<any>(`${this.endPoint}UpdateRespuesta/${id}`, data);
-}
+  public ComentariosUpdateRespuesta(id, data,token): Observable<any> {
+    return this.http.put<any>(`${this.endPoint}UpdateRespuesta/${id}`, data,{ headers:{
+      'Authorization': "Bearer " + token,
+      }
+    });
+  }
  
-  public delete(id): Observable<any> {
-      return this.http.delete<any>(`${this.endPoint}/${id}`);
+  public delete(id,token): Observable<any> {
+      return this.http.delete<any>(`${this.endPoint}/${id}`,{ headers:{
+        'Authorization': "Bearer " + token,
+        }
+      });
   }
 
   public getById(id): Observable<any> {

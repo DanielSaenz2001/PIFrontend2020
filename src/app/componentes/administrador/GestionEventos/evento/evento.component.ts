@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { EventosService } from 'src/app/servicios/EventosService';
+import { TokenService } from 'src/app/servicios/TokenService';
 
 @Component({
   selector: 'app-evento',
@@ -16,7 +17,8 @@ export class EventoComponent implements OnInit {
   constructor( private router: Router,
     private route: ActivatedRoute,
     private formBuild: FormBuilder,
-    private EventoService: EventosService) { }
+    private EventoService: EventosService,
+    private token:TokenService) { }
 
   ngOnInit(): void {
     
@@ -51,12 +53,12 @@ export class EventoComponent implements OnInit {
     if(this.id == null && this.id == undefined){
 
       console.log(this.eventoForm.value)
-      this.EventoService.add(this.eventoForm.value).subscribe(response => {
+      this.EventoService.add(this.eventoForm.value,this.token.getComment()).subscribe(response => {
         this.router.navigateByUrl('/administrador/GestionarEventos');
       });
     }else{
 
-      this.EventoService.update(this.id, this.eventoForm.value).subscribe(response => {
+      this.EventoService.update(this.id, this.eventoForm.value,this.token.getComment()).subscribe(response => {
         this.router.navigateByUrl('/administrador/GestionarEventos');
       });
      this.eventoForm.reset()

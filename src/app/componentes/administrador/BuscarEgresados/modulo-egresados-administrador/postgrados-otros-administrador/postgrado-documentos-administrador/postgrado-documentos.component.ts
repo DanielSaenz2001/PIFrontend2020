@@ -61,12 +61,13 @@ guardar(){
     let id = this.route.snapshot.paramMap.get('id');
     this.btnDisable=true;
     if(id !== null){
-      this.PostradosService.update(id,this.PosgradoForm.value).subscribe(response=>{
+      this.PostradosService.update(id,this.PosgradoForm.value,this.token.getEg()).subscribe(response=>{
         this.router.navigateByUrl('/administrador/egresado/'+ this.token.getEgresados() +'/Postgrado-otros');
       });
     }else{
       this.PosgradoForm.value.egresado_id=this.egresado_id;
-      this.PostradosService.add(this.PosgradoForm.value).subscribe(response=>{
+      this.PostradosService.add(this.PosgradoForm.value,this.token.getEg()).subscribe(response=>{
+        
         this.router.navigateByUrl('/administrador/egresado/'+ this.token.getEgresados() +'/Postgrado-otros');
       });
     }
@@ -78,7 +79,7 @@ guardar(){
     this.btnDisable=true;
     let id = this.route.snapshot.paramMap.get('id');
     if(id !== null){
-      this.PostradosService.delete(id).subscribe(response=>{
+      this.PostradosService.delete(id,this.token.getEg()).subscribe(response=>{
         this.router.navigateByUrl('/administrador/egresado/'+ this.token.getEgresados() +'/Postgrado-otros');
       });
     }else{

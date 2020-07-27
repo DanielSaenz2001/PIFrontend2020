@@ -18,7 +18,7 @@ export class ExperienciaLaboralComponent implements OnInit {
     private datePipe: DatePipe) { }
     ListExperiencia;
     ListEstado;
-
+    pageActual: number = 1;
     public estado={
       fecha_estado:null,
       estado:null
@@ -37,7 +37,7 @@ export class ExperienciaLaboralComponent implements OnInit {
         this.estado.estado=0;
         this.estado.fecha_estado=fecha;
 
-        this.Egresado.EstadoEgresado(response.estado.egresado_id,this.estado).subscribe(response=>{
+        this.Egresado.EstadoEgresado(response.estado.egresado_id,this.estado,this.Token.getEg()).subscribe(response=>{
           this.listar();
         })
       }
@@ -66,7 +66,7 @@ export class ExperienciaLaboralComponent implements OnInit {
       if((mes_dif >= 3 && mes_dif < 5) && (response.estado.estado == 0 || response.estado.estado == 3)){
         this.estado.estado=1;
         console.log("estoy actualizando")
-        this.Egresado.EstadoEgresado(response.estado.egresado_id,this.estado).subscribe(response=>{
+        this.Egresado.EstadoEgresado(response.estado.egresado_id,this.estado,this.Token.getEg()).subscribe(response=>{
           this.listar();
         })
       }
@@ -75,7 +75,7 @@ export class ExperienciaLaboralComponent implements OnInit {
         this.estado.estado=0;
         this.estado.fecha_estado=fecha;
 
-        this.Egresado.EstadoEgresado(response.estado.egresado_id,this.estado).subscribe(response=>{
+        this.Egresado.EstadoEgresado(response.estado.egresado_id,this.estado,this.Token.getEg()).subscribe(response=>{
           this.listar();
         })
       }

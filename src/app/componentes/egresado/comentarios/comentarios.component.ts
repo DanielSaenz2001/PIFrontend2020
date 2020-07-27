@@ -16,7 +16,9 @@ export class ComentariosComponent implements OnInit {
     private Jarwis: JarwisService) { }
     comentarios;
     iduser;
+    user;
     autorizados;
+    pageActual: number = 1;
     auto;
   ngOnInit(): void {
     this.usuario();
@@ -30,14 +32,18 @@ export class ComentariosComponent implements OnInit {
     });
   }
   EliminarComentario(id){
-    this.ComentariosService.delete(id).subscribe(data => {
+    this.ComentariosService.delete(id,this.Token.getComment()).subscribe(data => {
       this.ListarComentarios()
     });
   }
   ListarComentarios(){
-    this.iduser = this.Token.getUser();
-    this.ComentariosService.getlist().subscribe(asd => {
-      this.comentarios= asd;
+    this.Jarwis.datos(this.Token.getAuth()).subscribe(response=>{
+      this.user= response;
+      this.iduser = this.user.id; 
+      this.ComentariosService.getlist().subscribe(asd => {
+        this.comentarios= asd;
+        console.log(asd)
+      });
     });
   }
   

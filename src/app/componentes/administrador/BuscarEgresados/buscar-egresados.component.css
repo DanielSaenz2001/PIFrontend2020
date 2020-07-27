@@ -57,12 +57,12 @@ option{
       margin-right: 10px;
   }
   
-  @media only screen and (max-width:818px) {
+  @media only screen and (max-width:828px) {
     #no{
         display: none;
     }
   }
-  @media only screen and (max-width:700px){
+  @media only screen and (max-width:710px){
     #no{
         display: none;
     }
@@ -70,7 +70,7 @@ option{
         display: none;
     }
   }
-  @media only screen and (max-width:515px){
+  @media only screen and (max-width:520px){
     #no{
         display: none;
     }
@@ -81,7 +81,7 @@ option{
         display: none;
     }
 }
-@media only screen and (max-width:433px){
+@media only screen and (max-width:443px){
     #no{
         display: none;
     }

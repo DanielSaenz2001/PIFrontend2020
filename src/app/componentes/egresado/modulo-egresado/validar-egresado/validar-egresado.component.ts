@@ -80,13 +80,15 @@ export class ValidarEgresadoComponent implements OnInit {
     this.EgresadoForm.value.persona_id=this.PERSONA_ID;
 
 
-    this.EgresadoService.add(this.EgresadoForm.value).subscribe(response=>{
+    this.EgresadoService.add(this.EgresadoForm.value,this.Token.getEg()).subscribe(response=>{
+      console.log(response)
       let idEgresado = response.id;
       this.EgresadoEscuelas.value.egresado_id=idEgresado;
-      this.EgresadoService.EgresadoEscuela(this.EgresadoEscuelas.value).subscribe();
+      this.EgresadoService.EgresadoEscuela(this.EgresadoEscuelas.value,this.Token.getEg()).subscribe();
     })
-    this.EgresadoService.updatePersonaEgresado(this.PERSONA_ID,1).subscribe();
+    this.EgresadoService.updatePersonaEgresado(this.PERSONA_ID,1,this.Token.getEg()).subscribe();
     this.router.navigateByUrl('/egresados/DatosEgresados');
+    
   }
   pais(){
     this.paisesService.paises().subscribe(response => {

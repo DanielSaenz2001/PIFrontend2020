@@ -37,7 +37,6 @@ import { ModuloEgresadosAdministradorComponent } from './componentes/administrad
 import { DatosEgresadoAdministradorComponent } from './componentes/administrador/BuscarEgresados/modulo-egresados-administrador/datos-egresado-administrador/datos-egresado-administrador.component';
 import { PostgradosOtrosAdministradorComponent } from './componentes/administrador/BuscarEgresados/modulo-egresados-administrador/postgrados-otros-administrador/postgrados-otros-administrador.component';
 import { ExperienciaLaboralAdministradorComponent } from './componentes/administrador/BuscarEgresados/modulo-egresados-administrador/experiencia-laboral-administrador/experiencia-laboral-administrador.component';
-import { ValidarEgresadoAdministradorComponent } from './componentes/administrador/BuscarEgresados/modulo-egresados-administrador/validar-egresado-administrador/validar-egresado-administrador.component';
 import { ActualizarDatosPersonalesAdministradorComponent } from './componentes/administrador/BuscarEgresados/modulo-egresados-administrador/datos-egresado-administrador/actualizar-datos-personales/actualizar-datos-personales.component';
 import { ExperienciaDocumentoAdministradorComponent } from './componentes/administrador/BuscarEgresados/modulo-egresados-administrador/experiencia-laboral-administrador/experiencia-documento-administrador/experiencia-documento.component';
 import { VerExperienciaAdministradorComponent } from './componentes/administrador/BuscarEgresados/modulo-egresados-administrador/experiencia-laboral-administrador/ver-experiencia-administrador/ver-experiencia-administrador.component';
@@ -115,10 +114,7 @@ const routes: Routes = [
       path: 'ExperienciaLaboral',
       component: ExperienciaLaboralAdministradorComponent
     },
-    {
-      path: 'ValidarEgresado',
-      component: ValidarEgresadoAdministradorComponent
-    },
+
     {
       path: 'Documentos-Experiencia',
       component: ExperienciaDocumentoAdministradorComponent

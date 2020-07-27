@@ -5,7 +5,6 @@ import { TokenService } from 'src/app/servicios/TokenService';
 import { PersonaService } from 'src/app/servicios/PersonaService';
 import { AdministradorEgresadoService } from 'src/app/servicios/AdministradorEgresadoService';
 import { DatePipe } from '@angular/common'
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registrar-egresado',
@@ -19,7 +18,6 @@ export class RegistrarEgresadoComponent implements OnInit {
     private Jarwis: JarwisService,
     private Token: TokenService,
     private PersonaService: PersonaService,
-    private router: Router,
     public datepipe: DatePipe,
     private AdministradorEgresadoService:AdministradorEgresadoService) { }
   codigo;
@@ -84,6 +82,7 @@ export class RegistrarEgresadoComponent implements OnInit {
     this.Sihay = false;
     this.Egresado = false;
     this.EgresadoService.getEgresadoCodigo(this.form).subscribe(response=>{
+      console.log(response)
       if(response.egresado !== null && response.upeu == null){
         this.Sihay = "El egresado esta registrado en nuestra base de datos";
       }

@@ -1,21 +1,28 @@
 <app-sidebar></app-sidebar>
 <main>
   <h3 class="titulo-productos text-center">Eventos UPeU Disponibles</h3>
-<div class="lista-productos">
-    <div class="producto" *ngFor="let data of eventos">
-        <div class="imagenp">
-            <img src="http://drive.google.com/uc?export=view&id={{data.link}}" alt="ImagenEvento">
-        </div>
-        <div class="titulo">
-            <h4><b><i>{{data.titulo}}</i></b> </h4> 
-        </div>
+<div class="row">
+    <div class="col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 mb-5" *ngFor="let data of eventos | paginate: { itemsPerPage: 4, currentPage: pageActual }">
+      <div class="row">
+        <div class="col-12" style="text-align: center;">
+          <img src="http://drive.google.com/uc?export=view&id={{data.link}}" alt="ImagenEvento">
+      </div>
+      <div class="col-12" style="text-align: center;">
+          <h4><b><i>{{data.titulo}}</i></b> </h4> 
+      </div>
+      
+      <div class="col-12" style="text-align: center;">
+          <button type="button" 
+          style="color: white;text-align: center; background-color: #750036; border-color: #FC7DB2;" 
+          class="btn btn-primary" data-toggle="modal" data-target="#myModal" (click)="verEvento(data.id)"><b>Ver</b></button>
+      </div>
+      </div>
         
-        <div class="boton">
-            <button type="button" 
-            style="color: white; background-color: #750036; border-color: #FC7DB2;" 
-            class="btn btn-primary" data-toggle="modal" data-target="#myModal" (click)="verEvento(data.id)"><b>Ver</b></button>
-        </div>
     </div>
+</div>
+<div class="row">
+  <pagination-controls (pageChange)="pageActual = $event">
+  </pagination-controls>
 </div>
 <!-- Modal -->
 <div class="modal fullscreen-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" *ngIf="evento">
@@ -62,6 +69,6 @@
           border: 1px solid #FC7DB2 !important; border-radius: 8px; color: white !important;" data-dismiss="modal">Regresar</button>
         </div>
       </div>
-    </div>d
+    </div>
   </div>
 </main>

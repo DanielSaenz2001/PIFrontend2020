@@ -25,7 +25,7 @@ export class VerExperienciaAdministradorComponent implements OnInit {
     this.exp_id = id;
     this.ExperienciaLaboralService.getById(id).subscribe(response=>{
       this.ListExp=response;
-      this.validarexp.getById(id).subscribe(hola=>{
+      this.validarexp.getById(id,this.token.getEg()).subscribe(hola=>{
         this.exp =Object.entries(hola).length
       })
     })

@@ -9,30 +9,23 @@ export class PersonaService {
   endPoint ='http://127.0.0.1:8000/api/persona' //LARAVEL Authenficaction
   constructor(private http:HttpClient) { }
 
-  public getlist(): Observable<any>{
-    return this.http.get<any>(`${this.endPoint}`)
+  public getlist(token): Observable<any>{
+    return this.http.get<any>(`${this.endPoint}`,{ headers:{
+      'Authorization': "Bearer " + token,
+      }
+    })
   }
-  public getById(id): Observable<any> {
-    return this.http.get<any>(`${this.endPoint}/${id}`);
+  public getById(id,token): Observable<any> {
+    return this.http.get<any>(`${this.endPoint}/${id}`,{ headers:{
+      'Authorization': "Bearer " + token,
+      }
+    });
   }
-  public add(data): Observable<any> {
-    return this.http.post<any>(`${this.endPoint}`, data);
-  }
-  public updatePersona(id, data): Observable<any> {
-      return this.http.put<any>(`${this.endPoint}Persona/${id}`, data);
-  }
-  public delete(id): Observable<any> {
-      
-      return this.http.delete<any>(`${this.endPoint}/${id}`);
-  }
-  public getlistUsuarios(): Observable<any>{
-    return this.http.get<any>(`${this.endPoint}Usuarios`)
-  }
-  public updateuser(id, data): Observable<any> {
-    return this.http.put<any>(`${this.endPoint}Usuarios/${id}`, data);
-  }
-  public updateuserol(id, data): Observable<any> {
-    return this.http.put<any>(`${this.endPoint}Usuarioss/${id}`, data);
+  public add(data,token): Observable<any> {
+    return this.http.post<any>(`${this.endPoint}`, data,{ headers:{
+      'Authorization': "Bearer " + token,
+      }
+    });
   }
   public addAministrador(data,token): Observable<any> {
     return this.http.post<any>(`${this.endPoint}administrador`, data,{ headers:{
@@ -40,4 +33,11 @@ export class PersonaService {
       }
     });
   }
+  public updatePersona(id, data,token): Observable<any> {
+    return this.http.put<any>(`${this.endPoint}Persona/${id}`, data,{ headers:{
+      'Authorization': "Bearer " + token,
+      }
+    });
+  }
+  
 }

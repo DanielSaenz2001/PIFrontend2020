@@ -11,11 +11,17 @@ export class ValidarExpService {
   constructor(private http:HttpClient) { }
 
 
-  public add(data): Observable<any> {
-    return this.http.post(`${this.endPoint}`, data);
+  public add(data,token): Observable<any> {
+    return this.http.post(`${this.endPoint}`, data,{ headers:{
+      'Authorization': "Bearer " + token,
+      }
+    });
   }
 
-  public getById(id): Observable<any> {
-    return this.http.get<any>(`${this.endPoint}/${id}`);
+  public getById(id,token): Observable<any> {
+    return this.http.get<any>(`${this.endPoint}/${id}`,{ headers:{
+      'Authorization': "Bearer " + token,
+      }
+    });
   }
 }

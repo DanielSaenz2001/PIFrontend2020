@@ -12,6 +12,7 @@ export class GestionUsuariosComponent implements OnInit {
   rol;
   ap_paterno;
   ap_materno;
+  pageActual: number = 1;
 
   Listusuarios;
   constructor(private UsuariosService: UsuariosService) { 
@@ -39,6 +40,7 @@ export class GestionUsuariosComponent implements OnInit {
     this.form.ap_materno=this.ap_materno;
     this.form.rol=this.rol;
     this.UsuariosService.usuariosFiltro(this.form).subscribe(response=>{
+      this.pageActual=1;
       this.Listusuarios=response;
     })
   }

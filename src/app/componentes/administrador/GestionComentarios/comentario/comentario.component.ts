@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ComentariosService } from 'src/app/servicios/ComentariosService';
+import { TokenService } from 'src/app/servicios/TokenService';
 @Component({
   selector: 'app-comentario',
   templateUrl: './comentario.component.html',
@@ -12,7 +13,8 @@ export class ComentarioComponent implements OnInit {
   constructor(private route: ActivatedRoute,
     private router: Router,
     private formBuild: FormBuilder,
-    private ComentariosService: ComentariosService) { }
+    private ComentariosService: ComentariosService,
+    private token: TokenService) { }
     comentarioForm: FormGroup;
     comentario
 
@@ -28,7 +30,7 @@ export class ComentarioComponent implements OnInit {
   SubmitComentario() {
     let id = this.route.snapshot.paramMap.get('id');
     if( id !== null &&  id !== undefined){
-      this.ComentariosService.ComentariosUpdateRespuesta( id, this.comentarioForm.value).subscribe(response => {
+      this.ComentariosService.ComentariosUpdateRespuesta( id, this.comentarioForm.value,this.token.getComment()).subscribe(response => {
         this.router.navigateByUrl('/administrador/GestionarComentarios');
       });
     }

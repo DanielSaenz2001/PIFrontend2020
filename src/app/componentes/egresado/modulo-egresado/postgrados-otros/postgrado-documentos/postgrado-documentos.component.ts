@@ -53,12 +53,13 @@ export class PostgradoDocumentosComponent implements OnInit {
     let id = this.route.snapshot.paramMap.get('id');
     this.btnDisable=true;
     if(id !== null){
-      this.PostradosService.update(id,this.PosgradoForm.value).subscribe(response=>{
+      this.PostradosService.update(id,this.PosgradoForm.value,this.Token.getEg()).subscribe(response=>{
+        console.log(response)
         this.router.navigateByUrl('/egresados/Postgrado-otros');
       });
     }else{
       this.PosgradoForm.value.egresado_id=this.egresado_id;
-      this.PostradosService.add(this.PosgradoForm.value).subscribe(response=>{
+      this.PostradosService.add(this.PosgradoForm.value,this.Token.getEg()).subscribe(response=>{
         this.router.navigateByUrl('/egresados/Postgrado-otros');
       });
     }
@@ -67,7 +68,7 @@ export class PostgradoDocumentosComponent implements OnInit {
     this.btnDisable=true;
     let id = this.route.snapshot.paramMap.get('id');
     if(id !== null){
-      this.PostradosService.delete(id).subscribe(response=>{
+      this.PostradosService.delete(id,this.Token.getEg()).subscribe(response=>{
         this.router.navigateByUrl('/egresados/Postgrado-otros');
       });
     }else{

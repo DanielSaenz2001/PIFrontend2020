@@ -21,7 +21,7 @@ export class ValidarExpeComponent implements OnInit {
   validarForm: FormGroup;
   ngOnInit(): void {
 
-    this.validarexp.getById(this.exp_id).subscribe(hola=>{
+    this.validarexp.getById(this.exp_id,this.token.getEg()).subscribe(hola=>{
       this.exp =Object.entries(hola).length;
       if(this.exp == 0){
         
@@ -46,8 +46,8 @@ export class ValidarExpeComponent implements OnInit {
   }
   agregar(){
     console.log(this.validarForm.value)
-    this.validarexp.add(this.validarForm.value).subscribe(response=>{
-      console.log(response)
+    this.validarexp.add(this.validarForm.value,this.token.getEg()).subscribe(response=>{
+      window.location.reload();
     })
   }
 }

@@ -21,6 +21,7 @@ export class ComentaComponent implements OnInit {
     private token: TokenService, private datePipe: DatePipe,
     private Jarwis: JarwisService) { }
     comment;
+    btnDisable;
   ngOnInit(): void {
     this.listar();
     let id = this.route.snapshot.paramMap.get('id');
@@ -46,16 +47,17 @@ export class ComentaComponent implements OnInit {
   SubmitComentario() {
     let id = this.route.snapshot.paramMap.get('id');
     console.log(id)
+    this.btnDisable=true;
     if( id == null && id == undefined){
       let myDate = new Date();
       let fecha = this.datePipe.transform(myDate, 'yyyy-MM-dd');
       this.comentarioForm.value.user_id = this.token.getUser();
       this.comentarioForm.value.fecha_creacion =fecha;
-      this.ComentariosService.add(this.comentarioForm.value).subscribe(response => {
+      this.ComentariosService.add(this.comentarioForm.value,this.token.getComment()).subscribe(response => {
         this.router.navigateByUrl('/comentarios');
       });
     }else{
-      this.ComentariosService.update(id,this.comentarioForm.value).subscribe(response => {
+      this.ComentariosService.update(id,this.comentarioForm.value,this.token.getComment()).subscribe(response => {
         this.router.navigateByUrl('/comentarios');
       });
     }

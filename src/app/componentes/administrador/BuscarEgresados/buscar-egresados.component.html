@@ -69,7 +69,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let l of ListaEgresado; index as i">
+        <tr *ngFor="let l of ListaEgresado | paginate: { itemsPerPage: 5, currentPage: pageActual }; index as i">
             <td class="bordes" style=" text-align: center;   width: 15%;" id="no3">
                 <div *ngIf="l.estado == 0">
                     <img src="../../../../assets/rojo-punto.webp" style="width: 30px;" alt="">
@@ -89,7 +89,14 @@
             <td class="botones"><button class="boton form-control" routerLink="/administrador/egresado/{{l.id}}/DatosEgresados">Editar</button></td>
         </tr>
     </tbody>
-
+    <tfoot>
+        <tr class="bordesid" style="background-color: #750036;text-align: start;">
+            <th colspan="5">
+                <pagination-controls (pageChange)="pageActual = $event">
+                </pagination-controls>
+            </th>
+        </tr>
+    </tfoot>
 </table>
 
 <div class="row mt-5">

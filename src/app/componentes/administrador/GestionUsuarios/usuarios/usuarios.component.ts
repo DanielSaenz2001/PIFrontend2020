@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { UsuariosService } from 'src/app/servicios/UsuariosService';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { TokenService } from 'src/app/servicios/TokenService';
 
 @Component({
   selector: 'app-usuarios',
@@ -10,7 +11,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class UsuariosComponent implements OnInit {
 
-  constructor(private router: Router,
+  constructor(private token: TokenService,
     private route: ActivatedRoute,
     private formBuild: FormBuilder,
     private UsuariosService: UsuariosService) { }
@@ -52,9 +53,11 @@ export class UsuariosComponent implements OnInit {
   }
   actualizar(){
     this.btnDisable=true;
-    this.UsuariosService.actualizarRolUsuario(this.RoleUserRolForm.value.id,this.RoleUserRolForm.value).subscribe(response=>{
-      this.UsuariosService.actualizarAutorizacionUsuario(this.AutorizadoUser.value.id,this.AutorizadoUser.value).subscribe()
+    this.UsuariosService.actualizarRolUsuario(this.RoleUserRolForm.value.id,this.RoleUserRolForm.value,this.token.getAuth()).subscribe(response=>{
+      this.UsuariosService.actualizarAutorizacionUsuario(this.AutorizadoUser.value.id,this.AutorizadoUser.value,this.token.getAuth()).subscribe(response=>{
+        console.log(response)
         location.reload();
+      })
     })
     
     

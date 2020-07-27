@@ -20,15 +20,22 @@ export class UsuariosService {
   getRolesById(id){
     return this.http.get<any>(`${this.endPoint}roles/${id}`);
   }
-
   getUserAutorizadoById(id){
     return this.http.get<any>(`${this.endPoint}autorizadousuario/${id}`);
   }
 
-  public actualizarRolUsuario(id, data): Observable<any> {
-    return this.http.put<any>(`${this.endPoint}actualizarRolUsuario/${id}`, data);
+  public actualizarRolUsuario(id, data,token): Observable<any> {
+    return this.http.put<any>(`${this.endPoint}actualizarRolUsuario/${id}`, data,{ headers:{
+      'Authorization': "Bearer " + token,
+      }
+    });
   }
-  public actualizarAutorizacionUsuario(id, data): Observable<any> {
-    return this.http.put<any>(`${this.endPoint}actualizarAutorizacionUsuario/${id}`, data);
+  public actualizarAutorizacionUsuario(id, data,token): Observable<any> {
+    return this.http.put<any>(`${this.endPoint}actualizarAutorizacionUsuario/${id}`, data,{ headers:{
+      'Authorization': "Bearer " + token,
+      }
+    });
   }
+
 }
+

@@ -1,3 +1,6 @@
+.col-12 ,.col-sm-12 ,.col-md-5 ,.col-lg-5 ,.col-xl-5{
+  position: initial;
+}
 .titulo-productos{
     width: 100%; 
     border: 1px solid #EC808D; 
@@ -28,14 +31,14 @@
 .titulo{
     color: #DAC0CF; 
 }
-.imagenp:hover{
+img:hover{
 	transform: scale(1.5);
     filter: contrast(150%);
     color: #DAC0CF;
 }
 img{
-    width: 200px;
-    height: 150px;
+  width: 180px;
+  height: 150px;
 }
 .modal-egresado{
     border-top: 1px solid #EC808D;
@@ -72,4 +75,15 @@ img{
       color: rgb(218, 192, 207);
       margin-left: 12%;
       padding: 1rem; 
+    }
+    @media only screen and (max-width:599px){
+    
+      main{
+          margin-right: 0%;
+          margin-left: 0%;
+          margin-top: 5rem;
+          
+          width: 100%;
+      }
+  
     }

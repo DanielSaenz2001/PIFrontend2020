@@ -33,9 +33,50 @@ td{
     border-bottom: 1px solid  #EC808D;
     border-right: 1px solid  #EC808D;
 }
+#no3{
+    width: 0px;
+    display:none ;
+}
+#no4{
+    width: 0px;
+    display:none ;
+}
 .boton{
     background-color: #750036; width: 80px;  border: 1px solid #FC7DB2; border-radius: 8px; color: white;
 }
+.boton2{
+    background-color: #750036; width: 30px;  border: 1px solid #FC7DB2; border-radius: 8px; color: white;
+}
 .botones{
     width: 10%;
+}
+@media only screen and (max-width:630px){
+    #no1{
+        width: 0px;
+        display:none !important;
+    }
+}
+@media only screen and (max-width:460px){
+    #no2{
+        width: 0px;
+        display:none !important;
+    }
+}
+@media only screen and (max-width:432px){
+    #no3{
+        width: 10px;
+        margin-left: 5px;
+        margin-right: 5px;
+        display: inline-grid;
+    }
+    #no4{
+        width: 10px;
+        display: inline-grid;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    #no5{
+        width: 0px;
+        display:none !important;
+    }
 }

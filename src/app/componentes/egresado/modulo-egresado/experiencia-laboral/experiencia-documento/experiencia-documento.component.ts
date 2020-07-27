@@ -69,22 +69,23 @@ export class ExperienciaDocumentoComponent implements OnInit {
     let id = this.route.snapshot.paramMap.get('id');
     this.btnDisable=true;
     if(id !== null){
-      this.ExperienciaLaboralService.update(id,this.ExpForm.value).subscribe(response=>{
+      this.ExperienciaLaboralService.update(id,this.ExpForm.value,this.Token.getEg()).subscribe(response=>{
+        console.log(response)
 
         this.estado.estado=2;
         this.estado.fecha_estado=fecha;
-        this.Egresado.EstadoEgresado(this.egresado_id,this.estado).subscribe(response=>{
+        this.Egresado.EstadoEgresado(this.egresado_id,this.estado,this.Token.getEg()).subscribe(response=>{
           this.router.navigateByUrl('/egresados/ExperienciaLaboral');
         })
 
       });
     }else{
       this.ExpForm.value.egresado_id=this.egresado_id;
-      this.ExperienciaLaboralService.add(this.ExpForm.value).subscribe(response=>{
+      this.ExperienciaLaboralService.add(this.ExpForm.value,this.Token.getEg()).subscribe(response=>{
 
         this.estado.estado=2;
         this.estado.fecha_estado=fecha;
-        this.Egresado.EstadoEgresado(this.egresado_id,this.estado).subscribe(response=>{
+        this.Egresado.EstadoEgresado(this.egresado_id,this.estado,this.Token.getEg()).subscribe(response=>{
           this.router.navigateByUrl('/egresados/ExperienciaLaboral');
         })
         
@@ -96,11 +97,11 @@ export class ExperienciaDocumentoComponent implements OnInit {
     let fecha = this.datePipe.transform(fec_actual, 'yyyy-MM-dd');
     let id = this.route.snapshot.paramMap.get('id');
     if(id !== null){
-      this.ExperienciaLaboralService.delete(id).subscribe(response=>{
+      this.ExperienciaLaboralService.delete(id,this.Token.getEg()).subscribe(response=>{
         
         this.estado.estado=2;
         this.estado.fecha_estado=fecha;
-        this.Egresado.EstadoEgresado(this.egresado_id,this.estado).subscribe(response=>{
+        this.Egresado.EstadoEgresado(this.egresado_id,this.estado,this.Token.getEg()).subscribe(response=>{
           this.router.navigateByUrl('/egresados/ExperienciaLaboral');
         })
 

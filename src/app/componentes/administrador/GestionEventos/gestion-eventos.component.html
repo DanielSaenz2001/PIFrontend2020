@@ -2,13 +2,13 @@
     Eventos UPeU 2020
 </div>
 
-<div class="mt-5 mb-5" style="width: 100%; border: 1px solid #EC808D; color: #750036; background-color: #DAC0CF;">
+<!--<div class="mt-5 mb-5" style="width: 100%; border: 1px solid #EC808D; color: #750036; background-color: #DAC0CF;">
     Para poner imagen es : http://drive.google.com/uc?export=view&id="ID"
     La id se encuentra en compartir el enlace en el drive: https://drive.google.com/file/d/1IctIvzwwgEW44b-h6JGO7_rEJhFYMZxh/view?usp=sharing
     El id se encuentra entre:https://drive.google.com/file/d/"ID"/view?usp=sharing
     Solo copias el id y ya esta
 </div>
-<!--
+
 <img src="http://drive.google.com/uc?export=view&id=1IctIvzwwgEW44b-h6JGO7_rEJhFYMZxh" alt="">
 
 --> 
@@ -17,29 +17,57 @@
     <table class="table ">
         <thead style="background-color: #DAC0CF;">
             <tr >
-                <th>#</th>
+                <th id="no2">#</th>
                 <th>Evento</th>
-                <th>Fecha</th>
+                <th id="no1">Fecha</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let i of eventos, index as a">
-                <td class="bordesid">{{a+1}}</td>
+            <tr *ngFor="let i of eventos | paginate: { itemsPerPage: 5, currentPage: pageActual }; index as a">
+                <td id="no2" class="bordesid">{{a+1}}</td>
                 <td class="bordes">{{i.titulo}}</td>
-                <td class="bordes" style=" text-align: center;   width: 15%;">{{i.fecha_inicio}}</td>
-                <td class="botones"><button class="boton" routerLink="/administrador/GestionarEventos/evento/{{i.id}}">Editar</button></td>
-                <td class="botones"><button class="boton" (click)="eliminarEvento(i.id)">Eliminar</button></td>
+                <td id="no1" class="bordes" style=" text-align: center;   width: 15%;">{{i.fecha_inicio | date:'dd/MM/yyyy'}}</td>
+                <td class="botones" id="no5"><button class="boton" routerLink="/administrador/GestionarEventos/evento/{{i.id}}" >Editar</button></td>
+                <td class="botones" id="no5"><button class="boton" (click)="eliminarEvento(i.id)" >Eliminar</button></td>
+                <td class="botones" id="no3">
+                <button class="boton2" (click)="eliminarEvento(i.id)" >
+                    <i class="fa fa-edit"  routerLink="/administrador/GestionarEventos/evento/{{i.id}}" ></i>
+                </button>
+                   
+                </td>
+                <td class="botones" id="no4">
+                    <button class="boton2" (click)="eliminarEvento(i.id)" >
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </td>
+
             </tr>
         </tbody>
-
+        <tfoot>
+            <tr class="bordesid" style="text-align: start;">
+                <th colspan="3">
+                    <pagination-controls (pageChange)="pageActual = $event">
+                    </pagination-controls>
+                </th>
+            </tr>
+        </tfoot>
     </table>
     
     <div class="container mt-5" style="margin: 0 auto;">
         <div class="row">
-            <div class="col-1"></div>
-            <div class="col-5" style="text-align: right;"><button class="boton" style="width: 120px !important;" routerLink="/administrador/GestionarEventos/evento">Agregar Evento</button></div>
-            <div class="col-5" style="text-align: left;"><button class="boton" style="width: 100px !important;" routerLink="/eventos">Ver Eventos</button></div>
-            <div class="col-1"></div>
+            <div class="col-col-0 col-sm-0 col-md-1 col-lg-1 col-xl-1"></div>
+            <div class="col-col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 mt-3" >
+                <div style="text-align: center;">
+                    <button class="boton" style="width: 120px !important; margin: auto;" routerLink="/administrador/GestionarEventos/evento">Agregar Evento</button>
+                </div>
+                
+            </div>
+            <div class="col-col-12 col-sm-12 col-md-5 col-lg-5 col-xl-5 mt-3" >
+                <div style="text-align: center;">
+                    <button class="boton" style="width: 100px !important; margin: auto;" routerLink="/eventos">Ver Eventos</button>
+                </div>
+            </div>
+            <div class="col-col-0 col-sm-0 col-md-1 col-lg-1 col-xl-1"></div>
         </div>
     </div>
 </div>

@@ -20,12 +20,12 @@ export class DatosEgresadoAdministradorComponent implements OnInit {
   ListEscuelas;
   ListPersona;
   ListImagen;
-
+  idusuario;
   public form={
     idusuario:''
   }
   ngOnInit(): void {
-    this.form.idusuario=this.token.getUser();
+    this.idusuario=this.token.getEgresados();
     this.AdministradorEgresadoService.getEgresadoById(this.token.getEgresados(),this.token.getEg()).subscribe(response=>{
       console.log(response)
       if(response.persona.validado == 0){

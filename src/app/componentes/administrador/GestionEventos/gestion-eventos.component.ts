@@ -11,6 +11,7 @@ export class GestionEventosComponent implements OnInit {
   constructor(private token:TokenService, private EventosService: EventosService) { }
 
 
+  pageActual: number = 1;
 
   ngOnInit(): void {
     this.listarEventos();
@@ -18,13 +19,13 @@ export class GestionEventosComponent implements OnInit {
 
   listarEventos(){
 
-    this.EventosService.getlist(this.token.getAuth()).subscribe(response => {
+    this.EventosService.getlist().subscribe(response => {
       this.eventos= response;
       console.log(response)
     });
   }
   eliminarEvento(id){
-    this.EventosService.delete(id).subscribe(response => {
+    this.EventosService.delete(id,this.token.getComment()).subscribe(response => {
       this.listarEventos();
     });
   }

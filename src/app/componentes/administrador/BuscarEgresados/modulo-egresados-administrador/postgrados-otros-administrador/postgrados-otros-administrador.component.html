@@ -27,7 +27,7 @@ align-items: center;border: 1px solid #EC808D; color: #750036; background-color:
             </tr>
         </thead>
         <tbody>
-            <tr style="text-align: center;" *ngFor="let post of ListPostgrados">
+            <tr style="text-align: center;" *ngFor="let post of ListPostgrados | paginate: { itemsPerPage: 5, currentPage: pageActual }">
                 <td id="no3" class="bordes">{{post.agrado_academico}}</td>
                 <td class="bordes">{{post.descripcion}}</td>
                 <td id="no2"class="bordes">{{post.entidad}}</td>
@@ -42,7 +42,10 @@ align-items: center;border: 1px solid #EC808D; color: #750036; background-color:
         </tbody>
         <tfoot>
             <tr class="bordesid" style="text-align: start;">
-                <th colspan="5">#</th>
+                <th colspan="5">
+                    <pagination-controls (pageChange)="pageActual = $event">
+                    </pagination-controls>
+                </th>
             </tr>
         </tfoot>
     </table>

@@ -25,7 +25,7 @@ export class PersonaFormComponent implements OnInit {
     private Jarwis: JarwisService, private Token:TokenService,
     private Auth: AuthService) { 
       let id =this.route.snapshot.paramMap.get('id')
-      this.personaServices.getById(id).subscribe();
+      this.personaServices.getById(id,this.Token.getAuth()).subscribe();
       
     }
     btnDisable;
@@ -99,7 +99,7 @@ export class PersonaFormComponent implements OnInit {
 
       console.log(this.personaForm.value)
       this.btnDisable=true;
-      this.personaServices.add(this.personaForm.value).subscribe(response => {
+      this.personaServices.add(this.personaForm.value,this.Token.getAuth()).subscribe(response => {
         this.IDPersona= response.id;
         this.validarpersona(this.Token.getAuth(),this.IDUSER)   
         this.router.navigateByUrl('/');

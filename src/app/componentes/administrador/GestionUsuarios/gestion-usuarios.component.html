@@ -62,7 +62,7 @@
       </tr>
   </thead>
   <tbody>
-      <tr *ngFor="let l of Listusuarios; index as i">
+      <tr *ngFor="let l of Listusuarios | paginate: { itemsPerPage: 5, currentPage: pageActual }; index as i">
           <td class="bordesid" style=" text-align: center;   width: 15%;">{{i+1}}</td>
           <td class="bordes" style=" text-align: center;   width: 15%;">{{l.rol}}</td>
           <td class="bordes" style=" text-align: center;   width: 15%;">{{l.dni}}</td>
@@ -71,5 +71,12 @@
           <td class="botones"><button class="boton form-control" routerLink="Usuarios/{{l.id}}">Editar</button></td>
       </tr>
   </tbody>
-
+  <tfoot>
+    <tr class="bordesid" style="background-color: #DAC0CF;text-align: start;">
+        <th colspan="5">
+            <pagination-controls (pageChange)="pageActual = $event">
+            </pagination-controls>
+        </th>
+    </tr>
+</tfoot>
 </table>

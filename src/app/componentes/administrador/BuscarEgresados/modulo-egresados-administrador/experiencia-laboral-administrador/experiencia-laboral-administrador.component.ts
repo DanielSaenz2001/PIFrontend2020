@@ -19,6 +19,7 @@ export class ExperienciaLaboralAdministradorComponent implements OnInit {
   ListExperiencia;
   ListEstado;
     id;
+    pageActual: number = 1;
   public form={
     idusuario:''
   }
@@ -44,7 +45,7 @@ export class ExperienciaLaboralAdministradorComponent implements OnInit {
         this.estado.estado=0;
         this.estado.fecha_estado=fecha;
 
-        this.Egresado.EstadoEgresado(this.token.getEgresados(),this.estado).subscribe(response=>{
+        this.Egresado.EstadoEgresado(this.token.getEgresados(),this.estado,this.token.getEg()).subscribe(response=>{
           this.listar();
         })
       }
@@ -69,7 +70,7 @@ export class ExperienciaLaboralAdministradorComponent implements OnInit {
       if((mes_dif+1 >= 3 && mes_dif+1 < 5) && response.egresado.estado == 0){
         this.estado.estado=1;
 
-        this.Egresado.EstadoEgresado(this.token.getEgresados(),this.estado).subscribe(response=>{
+        this.Egresado.EstadoEgresado(this.token.getEgresados(),this.estado,this.token.getEg()).subscribe(response=>{
           this.listar();
         })
       }
@@ -78,7 +79,7 @@ export class ExperienciaLaboralAdministradorComponent implements OnInit {
         this.estado.estado=0;
         this.estado.fecha_estado=fecha;
 
-        this.Egresado.EstadoEgresado(this.token.getEgresados(),this.estado).subscribe(response=>{
+        this.Egresado.EstadoEgresado(this.token.getEgresados(),this.estado,this.token.getEg()).subscribe(response=>{
           this.listar();
         })
       }

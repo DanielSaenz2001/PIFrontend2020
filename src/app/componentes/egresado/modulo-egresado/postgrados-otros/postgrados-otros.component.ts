@@ -12,6 +12,7 @@ export class PostgradosOtrosComponent implements OnInit {
   constructor(private Validador: ValidadoresService,
     private Token: TokenService) { }
     ListPostgrados;
+    pageActual: number = 1;
   ngOnInit(): void {
     this.Validador.egresadoPostgrado(this.Token.getAuth()).subscribe(response=>{
       this.ListPostgrados=response.postgrados;

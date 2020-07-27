@@ -12,6 +12,7 @@ export class PostgradosOtrosAdministradorComponent implements OnInit {
   constructor(private token: TokenService,
     private AdministradorEgresadoService:AdministradorEgresadoService) { }
   ListPostgrados;
+  pageActual: number = 1;
 
   public form={
     idusuario:''

@@ -14,6 +14,7 @@ export class EventosComponent implements OnInit {
     this.listarEventos();
   }
   eventos;
+  pageActual: number = 1;
   evento;
   listarEventos(){
     this.EventosService.EventosDispo().subscribe( response =>{

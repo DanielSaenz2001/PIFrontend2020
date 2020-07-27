@@ -64,8 +64,7 @@ export class ActualizarDatosPersonalesAdministradorComponent implements OnInit {
   }
   listar(){
  
-    this.form.idusuario=this.token.getUser();
-    this.AdministradorEgresadoService.getEgresadoById(this.token.getEgresados(),this.form).subscribe(response=>{
+    this.AdministradorEgresadoService.getEgresadoById(this.token.getEgresados(),this.token.getEg()).subscribe(response=>{
       console.log(response)
       if(response.persona.validado == 1){
         this.ListPersona= response.persona;
@@ -77,7 +76,7 @@ export class ActualizarDatosPersonalesAdministradorComponent implements OnInit {
           this.EgresadoEscuelas.setValue(response);
         });
 
-        this.personasService.getById(this.ListPersona.Persona_id).subscribe(response => {
+        this.personasService.getById(this.ListPersona.Persona_id,this.token.getAuth()).subscribe(response => {
           this.PersonaForm.setValue(response);
         });
 
@@ -92,10 +91,10 @@ export class ActualizarDatosPersonalesAdministradorComponent implements OnInit {
 
     console.log(this.EgresadoForm.value)
     console.log(this.PersonaForm.value)
-    this.EgresadoService.updateEgresado(this.EgresadoForm.value.id,this.EgresadoForm.value).subscribe(response=>{
+    this.EgresadoService.updateEgresado(this.EgresadoForm.value.id,this.EgresadoForm.value,this.token.getEg()).subscribe(response=>{
       this.router.navigateByUrl('/administrador/egresado/'+this.token.getEgresados()+'/DatosEgresados');
     });
-    this.personasService.updatePersona(this.PersonaForm.value.id,this.PersonaForm.value).subscribe(response=>{
+    this.personasService.updatePersona(this.PersonaForm.value.id,this.PersonaForm.value,this.token.getAuth()).subscribe(response=>{
       this.router.navigateByUrl('/administrador/egresado/'+this.token.getEgresados()+'/DatosEgresados');
     });
 

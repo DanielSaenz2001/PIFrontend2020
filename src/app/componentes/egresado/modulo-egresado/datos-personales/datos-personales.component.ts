@@ -14,6 +14,7 @@ edad
 ListEgresado;
 ListEscuelas;
 ListPersona;
+idegresado;
 ListImagen;
 
   constructor(
@@ -24,6 +25,7 @@ ListImagen;
 
   ngOnInit(): void {
     this.Validador.DatosPersona(this.Token.getAuth()).subscribe(response=>{
+      this.idegresado = response.user_ID;
       if(response.validado == 0){
         this.router.navigateByUrl('/egresados/ValidarEgresado');
       }else{
