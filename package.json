@@ -1,6 +1,5 @@
 {
   "name": "pifrontend2020",
-  
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -23,10 +22,11 @@
     "@angular/router": "~10.0.1",
     "@fortawesome/fontawesome-free": "^5.13.0",
     "bootstrap": "^4.5.0",
+    "express": "^4.17.1",
     "jquery": "^3.5.1",
     "ng-snotify": "^9.0.1",
     "ngx-pagination": "^5.0.0",
-    "express": "^4.17.1",
+    "path": "^0.12.7",
     "popper.js": "^1.16.1",
     "rxjs": "~6.5.4",
     "tslib": "^2.0.0",
