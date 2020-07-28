@@ -100,21 +100,14 @@ export class PersonaFormComponent implements OnInit {
       console.log(this.personaForm.value)
       this.btnDisable=true;
       this.personaServices.add(this.personaForm.value,this.Token.getAuth()).subscribe(response => {
-        this.IDPersona= response.id;
-        this.validarpersona(this.Token.getAuth(),this.IDUSER)   
+        this.IDPersona= response.id; 
         this.router.navigateByUrl('/');
       });
       
      
   }
 
-  validarpersona(token,idusuario){
-    this.Jarwis.validar(idusuario, 1
-      ,token
-      ).subscribe(response => {
-        console.log(response)
-      });
-  }
+
 
   listar(){
     this.Jarwis.datos(this.Token.getAuth()).subscribe(

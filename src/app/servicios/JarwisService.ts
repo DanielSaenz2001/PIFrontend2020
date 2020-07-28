@@ -69,12 +69,7 @@ export class JarwisService {
       }
     })
   }
-  validar(id, data,token): Observable<any> {
-    return this.http.put<any>(`${this.baseUrl}/userupdate/${id}`, data,{ headers:{
-      'Authorization': "Bearer " + token,
-      }
-    });
-  }
+
 
   users(data) {
     return this.http.get(`${this.baseUrl}/users`,{ headers:{

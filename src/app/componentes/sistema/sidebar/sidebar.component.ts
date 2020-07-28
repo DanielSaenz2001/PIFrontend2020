@@ -4,6 +4,7 @@ import { TokenService } from 'src/app/servicios/TokenService';
 import { Router } from '@angular/router';
 import {Location} from '@angular/common';
 import { AuthService } from 'src/app/guard/AuthService';
+import { EgresadoService } from 'src/app/servicios/EgresadoService';
 
 @Component({
   selector: 'app-sidebar',
@@ -11,17 +12,18 @@ import { AuthService } from 'src/app/guard/AuthService';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-
+  validado=true;
   list;
   ListImagen;
   ListPersona;
   rol;
-
+  estado;
   constructor(private Validador: ValidadoresService,
     private Auth: AuthService,
     private router: Router,
     private Token: TokenService,
-    private _location: Location) { }
+    private _location: Location,
+    private egre:EgresadoService) { }
 
     ngOnInit(): void {
       this.listar();
@@ -37,6 +39,25 @@ export class SidebarComponent implements OnInit {
       this.rol= data.ROLEID;
       console.log(data.ROLEID)
       this.Validador.personaEgresado(this.Token.getAuth()).subscribe(response=>{
+      console.log(response)
+      if(response.egresado == null){
+        this.validado=false;
+      }else{
+        response.egresado.egreso
+          let fecha = new Date();
+          let dife = fecha.getFullYear() - response.egresado.egreso;
+          console.log(dife)
+        
+        if( (response.egresado.profesional == 0 &&  dife <= 5)){
+          this.estado=1
+          this.egre.profesional(this.Token.getEg()).subscribe()
+        }else{
+          this.estado=0
+        }
+        if( response.egresado.profesional == 1){
+          this.estado=1
+        }
+      }
       if(response.imagen==null){
         this.ListImagen= null;
       }else{

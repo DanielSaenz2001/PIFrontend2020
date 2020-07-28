@@ -10,7 +10,7 @@ import { EgresadoService } from 'src/app/servicios/EgresadoService';
   styleUrls: ['./datos-personales.component.css']
 })
 export class DatosPersonalesComponent implements OnInit {
-edad
+edad;
 ListEgresado;
 ListEscuelas;
 ListPersona;
@@ -31,7 +31,6 @@ ListImagen;
       }else{
         this.listar();
       }
-      
     })
   }
   listar(){

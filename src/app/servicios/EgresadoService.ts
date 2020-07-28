@@ -60,5 +60,10 @@ export class EgresadoService {
       }
     });
   }
-
+  public profesional(token): Observable<any> {
+    return this.http.get<any>(`${this.endPoint}Profesional`,{ headers:{
+      'Authorization': "Bearer " + token,
+      }
+    });
+  }
 }
