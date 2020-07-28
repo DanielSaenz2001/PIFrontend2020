@@ -24,8 +24,8 @@ export class PersonaFormComponent implements OnInit {
     private paisesService:PaisesService,
     private Jarwis: JarwisService, private Token:TokenService,
     private Auth: AuthService) { 
-      let id =this.route.snapshot.paramMap.get('id')
-      this.personaServices.getById(id,this.Token.getAuth()).subscribe();
+      //let id =this.route.snapshot.paramMap.get('id')
+      //this.personaServices.getById(id,this.Token.getAuth()).subscribe();
       
     }
     btnDisable;
@@ -120,7 +120,8 @@ export class PersonaFormComponent implements OnInit {
     this.IDUSER =data.id
     this.Email =data.email
     this.vali =data.validado
-    if(this.vali !== 0){
+    console.log(data)
+    if(this.vali !== false){
       this.router.navigateByUrl('/home');
     }
   }

@@ -28,6 +28,7 @@ export class GestionComentariosComponent implements OnInit {
   }
   ListarComentarios(){
     this.ComentariosService.getlistComentariosNoRespuesta().subscribe(response => {
+      console.log(response)
       this.comentarios= response;
     });
   }

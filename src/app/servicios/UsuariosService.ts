@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UsuariosService {
-  endPoint ='http://127.0.0.1:8000/api/'
+  endPoint ='https://sheltered-scrubland-22795.herokuapp.com/api/'
   constructor(private http:HttpClient) { }
 
   usuarios(){

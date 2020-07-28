@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ValidadoresService {
 
-  endPoint ='http://127.0.0.1:8000/api/'
+  endPoint ='https://sheltered-scrubland-22795.herokuapp.com/api/'
   constructor(private http:HttpClient) { }
 
   public DatosPersona(data): Observable<any>{

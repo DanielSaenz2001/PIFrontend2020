@@ -145,7 +145,8 @@ export class ActualizarDatosPersonalesAdministradorComponent implements OnInit {
       egreso  :['', [Validators.required]],
       fecha_estado:[],
       estado:[],
-      persona_id  :[]
+      persona_id  :[],
+      profesional:[]
     });
     this.EgresadoEscuelas = this.formBuild.group({
       id:  [''],

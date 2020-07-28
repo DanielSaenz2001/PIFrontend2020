@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 })
 export class PersonaService {
 
-  endPoint ='http://127.0.0.1:8000/api/persona' //LARAVEL Authenficaction
+  endPoint ='https://sheltered-scrubland-22795.herokuapp.com/api/persona' //LARAVEL Authenficaction
   constructor(private http:HttpClient) { }
 
   public getlist(token): Observable<any>{

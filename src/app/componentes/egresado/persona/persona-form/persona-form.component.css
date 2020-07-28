@@ -30,3 +30,39 @@ select{
 -moz-box-shadow: 10px 10px 10px -5px rgba(0,0,0,0.75);
 box-shadow: 10px 10px 10px -5px rgba(0,0,0,0.75);
 }
+.card {
+    position: relative;
+    display: flex;
+    color: #f2f2f2;
+    font-weight: bolder;
+    background-color:unset !important ; 
+    background-clip: border-box;
+    border: 0px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+}
+input{
+    border: 1px solid #EC808D;
+    background-color: #DAC0CF;
+}
+select{
+    border: 1px solid #EC808D;
+    background-color: #DAC0CF;
+}
+option{
+    border: 1px solid #EC808D;
+    background-color: #DAC0CF;
+}
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #750036;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color: #750036;
+   opacity: 1 /* esto es porque Firefox le reduce la opacidad por defecto */;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color: #750036;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: #750036;
+}

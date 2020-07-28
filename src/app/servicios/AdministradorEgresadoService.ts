@@ -9,7 +9,7 @@ export class AdministradorEgresadoService {
 
   constructor(private http:HttpClient) { }
 
-  endPoint ='http://127.0.0.1:8160/api/administradoregresado'
+  endPoint ='https://megresado.herokuapp.com/api/administradoregresado'
 
   public getEgresadoById(id,token): Observable<any> {
     return this.http.get<any>(`${this.endPoint}/${id}`,{ headers:{
@@ -19,13 +19,13 @@ export class AdministradorEgresadoService {
   }
 
   public addEgresadoAministrador(data,token): Observable<any> {
-    return this.http.post<any>(`http://127.0.0.1:8000/api/addEgresado`, data,{ headers:{
+    return this.http.post<any>(`https://sheltered-scrubland-22795.herokuapp.com/api/addEgresado`, data,{ headers:{
       'Authorization': "Bearer " + token,
       }
     });
   }
   public addEscuelaAministrador(data,token): Observable<any> {
-    return this.http.post<any>(`http://127.0.0.1:8000/api/addEscuela`, data,{ headers:{
+    return this.http.post<any>(`https://sheltered-scrubland-22795.herokuapp.com/api/addEscuela`, data,{ headers:{
       'Authorization': "Bearer " + token,
       }
     });

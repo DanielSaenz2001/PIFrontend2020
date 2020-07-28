@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PostradoOtrosService {
 
-  endPoint ='http://127.0.0.1:8160/api/postgrado'
+  endPoint ='https://megresado.herokuapp.com/api/postgrado'
   constructor(private http:HttpClient) { }
 
   public getlist(): Observable<any>{

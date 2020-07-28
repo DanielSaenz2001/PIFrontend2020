@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class EgresadoService {
 
-  endPoint ='http://127.0.0.1:8160/api/egresado'
+  endPoint ='https://megresado.herokuapp.com/api/egresado'
   constructor(private http:HttpClient) { }
 
   public getlist(): Observable<any>{

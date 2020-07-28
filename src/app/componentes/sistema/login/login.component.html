@@ -2,9 +2,9 @@
 <app-navbar></app-navbar>
 <div class="container" >
   
-    <div class="mt-5 col-8 col-sm-8 col-md-8 col-lg-7 col-xl-6 offset-2">
+    <div class="mt-5 col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 offset-2">
       <div class="card rounded">
-        <div class="card-header" style="text-align: center;">Bienvenidos al <b>Sistema de Egresados</b> de la <b>Universidad Peruana Unión</b> .</div>
+        <div class="card-header" style="text-align: center; background-color: #8b2a3f; color: #f2f2f2;">Bienvenidos al <b>Sistema de Egresados</b> de la <b>Universidad Peruana Unión</b> .</div>
         <div class="card-body">
           <form #loginForm=ngForm (ngSubmit)="onSubmit()">
     
@@ -14,14 +14,14 @@
               </div>
             </div>
             <div class="form-group row">
-              <label for="inputEmail3" class="col-12 col-form-label" style="text-align: center;">Email</label>
+              <label for="inputEmail3" class="col-12 col-form-label" style="text-align: center;"><b>Email</b></label>
               <div class="col-8" style="margin: auto;">
                 <input type="email" name="email" class="form-control" id="inputEmail3" placeholder="Email" [(ngModel)]="form.email" required >
               </div>
             </div>
     
             <div class="form-group row">
-              <label for="inputPassword3" class="col-12 col-form-label" style="text-align: center;">Contraseña</label>
+              <label for="inputPassword3" class="col-12 col-form-label" style="text-align: center;"><b>Contraseña</b></label>
               <div class="col-8" style="margin: auto;">
                 <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="Password" [(ngModel)]="form.password"
                   required>
@@ -38,20 +38,18 @@
           </form>
         </div>
         <div class="col-12 " style=" 
-        bottom: 0; border-top: 0.1px solid black;">
+        bottom: 0; border-top: 0.1px solid #992e45;     background-color: #DAC0C8;">
         <div class="row mt-2 mb-2">
-          <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4" style="text-align: center;"> <a routerLink="/RecuperarContraseña" style="text-align: center;">Re. Cont</a></div>
-          <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4" style="text-align: center; background-color: red;">
-            <a class="google" href="http://localhost:8000/social/redirect/google" 
+          <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4" style="text-align: center;"> <a routerLink="/RecuperarContraseña" style="text-align: center; color: black;">Re. Cont</a></div>
+          <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4" style="text-align: center;     border-radius: 8px; background-color: #992e45;">
+            <a class="google" href="https://sheltered-scrubland-22795.herokuapp.com/social/redirect/google" 
               style="color: white; ">
                 <i class="fab fa-google"></i> Login Google
             </a>
           </div>
-          <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4" style="text-align: center;"><a routerLink="/registrarse" style="text-align: center;">Registrarse</a></div>
+          <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4" style="text-align: center; color: #992e45;"><a routerLink="/registrarse" style="text-align: center; color: black;">Registrarse</a></div>
         </div>
-         
-          
-          
+                
         </div>
       </div>
     </div>

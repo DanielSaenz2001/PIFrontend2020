@@ -48,7 +48,8 @@ export class HomeComponent implements OnInit {
   }
   handleResponse(data) {
     this.list= data;
-    if(this.list.validado == 0 ){
+    console
+    if(this.list.validado == false ){
       this.router.navigateByUrl('/ValidacionPersona');
     }else{
       this.ValidadoresService.RolUsuario(this.Token.getAuth()).subscribe(response=>{
@@ -68,23 +69,5 @@ export class HomeComponent implements OnInit {
 
   userProfile(id){
     this.USERID = id;
-  }
-  verdatos(){
-    console.log(this.Token.getComment())
-    this.Jarwis.me2(this.Token.getComment()).subscribe(response=>{
-      console.log(response)
-    })
-  }
-  verdatos2(){
-    console.log(this.Token.getEg())
-    this.Jarwis.me3(this.Token.getEg()).subscribe(response=>{
-      console.log(response)
-    })
-  }
-  verdatos3(){
-    console.log(this.Token.getAuth())
-    this.Jarwis.datos(this.Token.getAuth()).subscribe(response=>{
-      console.log(response)
-    })
   }
 }

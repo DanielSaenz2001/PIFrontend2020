@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 })
 export class ComentariosService {
 
-  endPoint ='http://127.0.0.1:8080/api/Comentarios'
+  endPoint ='https://mfacultad.herokuapp.com/api/Comentarios'
   constructor(private http:HttpClient) { }
 
   public getlist(): Observable<any>{

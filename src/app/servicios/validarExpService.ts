@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ValidarExpService {
 
-  endPoint ='http://127.0.0.1:8160/api/validarexp'
+  endPoint ='https://megresado.herokuapp.com/api/validarexp'
   constructor(private http:HttpClient) { }
 
 

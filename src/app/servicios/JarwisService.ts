@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 })
 export class JarwisService {
 
-  private baseUrl = 'http://127.0.0.1:8000/api'; //Laravel Autentification
+  private baseUrl = 'https://sheltered-scrubland-22795.herokuapp.com/api'; //Laravel Autentification
 
   constructor(private http: HttpClient) { }
   
@@ -26,16 +26,16 @@ export class JarwisService {
   }
 
   login2(data) {
-    return this.http.post(`http://127.0.0.1:8080/api/loginotro`, data)
+    return this.http.post(`https://mfacultad.herokuapp.com/api/loginotro`, data)
   }
   google2(data) {
-    return this.http.post(`http://127.0.0.1:8080/api/google`, data)
+    return this.http.post(`https://mfacultad.herokuapp.com/api/google`, data)
   }
   login3(data) {
-    return this.http.post(`http://127.0.0.1:8160/api/loginotro`, data)
+    return this.http.post(`https://megresado.herokuapp.com/api/loginotro`, data)
   }
   google3(data) {
-    return this.http.post(`http://127.0.0.1:8160/api/google`, data)
+    return this.http.post(`https://megresado.herokuapp.com/api/google`, data)
   }
   sendPasswordResetLink(data) {
     return this.http.post(`${this.baseUrl}/sendPasswordResetLink`, data)
@@ -52,13 +52,13 @@ export class JarwisService {
     })
   }
   me2(data) {
-    return this.http.get(`http://127.0.0.1:8080/api/usuario2`,{ headers:{
+    return this.http.get(`https://mfacultad.herokuapp.com/api/usuario2`,{ headers:{
       'Authorization': "Bearer " + data,
       }
     })
   }
   me3(data) {
-    return this.http.get(`http://127.0.0.1:8160/api/usuario2`,{ headers:{
+    return this.http.get(`https://megresado.herokuapp.com/api/usuario2`,{ headers:{
       'Authorization': "Bearer " + data,
       }
     })
@@ -77,16 +77,5 @@ export class JarwisService {
       }
     })
   }
-
-  profile(data){
-    const headers = new HttpHeaders();
-    headers.append('Content-Type', 'multipart/form-data');
-    headers.append('Accept', 'application/json');
-    console.log(data)
-    this.http.post(`${this.baseUrl}/image`, data, {headers: headers}).subscribe(response=>{
-      console.log(response)
-    })
-  }
-
 
 }

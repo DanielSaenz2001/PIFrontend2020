@@ -47,14 +47,17 @@ export class SidebarComponent implements OnInit {
           let fecha = new Date();
           let dife = fecha.getFullYear() - response.egresado.egreso;
           console.log(dife)
-        
-        if( (response.egresado.profesional == 0 &&  dife <= 5)){
+          console.log(response.egresado.profesional )
+        if( (response.egresado.profesional == false &&  dife >= 5)){
+          console.log("debo actualziar")
           this.estado=1
           this.egre.profesional(this.Token.getEg()).subscribe()
         }else{
           this.estado=0
+          console.log("soy egresado")
         }
-        if( response.egresado.profesional == 1){
+        if( response.egresado.profesional == true){
+          console.log("soy profesional")
           this.estado=1
         }
       }

@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class FacultadesService {
 
-  endPoint ='http://127.0.0.1:8080/api/' //LARAVEL MPaises
+  endPoint ='https://mfacultad.herokuapp.com/api/' //LARAVEL MPaises
   constructor(private http:HttpClient) { }
 
   public facultades(): Observable<any>{

@@ -6,8 +6,8 @@ import { JarwisService } from './JarwisService';
 export class TokenService {
 
   private iss = {
-    login: 'http://127.0.0.1:8000/api/login', //Laravel Authentification
-    signup: 'http://127.0.0.1:8000/api/signup' //Laravel Authentification
+    login: 'https://sheltered-scrubland-22795.herokuapp.com/api/login', //Laravel Authentification
+    signup: 'https://sheltered-scrubland-22795.herokuapp.com/api/signup' //Laravel Authentification
   };
   rol: any;
 
