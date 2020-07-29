@@ -21,6 +21,7 @@ export class UsuariosService {
     return this.http.get<any>(`${this.endPoint}roles/${id}`);
   }
   getUserAutorizadoById(id){
+    console.log(id)
     return this.http.get<any>(`${this.endPoint}autorizadousuario/${id}`);
   }
 

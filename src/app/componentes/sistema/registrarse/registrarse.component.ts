@@ -50,10 +50,10 @@ export class RegistrarseComponent implements OnInit {
   }
   handleResponse(data) {
     this.Token.handleAuth(data.access_token);
+    
     this.Jarwis.login2(this.Registro).subscribe(response =>{
-      console.log(response)
-      this.Token.handleComment(response);
       this.Jarwis.login3(this.Registro).subscribe(data2=>{
+        this.Token.handleComment(response);
         this.Token.handleEg(data2);
         this.Auth.changeAuthStatus(true);
         this.router.navigateByUrl('/home');

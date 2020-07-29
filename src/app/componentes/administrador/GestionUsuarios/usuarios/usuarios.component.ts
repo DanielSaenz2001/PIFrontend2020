@@ -25,6 +25,7 @@ export class UsuariosComponent implements OnInit {
   ngOnInit(): void {
     let id = this.route.snapshot.paramMap.get('id');
     this.UsuariosService.getById(id).subscribe(response=>{
+      console.log(response)
       this.ListUsuario=response.usuario;
       this.ListRoles=response.roles;
 
@@ -32,7 +33,10 @@ export class UsuariosComponent implements OnInit {
       this.UsuariosService.getRolesById(this.ListUsuario.roles_users).subscribe(roles_users=>{
         this.RoleUserRolForm.setValue(roles_users);
       })
-      this.UsuariosService.getUserAutorizadoById(this.ListUsuario.id).subscribe(autorizado=>{
+      console.log("id user =" + this.ListUsuario.id)
+      console.log("id user =" + id)
+      this.UsuariosService.getUserAutorizadoById(id).subscribe(autorizado=>{
+        console.log(autorizado)
         this.AutorizadoUser.setValue(autorizado);
       })
     })
