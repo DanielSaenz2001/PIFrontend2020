@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit {
   handleResponse(data) {
     this.list= data;
     console
-    if(this.list.validado == false ){
+    if(this.list.validado == false || this.list.validado == 0 ){
       this.router.navigateByUrl('/ValidacionPersona');
     }else{
       this.ValidadoresService.RolUsuario(this.Token.getAuth()).subscribe(response=>{

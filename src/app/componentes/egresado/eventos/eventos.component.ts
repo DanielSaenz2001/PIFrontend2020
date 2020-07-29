@@ -19,7 +19,6 @@ export class EventosComponent implements OnInit {
   listarEventos(){
     this.EventosService.EventosDispo().subscribe( response =>{
       this.eventos = response;
-      console.log(response);
     })
   }
   verEvento(id){

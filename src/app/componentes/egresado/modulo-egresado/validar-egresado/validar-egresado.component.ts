@@ -66,7 +66,7 @@ export class ValidarEgresadoComponent implements OnInit {
   }
   listar(){
     this.Validador.DatosPersona(this.Token.getAuth()).subscribe(response=>{
-      if(response.validado == false){
+      if(response.validado == false || response.validado == 0){
         this.PERSONA_ID=response.persona_ID;
         this.persona=response;
       }else{
@@ -81,7 +81,6 @@ export class ValidarEgresadoComponent implements OnInit {
 
     console.log(this.EgresadoForm.value)
     this.EgresadoService.add(this.EgresadoForm.value,this.Token.getEg()).subscribe(response=>{
-      console.log(response)
       let idEgresado = response.id;
       this.EgresadoEscuelas.value.egresado_id=idEgresado;
       this.EgresadoService.EgresadoEscuela(this.EgresadoEscuelas.value,this.Token.getEg()).subscribe(response=>{

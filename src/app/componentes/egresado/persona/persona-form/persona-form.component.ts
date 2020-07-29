@@ -120,8 +120,7 @@ export class PersonaFormComponent implements OnInit {
     this.IDUSER =data.id
     this.Email =data.email
     this.vali =data.validado
-    console.log(data)
-    if(this.vali !== false){
+    if(this.vali !== false || this.list.validado !== 0){
       this.router.navigateByUrl('/home');
     }
   }

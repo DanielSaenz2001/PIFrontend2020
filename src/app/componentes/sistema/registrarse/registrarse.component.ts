@@ -77,8 +77,14 @@ export class RegistrarseComponent implements OnInit {
     email: new FormControl('',[
       Validators.required,
       Validators.pattern("^[a-z0-9._%+-]+@[u]+[p]+[e]+[u]\.edu+\.pe$")]),
-      password: new FormControl(''),
-      password_confirmation: new FormControl(''),
+      password: new FormControl('',[
+        Validators.required,
+        Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')
+      ]),
+      password_confirmation: new FormControl('',[
+        Validators.required,
+        Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')
+      ]),
       validado:new FormControl(0),
       autorizado:new FormControl(0)
     });

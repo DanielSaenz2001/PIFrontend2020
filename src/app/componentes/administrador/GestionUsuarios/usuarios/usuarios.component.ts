@@ -33,10 +33,8 @@ export class UsuariosComponent implements OnInit {
       this.UsuariosService.getRolesById(this.ListUsuario.roles_users).subscribe(roles_users=>{
         this.RoleUserRolForm.setValue(roles_users);
       })
-      console.log("id user =" + this.ListUsuario.id)
-      console.log("id user =" + id)
+
       this.UsuariosService.getUserAutorizadoById(id).subscribe(autorizado=>{
-        console.log(autorizado)
         this.AutorizadoUser.setValue(autorizado);
       })
     })
@@ -59,7 +57,6 @@ export class UsuariosComponent implements OnInit {
     this.btnDisable=true;
     this.UsuariosService.actualizarRolUsuario(this.RoleUserRolForm.value.id,this.RoleUserRolForm.value,this.token.getAuth()).subscribe(response=>{
       this.UsuariosService.actualizarAutorizacionUsuario(this.AutorizadoUser.value.id,this.AutorizadoUser.value,this.token.getAuth()).subscribe(response=>{
-        console.log(response)
         location.reload();
       })
     })

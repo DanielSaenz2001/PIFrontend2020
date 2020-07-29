@@ -42,7 +42,6 @@ export class ComentariosComponent implements OnInit {
       this.iduser = this.user.id; 
       this.ComentariosService.getlist().subscribe(asd => {
         this.comentarios= asd;
-        console.log(asd)
       });
     });
   }

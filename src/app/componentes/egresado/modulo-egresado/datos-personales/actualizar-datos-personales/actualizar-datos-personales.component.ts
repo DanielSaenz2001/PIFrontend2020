@@ -61,7 +61,7 @@ export class ActualizarDatosPersonalesComponent implements OnInit {
   listar(){
     this.Validador.personaEgresado
     (this.Token.getAuth()).subscribe(response=>{
-      if(response.persona.validado == true){
+      if(response.persona.validado == true|| response.persona.validado == 1){
         this.ListPersona= response.persona;
         this.ListEscuelas= response.escuela;
         this.ListEgresado= response.egresado;
@@ -71,7 +71,6 @@ export class ActualizarDatosPersonalesComponent implements OnInit {
           response.facultad_id=this.ListEscuelas.facultad_id;
           this.EgresadoEscuelas.setValue(response);
         });
-        console.log()
         this.personasService.getById(this.ListPersona.Persona_id,this.Token.getAuth()).subscribe(response => {
           this.PersonaForm.setValue(response);
         });
@@ -86,12 +85,8 @@ export class ActualizarDatosPersonalesComponent implements OnInit {
 
     console.log(this.EgresadoForm.value)
     console.log(this.PersonaForm.value)
-    this.EgresadoService.updateEgresado(this.EgresadoForm.value.id,this.EgresadoForm.value,this.Token.getEg()).subscribe(response=>{
-      console.log(response)
-    });
-    this.personasService.updatePersona(this.PersonaForm.value.id,this.PersonaForm.value,this.Token.getAuth()).subscribe(response=>{
-      console.log(response)
-    });
+    this.EgresadoService.updateEgresado(this.EgresadoForm.value.id,this.EgresadoForm.value,this.Token.getEg()).subscribe();
+    this.personasService.updatePersona(this.PersonaForm.value.id,this.PersonaForm.value,this.Token.getAuth()).subscribe();
 
     this.router.navigateByUrl('/egresados/DatosEgresados');
   }

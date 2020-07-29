@@ -70,7 +70,7 @@ export class ComentaComponent implements OnInit {
   listar(){
     this.Jarwis.datos(this.token.getAuth()).subscribe(response=>{
       this.comment=response;
-     if(this.comment.autorizado == 0){
+     if(this.comment.autorizado == 0 || this.comment.autorizado == false){
         this.router.navigateByUrl('/home');
      };
     });

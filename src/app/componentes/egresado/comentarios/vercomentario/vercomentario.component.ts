@@ -19,8 +19,8 @@ export class VercomentarioComponent implements OnInit {
     
     this.ComentariosService.getByIdRespuesta(id).subscribe(response => {
       this.comentario=response
-      console.log(response)
     });
   }
+
 
 }

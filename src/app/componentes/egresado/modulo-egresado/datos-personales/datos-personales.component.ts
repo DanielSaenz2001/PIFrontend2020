@@ -26,7 +26,7 @@ ListImagen;
   ngOnInit(): void {
     this.Validador.DatosPersona(this.Token.getAuth()).subscribe(response=>{
       this.idegresado = response.user_ID;
-      if(response.validado == false){
+      if(response.validado == false || response.validado == 0){
         this.router.navigateByUrl('/egresados/ValidarEgresado');
       }else{
         this.listar();
