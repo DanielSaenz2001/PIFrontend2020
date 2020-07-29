@@ -66,7 +66,7 @@ export class ValidarEgresadoComponent implements OnInit {
   }
   listar(){
     this.Validador.DatosPersona(this.Token.getAuth()).subscribe(response=>{
-      if(response.validado == 0){
+      if(response.validado == false){
         this.PERSONA_ID=response.persona_ID;
         this.persona=response;
       }else{
