@@ -49,17 +49,18 @@ export class RegistrarseComponent implements OnInit {
    
   }
   handleResponse(data) {
-    this.Token.handleAuth(data.access_token);
+    /*this.Token.handleAuth(data.access_token);
     
     this.Jarwis.login2(this.Registro).subscribe(response =>{
       this.Jarwis.login3(this.Registro).subscribe(data2=>{
         this.Token.handleComment(response);
         this.Token.handleEg(data2);
         this.Auth.changeAuthStatus(true);
-        this.router.navigateByUrl('/home');
+        this.router.navigateByUrl('/homed');
       })
     })
-    location.reload();
+    location.reload();*/
+    this.router.navigateByUrl('/');
   }
 
   handleError(error) {
