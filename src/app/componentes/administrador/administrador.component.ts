@@ -33,7 +33,7 @@ export class AdministradorComponent implements OnInit {
       );
     }
     handleResponse(data) {
-      if(data.ROLEID !== 1 || data.autorizado == 0){
+      if(data.ROLEID !== 1){
         this.router.navigateByUrl('/home')
       }  
         if(data.ROLEID == 1 ){

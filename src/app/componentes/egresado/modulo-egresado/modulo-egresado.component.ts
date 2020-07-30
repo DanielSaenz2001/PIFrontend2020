@@ -33,7 +33,7 @@ export class ModuloEgresadoComponent implements OnInit {
     );
   }
   handleResponse(data) {
-    if(data.autorizado == 0 || data.ROLEID !== 3 ){
+    if((data.autorizado == 0 || data.autorizado == false) && data.ROLEID !== 3 ){
       this.router.navigateByUrl('/home')
     }
     if(data.ROLEID == 3 ){
