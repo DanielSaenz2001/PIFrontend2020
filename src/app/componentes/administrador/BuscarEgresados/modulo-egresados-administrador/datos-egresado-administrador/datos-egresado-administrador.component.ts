@@ -27,7 +27,6 @@ export class DatosEgresadoAdministradorComponent implements OnInit {
   ngOnInit(): void {
     this.idusuario=this.token.getEgresados();
     this.AdministradorEgresadoService.getEgresadoById(this.token.getEgresados(),this.token.getEg()).subscribe(response=>{
-      console.log(response)
       if(response.persona.validado == 0){
         this.router.navigateByUrl('/administrador/egresado/'+this.token.getEgresados() +'/ValidarEgresado');
       }else{

@@ -63,6 +63,8 @@ export class PersonaFormComponent implements OnInit {
         dependiente:null,
         user_id:[''],
       });
+
+  
   }
 
   pais(){
@@ -101,7 +103,7 @@ export class PersonaFormComponent implements OnInit {
       this.btnDisable=true;
       this.personaServices.add(this.personaForm.value,this.Token.getAuth()).subscribe(response => {
         this.IDPersona= response.id; 
-        this.router.navigateByUrl('/');
+        this.router.navigateByUrl('/home');
       });
       
      
@@ -120,7 +122,7 @@ export class PersonaFormComponent implements OnInit {
     this.IDUSER =data.id
     this.Email =data.email
     this.vali =data.validado
-    if(this.vali !== false || this.list.validado !== 0){
+    if(this.vali !== false || this.vali !== 0){
       this.router.navigateByUrl('/home');
     }
   }

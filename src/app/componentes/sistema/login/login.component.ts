@@ -32,7 +32,6 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.Jarwis.login(this.form).subscribe(
-      
       data => this.handleResponse(data),
       error => this.handleError(error)
     );
@@ -73,7 +72,6 @@ export class LoginComponent implements OnInit {
     }
   }
   parametro(){
-    console.log("hola")
     this.route.queryParams.subscribe(params => {
       this.token = params['token'];
       this.email =params['ema'];

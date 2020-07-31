@@ -16,8 +16,8 @@ export class ExperienciaLaboralAdministradorComponent implements OnInit {
     private AdministradorEgresadoService:AdministradorEgresadoService,
     private Egresado : EgresadoService,
     private datePipe: DatePipe) { }
-  ListExperiencia;
-  ListEstado;
+    ListExperiencia;
+    ListEstado;
     id;
     pageActual: number = 1;
   public form={

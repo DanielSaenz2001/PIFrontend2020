@@ -81,7 +81,7 @@ export class RegistrarEgresadoComponent implements OnInit {
     this.Nohay = false;
     this.Sihay = false;
     this.Egresado = false;
-    this.EgresadoService.getEgresadoCodigo(this.form).subscribe(response=>{
+    this.EgresadoService.getEgresadoCodigo(this.form,this.Token.getEg()).subscribe(response=>{
       console.log(response)
       if(response.egresado !== null && response.upeu == null){
         this.Sihay = "El egresado esta registrado en nuestra base de datos";

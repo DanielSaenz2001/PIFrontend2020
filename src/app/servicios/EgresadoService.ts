@@ -50,8 +50,11 @@ export class EgresadoService {
     return this.http.get<any>(`${this.endPoint}escuela/${id}`);
   }
 
-  public getEgresadoCodigo(data): Observable<any> {
-    return this.http.post<any>(`${this.endPoint}codigo`,data);
+  public getEgresadoCodigo(data,token): Observable<any> {
+    return this.http.post<any>(`${this.endPoint}codigo`,data,{ headers:{
+      'Authorization': "Bearer " + token,
+      }
+    });
   }
 
   public EstadoEgresado(id,data,token): Observable<any> {

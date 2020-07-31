@@ -33,9 +33,9 @@ export class ModuloEgresadosAdministradorComponent implements OnInit {
     );
   }
   handleResponse(data) {
-    if(data.ROLEID !== 1 || data.autorizado == 0){
-      this.router.navigateByUrl('/home')
-    }  
+      if(data.ROLEID !== 1 || data.autorizado == 0){
+        this.router.navigateByUrl('/home')
+      }  
       if(data.ROLEID == 1 ){
         this.Validador.personaEgresado(this.token.getAuth()).subscribe(response=>{
         if(response.imagen==null){

@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class AdministradorEgresadoService {
 
   constructor(private http:HttpClient) { }
-
+  //Auth 1.0
   endPoint ='https://megresado.herokuapp.com/api/administradoregresado'
 
   public getEgresadoById(id,token): Observable<any> {
@@ -19,6 +19,7 @@ export class AdministradorEgresadoService {
   }
 
   public addEgresadoAministrador(data,token): Observable<any> {
+    //auth 1.0
     return this.http.post<any>(`https://sheltered-scrubland-22795.herokuapp.com/api/addEgresado`, data,{ headers:{
       'Authorization': "Bearer " + token,
       }

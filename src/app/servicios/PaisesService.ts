@@ -6,8 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PaisesService {
-
-  endPoint ='https://mfacultad.herokuapp.com/api/' //LARAVEL MPaises
+  //MFacultades....
+  endPoint ='https://mfacultad.herokuapp.com/api/' 
   constructor(private http:HttpClient) { }
 
   public paises(): Observable<any>{
