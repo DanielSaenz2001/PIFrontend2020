@@ -49,6 +49,15 @@ option{
 .col-12, .col-sm-12, .col-md-12, .col-lg-12, .col-xl-12{
     position: initial;
   }
-  
+  .boton{
+    background-color: #750036 !important;  
+     border: 1px solid #FC7DB2 
+     !important; 
+     border-radius: 8px; 
+     color: white !important;
+     width: 120px !important;
+     text-align: center !important;
+     margin: auto !important;
+}
 
 
