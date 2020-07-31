@@ -26,6 +26,7 @@ export class AdministradorEgresadoService {
     });
   }
   public addEscuelaAministrador(data,token): Observable<any> {
+    //Auth 1.0
     return this.http.post<any>(`https://sheltered-scrubland-22795.herokuapp.com/api/addEscuela`, data,{ headers:{
       'Authorization': "Bearer " + token,
       }
